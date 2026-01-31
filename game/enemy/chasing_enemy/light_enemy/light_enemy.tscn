@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://bhn2c52hsqllt"]
 
 [ext_resource type="Script" uid="uid://b4tr4nobltx4d" path="res://game/enemy/base_enemy.gd" id="1_553o2"]
-[ext_resource type="CylinderMesh" uid="uid://dihxwvlbc15a8" path="res://game/enemy/light_enemy/light_enemy_test_mesh.tres" id="2_dp154"]
-[ext_resource type="Script" uid="uid://boeclsab002kg" path="res://game/enemy/light_enemy/light_enemy_walk_state.gd" id="3_ykew5"]
-[ext_resource type="Script" uid="uid://bm2pqsldojg01" path="res://game/enemy/light_enemy/light_enemy_attack_state.gd" id="4_8c2jf"]
-[ext_resource type="Script" uid="uid://bek8u6neeuy4l" path="res://game/enemy/light_enemy/light_enemy_prowl_state.gd" id="5_dp154"]
+[ext_resource type="CylinderMesh" uid="uid://dihxwvlbc15a8" path="res://game/enemy/chasing_enemy/light_enemy/light_enemy_test_mesh.tres" id="2_dp154"]
+[ext_resource type="Script" uid="uid://boeclsab002kg" path="res://game/enemy/chasing_enemy/chasing_enemy_walk_state.gd" id="3_ykew5"]
+[ext_resource type="Script" uid="uid://bm2pqsldojg01" path="res://game/enemy/chasing_enemy/chasing_enemy_attack_state.gd" id="4_8c2jf"]
+[ext_resource type="Script" uid="uid://bek8u6neeuy4l" path="res://game/enemy/chasing_enemy/chasing_enemy_prowl_state.gd" id="5_dp154"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ei4jv"]
 
@@ -21,6 +21,7 @@ turn_speed = 3.0
 starting_state = NodePath("LightEnemyWalkState")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1191374424]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.044994116, 0)
 mesh = ExtResource("2_dp154")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=808385287]
@@ -52,4 +53,3 @@ script = ExtResource("5_dp154")
 exit_state = NodePath("../LightEnemyWalkState")
 transition_cd = 0.4
 attack_state = NodePath("../LightEnemyAttackState")
-attack_cd = 0.8

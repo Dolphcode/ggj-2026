@@ -1,0 +1,8 @@
+[gd_resource type="CapsuleMesh" format=3 uid="uid://byfqs6cs60n06"]
+
+[ext_resource type="Material" uid="uid://c5m5gmu374oqh" path="res://game/enemy/chasing_enemy/heavy_enemy/heavy_enemy_test.tres" id="1_u164s"]
+
+[resource]
+material = ExtResource("1_u164s")
+radius = 0.7
+height = 3.0

@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://b1e0v0qeay4rd"]
+
+[ext_resource type="Script" uid="uid://b4tr4nobltx4d" path="res://game/enemy/base_enemy.gd" id="1_w1sw4"]
+[ext_resource type="CapsuleMesh" uid="uid://byfqs6cs60n06" path="res://game/enemy/chasing_enemy/heavy_enemy/heavy_enemy_test_mesh.tres" id="2_d3kem"]
+[ext_resource type="Script" uid="uid://boeclsab002kg" path="res://game/enemy/chasing_enemy/chasing_enemy_walk_state.gd" id="3_y5uiq"]
+[ext_resource type="Script" uid="uid://bm2pqsldojg01" path="res://game/enemy/chasing_enemy/chasing_enemy_attack_state.gd" id="4_pj7bv"]
+[ext_resource type="Script" uid="uid://bek8u6neeuy4l" path="res://game/enemy/chasing_enemy/chasing_enemy_prowl_state.gd" id="5_fes66"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wj2oh"]
+radius = 0.7
+height = 3.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gsdq8"]
+size = Vector3(1, 1, 1.7265625)
+
+[node name="HeavyEnemy" type="CharacterBody3D" unique_id=582232653 node_paths=PackedStringArray("starting_state", "target")]
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+script = ExtResource("1_w1sw4")
+base_speed = 3.0
+attack_range_sq = 4.0
+turn_speed = 3.0
+global_cd = 1.2
+starting_state = NodePath("LightEnemyWalkState")
+target = NodePath("")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1497723096]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.044994116, 0)
+mesh = ExtResource("2_d3kem")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1036316549]
+shape = SubResource("CapsuleShape3D_wj2oh")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1553337608]
+path_height_offset = -1.5
+
+[node name="LightEnemyWalkState" type="Node" parent="." unique_id=1559462095 node_paths=PackedStringArray("exit_state")]
+script = ExtResource("3_y5uiq")
+exit_state = NodePath("../LightEnemyAttackState")
+transition_cd = 0.5
+
+[node name="MeleeHurtbox" type="Area3D" parent="." unique_id=1110582311]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0960028)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeleeHurtbox" unique_id=868935155]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.36328125)
+shape = SubResource("BoxShape3D_gsdq8")
+disabled = true
+
+[node name="LightEnemyAttackState" type="Node" parent="." unique_id=1864235637 node_paths=PackedStringArray("exit_state", "melee_hurtbox")]
+script = ExtResource("4_pj7bv")
+exit_state = NodePath("../LightEnemyProwlState")
+transition_cd = 0.1
+melee_hurtbox = NodePath("../MeleeHurtbox")
+
+[node name="LightEnemyProwlState" type="Node" parent="." unique_id=138251661 node_paths=PackedStringArray("exit_state", "attack_state")]
+script = ExtResource("5_fes66")
+exit_state = NodePath("../LightEnemyWalkState")
+transition_cd = 0.4
+attack_state = NodePath("../LightEnemyAttackState")

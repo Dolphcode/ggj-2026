@@ -27,7 +27,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-30), deg_to_rad(60))
 
 func _physics_process(delta: float) -> void:
-	
 	global.debug.add_property("MovementSpeed", SPEED, 1)
 	
 	# Add the gravity.
