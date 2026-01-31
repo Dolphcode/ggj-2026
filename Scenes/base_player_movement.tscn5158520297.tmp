@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://drxhuruib0o4r"]
 
-[ext_resource type="Script" uid="uid://codwnbkvywc6b" path="res://player.gd" id="1_npki2"]
+[ext_resource type="Script" uid="uid://codwnbkvywc6b" path="res://Scripts/player.gd" id="1_npki2"]
+[ext_resource type="PackedScene" uid="uid://beso6rnak84f6" path="res://Scenes/mask.tscn" id="2_7vgip"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hfa40"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -57,3 +58,6 @@ shape = SubResource("ConvexPolygonShape3D_f7nhd")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6087563, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Neck" unique_id=1904479252]
+
+[node name="Mask" parent="CharacterBody3D" unique_id=2126738232 node_paths=PackedStringArray("player") instance=ExtResource("2_7vgip")]
+player = NodePath("..")

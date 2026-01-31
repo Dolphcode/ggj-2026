@@ -1,0 +1,45 @@
+extends CharacterBody3D
+class_name BaseEnemy
+
+# EXPORT
+@export_category("Base Enemy Config")
+@export var base_speed: float = 2.0
+@export var attack_range_sq: float = 100.0
+@export var turn_speed: float = 2.0
+
+@export_category("State Config")
+@export var starting_state: BaseEnemyState
+
+@export var target: Node3D
+
+@onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
+
+# STATE
+var current_state: BaseEnemyState
+var transition_state: BaseEnemyState
+
+func _ready():
+	current_state = starting_state
+	current_state.enter()
+	transition_state = current_state
+
+
+func _process(delta: float) -> void:
+	# Check state transition
+	if current_state != transition_state:
+		current_state.exit()
+		transition_state.enter()
+		current_state = transition_state
+	
+	current_state.update(delta)
+
+
+func _physics_process(delta: float) -> void:
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+	
+	# Execute physics update
+	current_state.physics_update(delta)
+	
+	move_and_slide()
