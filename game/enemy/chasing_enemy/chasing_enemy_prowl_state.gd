@@ -37,3 +37,7 @@ func physics_update(delta: float) -> void:
 	
 	controller.rotation.y = rotate_toward(controller.rotation.y, target_dir.angle(), controller.turn_speed * delta)
 	
+	var original_y = controller.velocity.y
+	controller.velocity = Vector3.ZERO
+	controller.velocity.y = original_y
+	controller.velocity += controller.get_gravity() * delta

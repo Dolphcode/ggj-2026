@@ -5,3 +5,4 @@
 [resource]
 material = ExtResource("1_u164s")
 radius = 0.7
+height = 3.0

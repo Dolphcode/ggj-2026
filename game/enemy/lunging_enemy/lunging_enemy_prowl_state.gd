@@ -4,10 +4,16 @@ extends BaseEnemyState
 @export var exit_state: BaseEnemyState
 @export var transition_cd: float = 0.2
 
+@export_category("Attack Config")
+@export var attack_state: BaseEnemyState
+@export var attack_cd: float = 1.0
+
 var curr_transition_cd: float = 0.0
+var attack_transition_cd: float = 0.0
 
 func enter() -> void:
 	curr_transition_cd = transition_cd
+	attack_transition_cd = attack_cd
 
 
 func exit() -> void:
@@ -15,28 +21,27 @@ func exit() -> void:
 
 
 func update(delta: float) -> void:
-	#if curr_transition_cd > 0.0:
-	#	curr_transition_cd -= delta
-	#	return
-		
-	if (controller.position - controller.target.position).length_squared() < controller.attack_range_sq:
-		controller.transition_state = exit_state
+	if attack_transition_cd <= 0.0:
+		controller.transition_state = attack_state
+	else:
+		attack_transition_cd -= delta
+	
+	if (controller.position - controller.target.position).length_squared() >= controller.attack_range_sq:
+		if curr_transition_cd > 0.0:
+			curr_transition_cd -= delta
+		else:
+			controller.transition_state = exit_state
 
 
 ## This function is called every physics frame
 func physics_update(delta: float) -> void:
-	# Path query
-	controller.nav_agent.target_position = controller.target.position
-	
 	# Get the next position
-	var target_pos: Vector3 = controller.nav_agent.get_next_path_position()
+	var target_pos: Vector3 = controller.target.position
 	var target_dir: Vector2 = Vector2(controller.position.z - target_pos.z, controller.position.x - target_pos.x)
 	
 	controller.rotation.y = rotate_toward(controller.rotation.y, target_dir.angle(), controller.turn_speed * delta)
 	
-	# Convert to motion
 	var original_y = controller.velocity.y
-	controller.velocity = Vector3.FORWARD.rotated(Vector3.UP, controller.rotation.y) * delta * controller.base_speed
+	controller.velocity = Vector3.ZERO
 	controller.velocity.y = original_y
 	controller.velocity += controller.get_gravity() * delta
-	

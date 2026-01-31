@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dr38si31qbh8a" path="res://game/rooms/rage_room_2ex.tscn" id="5_uqlun"]
 [ext_resource type="PackedScene" uid="uid://cmbb27oomcrty" path="res://game/hallways/hallway_t.tscn" id="6_bdoso"]
 [ext_resource type="PackedScene" uid="uid://b1e0v0qeay4rd" path="res://game/enemy/chasing_enemy/heavy_enemy/heavy_enemy.tscn" id="7_c8efk"]
-[ext_resource type="PackedScene" uid="uid://mysqranrbj22" path="res://game/enemy/lunging_enemy/lunging_enemy.tscn" id="7_otn01"]
+[ext_resource type="PackedScene" uid="uid://bhn2c52hsqllt" path="res://game/enemy/chasing_enemy/light_enemy/light_enemy.tscn" id="8_i57qj"]
 [ext_resource type="Script" uid="uid://codwnbkvywc6b" path="res://Scripts/player.gd" id="9_uqlun"]
 [ext_resource type="PackedScene" uid="uid://beso6rnak84f6" path="res://Scenes/mask.tscn" id="10_bdoso"]
 [ext_resource type="Script" uid="uid://bvfh8twprbjeu" path="res://game/player/health_manager.gd" id="11_c8efk"]
@@ -97,12 +97,16 @@ shape = SubResource("BoxShape3D_j1cge")
 [node name="MapManager" type="Node" parent="NavigationRegion3D" unique_id=1605410741]
 unique_name_in_owner = true
 
-[node name="LungingEnemy" parent="." unique_id=309565408 node_paths=PackedStringArray("target") instance=ExtResource("7_otn01")]
+[node name="HeavyEnemy" parent="." unique_id=582232653 node_paths=PackedStringArray("target") instance=ExtResource("7_c8efk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44791746, 2.2360153, -8.317932)
+target = NodePath("../Player")
+
+[node name="LightEnemy" parent="." unique_id=1151919179 node_paths=PackedStringArray("target") instance=ExtResource("8_i57qj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.0538845, 1.9064159, 2.0790234)
 target = NodePath("../Player")
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=732040386]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.179977, 1.4837999, 0.3525076)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.179977, 2.8949776, 0.3525076)
 script = ExtResource("9_uqlun")
 JUMP_VELOCITY = 10.0
 
@@ -177,9 +181,5 @@ environment = SubResource("Environment_uqlun")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=978635004]
 transform = Transform3D(0.9311704, 0.30908042, 0.19336747, -0.36458427, 0.78941023, 0.49387228, 0, -0.530378, 0.8477613, 0, 0, 0)
-
-[node name="HeavyEnemy" parent="." unique_id=582232653 node_paths=PackedStringArray("target") instance=ExtResource("7_c8efk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.361284, 2.5824199, -1.590138)
-target = NodePath("../Player")
 
 [connection signal="area_entered" from="Player/HealthManager/StandingHitbox" to="Player/HealthManager" method="_on_standing_hitbox_area_entered"]
