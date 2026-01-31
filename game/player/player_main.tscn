@@ -138,7 +138,4 @@ script = ExtResource("9_fhw4t")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1680644644]
 
-[node name="SlideCheck" type="RayCast3D" parent="." unique_id=771508260]
-target_position = Vector3(-1, 0, 0)
-
 [connection signal="area_entered" from="HealthManager/StandingHitbox" to="HealthManager" method="_on_standing_hitbox_area_entered"]
