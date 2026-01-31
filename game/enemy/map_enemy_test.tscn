@@ -169,5 +169,6 @@ layout_mode = 2
 [node name="Shotgun" type="Node3D" parent="Player" unique_id=1316860182 node_paths=PackedStringArray("player_cam")]
 script = ExtResource("13_1etgp")
 player_cam = NodePath("../Neck/Camera3D")
+spread_factor = 20.0
 
 [connection signal="area_entered" from="Player/HealthManager/StandingHitbox" to="Player/HealthManager" method="_on_standing_hitbox_area_entered"]

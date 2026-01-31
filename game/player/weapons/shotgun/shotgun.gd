@@ -31,4 +31,21 @@ func _process(delta):
 				print(intersection.collider.name)
 				var hitbox: Node3D = intersection.collider
 				if hitbox.has_method("damage"):
+					_spawn_impact_marker(intersection.position, hitbox)
 					hitbox.damage(2, false, false)
+
+
+func _spawn_impact_marker(position: Vector3, new_parent: Node3D) -> void:
+	var marker = MeshInstance3D.new()
+	var box = BoxMesh.new()
+	box.size = Vector3(0.1, 0.1, 0.1)
+	marker.mesh = box
+	
+	var material = StandardMaterial3D.new()
+	material.albedo_color = Color.RED
+	marker.set_surface_override_material(0, material)
+	
+	new_parent.add_child(marker)
+	marker.global_position = position
+	
+	get_tree().create_timer(2.0).timeout.connect(marker.queue_free)
