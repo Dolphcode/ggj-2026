@@ -1,8 +1,10 @@
 extends CharacterBody3D
 class_name Player
 
-const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+@export var SPEED = 10.0
+@export var JUMP_VELOCITY = 9.0
+@export var SENSITIVITY = 0.005
+@export var GRAVITY_MODIFIER = 2.0
 
 @onready var neck := $Neck
 @onready var camera := $Neck/Camera3D
@@ -20,14 +22,19 @@ func _unhandled_input(event: InputEvent) -> void:
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		if event is InputEventMouseMotion:
 			# 0.01 is just a sensitivity, will export later as sensitivity
-			neck.rotate_y(-event.relative.x * 0.01)
-			camera.rotate_x(-event.relative.y * 0.01)
+			neck.rotate_y(-event.relative.x * SENSITIVITY)
+			camera.rotate_x(-event.relative.y * SENSITIVITY)
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-30), deg_to_rad(60))
 
 func _physics_process(delta: float) -> void:
+	
+	global.debug.add_property("MovementSpeed", SPEED, 1)
+	
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity += get_gravity() * GRAVITY_MODIFIER * delta
+		if Input.is_action_just_pressed("aim"):
+			pass
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
@@ -44,5 +51,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+		
+	if Input.is_action_just_pressed("attack"): 
+		print("attack")
 
 	move_and_slide()
