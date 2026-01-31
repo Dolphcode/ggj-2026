@@ -50,4 +50,6 @@ melee_hurtbox = NodePath("../MeleeHurtbox")
 [node name="LightEnemyProwlState" type="Node" parent="." unique_id=1716876998 node_paths=PackedStringArray("exit_state", "attack_state")]
 script = ExtResource("5_dp154")
 exit_state = NodePath("../LightEnemyWalkState")
+transition_cd = 0.4
 attack_state = NodePath("../LightEnemyAttackState")
+attack_cd = 0.8

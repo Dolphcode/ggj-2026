@@ -28,7 +28,6 @@ func _process(delta):
 	
 	# Update healthbar
 	var relative_health: float = current_health / max_health
-	print(relative_health)
 	hud.get_node("HSlider").value = relative_health
 
 

@@ -6,17 +6,20 @@ class_name BaseEnemy
 @export var base_speed: float = 2.0
 @export var attack_range_sq: float = 100.0
 @export var turn_speed: float = 2.0
+@export var global_cd: float = 1.0
 
 @export_category("State Config")
 @export var starting_state: BaseEnemyState
 
 @export var target: Node3D
 
+# ONREADY
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
 
 # STATE
 var current_state: BaseEnemyState
 var transition_state: BaseEnemyState
+var global_cd_timer: float = 0.0
 
 func _ready():
 	current_state = starting_state
@@ -25,6 +28,10 @@ func _ready():
 
 
 func _process(delta: float) -> void:
+	# Decrement global cooldown
+	if global_cd_timer > 0.0:
+		global_cd_timer -= delta
+	
 	# Check state transition
 	if current_state != transition_state:
 		current_state.exit()

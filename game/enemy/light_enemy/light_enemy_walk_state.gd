@@ -32,15 +32,6 @@ func physics_update(delta: float) -> void:
 	var target_pos: Vector3 = controller.nav_agent.get_next_path_position()
 	var target_dir: Vector2 = Vector2(controller.position.z - target_pos.z, controller.position.x - target_pos.x)
 	
-	'''
-	#var next_velocity = 
-	var next_pos: Vector3 = controller.position.move_toward(target_pos, delta * controller.base_speed)
-	next_pos = next_pos.lerp(next_pos, 0.1)
-	# Get the direction of movement 
-	controller.look_at(target_pos)
-	controller.rotation.x = 0.0
-	controller.rotation.z = 0.0
-	'''
 	controller.rotation.y = rotate_toward(controller.rotation.y, target_dir.angle(), controller.turn_speed * delta)
 	
 	var next_pos = controller.position + Vector3.FORWARD.rotated(Vector3.UP, controller.rotation.y) * delta * controller.base_speed
