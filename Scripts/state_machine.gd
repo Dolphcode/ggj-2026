@@ -5,7 +5,7 @@ extends Node
 var current_state : State
 var mask_time : float
 var gun_type : String
-var mask_queue = ['radar_mask']
+var mask_queue = ['fire_mask', 'rage_mask', 'radar_mask', 'ice_mask']
 var states : Dictionary = {}
 
 func _ready():
@@ -48,7 +48,6 @@ func mask_update(delta: float, mask):
 		mask_time -= delta
 	else:
 		on_child_transition(mask, 'no_mask')
-		print('unequip')
 
 func on_mask_pickup(mask):
 	mask_queue.append(mask)
