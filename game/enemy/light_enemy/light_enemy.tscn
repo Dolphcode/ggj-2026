@@ -4,12 +4,14 @@
 [ext_resource type="CylinderMesh" uid="uid://dihxwvlbc15a8" path="res://game/enemy/light_enemy/light_enemy_test_mesh.tres" id="2_dp154"]
 [ext_resource type="Script" uid="uid://boeclsab002kg" path="res://game/enemy/light_enemy/light_enemy_walk_state.gd" id="3_ykew5"]
 [ext_resource type="Script" uid="uid://bm2pqsldojg01" path="res://game/enemy/light_enemy/light_enemy_attack_state.gd" id="4_8c2jf"]
+[ext_resource type="Script" uid="uid://bek8u6neeuy4l" path="res://game/enemy/light_enemy/light_enemy_prowl_state.gd" id="5_dp154"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ei4jv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gsdq8"]
+size = Vector3(1, 1, 1.7265625)
 
-[node name="LightEnemy" type="CharacterBody3D" unique_id=1151919179 node_paths=PackedStringArray("starting_state", "target")]
+[node name="LightEnemy" type="CharacterBody3D" unique_id=1151919179 node_paths=PackedStringArray("starting_state")]
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 script = ExtResource("1_553o2")
@@ -17,7 +19,6 @@ base_speed = 10.0
 attack_range_sq = 4.0
 turn_speed = 3.0
 starting_state = NodePath("LightEnemyWalkState")
-target = NodePath("")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1191374424]
 mesh = ExtResource("2_dp154")
@@ -36,9 +37,17 @@ transition_cd = 0.5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0960028)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeleeHurtbox" unique_id=1652190868]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.36328125)
 shape = SubResource("BoxShape3D_gsdq8")
+disabled = true
 
-[node name="LightEnemyAttackState" type="Node" parent="." unique_id=251605023 node_paths=PackedStringArray("exit_state")]
+[node name="LightEnemyAttackState" type="Node" parent="." unique_id=251605023 node_paths=PackedStringArray("exit_state", "melee_hurtbox")]
 script = ExtResource("4_8c2jf")
+exit_state = NodePath("../LightEnemyProwlState")
+transition_cd = 0.1
+melee_hurtbox = NodePath("../MeleeHurtbox")
+
+[node name="LightEnemyProwlState" type="Node" parent="." unique_id=1716876998 node_paths=PackedStringArray("exit_state", "attack_state")]
+script = ExtResource("5_dp154")
 exit_state = NodePath("../LightEnemyWalkState")
-transition_cd = 0.4
+attack_state = NodePath("../LightEnemyAttackState")
