@@ -29,7 +29,7 @@ func update(delta: float) -> void:
 ## This function is called every physics frame
 func physics_update(delta: float) -> void:
 	if start_jump:
-		controller.velocity.y = 10
+		controller.velocity.y = 15
 		start_jump = false
 	else:
 		var original_y = controller.velocity.y
