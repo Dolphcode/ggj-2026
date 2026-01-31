@@ -7,16 +7,16 @@ class_name radar_mask
 #Called on equpping radar_mask mask
 func Enter():
 	get_parent().mask_time = 20 #medium
-	#cam.rotate_x(-90)
-	#cam.position.y += 10.0
+	cam.position.y += 10.0
 	#gun_type = 'normal'
 	
 #Called on radar_mask mask timeout/new mask equipped
 func Exit():
-	pass
+	cam.position.y -= 10.0
+	cam.rotation_degrees = Vector3(0, 0, 0) 
 	
 func Update(delta: float):
 	get_parent().mask_update(delta, self)
 		
 func Physics_Update(_delta:float):
-	pass		
+		cam.rotation_degrees = Vector3(-90, 0, 0) 
