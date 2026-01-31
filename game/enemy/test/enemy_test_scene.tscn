@@ -2,9 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://bhn2c52hsqllt" path="res://game/enemy/chasing_enemy/light_enemy/light_enemy.tscn" id="1_gsdq8"]
 [ext_resource type="Script" uid="uid://b4tr4nobltx4d" path="res://game/enemy/base_enemy.gd" id="1_wqye2"]
+[ext_resource type="PackedScene" uid="uid://dvbdmcuj60ayg" path="res://game/player/player_main.tscn" id="2_3fo60"]
 [ext_resource type="PackedScene" uid="uid://b1e0v0qeay4rd" path="res://game/enemy/chasing_enemy/heavy_enemy/heavy_enemy.tscn" id="3_3fo60"]
-[ext_resource type="Script" uid="uid://codwnbkvywc6b" path="res://Scripts/player.gd" id="3_ei4jv"]
 [ext_resource type="Script" uid="uid://bvfh8twprbjeu" path="res://game/player/health_manager.gd" id="4_ei4jv"]
+[ext_resource type="Script" uid="uid://b4u284eg6beo0" path="res://Scenes/debug.gd" id="6_igbfk"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_wqye2"]
 vertices = PackedVector3Array(-49, 0.7974999, 49, -3.5, 0.7974999, 21.5, -3.5, 0.7974999, 19.5, -3.5, 0.7974999, 13.5, 22.75, 0.7974999, 13, 22.75, 0.7974999, 20, 49, 0.7974999, 49, 3.5, 0.7974999, 11.5, 3.5, 0.7974999, 13.25, 15.75, 0.7974999, 13.25, 15.75, 0.7974999, 11.5, 22.5, 0.7974999, 11.25, 49, 0.7974999, -49, -49, 0.7974999, -49, -1.75, 0.7974999, 11.25, 1.75, 0.7974999, 11.25, -3.5, 0.7974999, 11.5, -2.5, 4.2974997, 12.25, -2.5, 4.2974997, 20.75, 2.5, 4.2974997, 20.75, 2.5, 4.2974997, 12.25, 16.75, 4.2974997, 12.25, 16.75, 4.2974997, 20.75, 21.75, 4.2974997, 20.75, 21.75, 4.2974997, 12.25, -2.25, 0.7974999, 12.5, -2.25, 0.7974999, 20.5, 2.25, 0.7974999, 20.5, 2.25, 0.7974999, 12.5, 17, 0.7974999, 12.5, 17, 0.7974999, 20.5, 21.5, 0.7974999, 20.5, 21.5, 0.7974999, 12.5, 17.5, 0.7974999, 11.25, 3.5, 0.7974999, 19.75, 15.75, 0.7974999, 19.75, 15.75, 0.7974999, 21.5, 3.5, 0.7974999, 21.5, 17.5, 0.7974999, 21.75, 1.75, 0.7974999, 21.75, -1.75, 0.7974999, 21.75, 22.5, 0.7974999, 21.75, 21, 0.7974999, 21.75)
@@ -61,13 +62,26 @@ _bundled = {
 "version": 3
 }
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_ei4jv"]
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_3fo60"]
-points = PackedVector3Array(-0.12520654, -0.532801, -0.4805069, 0.022783129, 0.4760704, 0.49888408, 0.16971254, 0.5591441, 0.46417162, 0.23105091, -0.8035912, 0.32045516, 0.40741014, 0.651043, -0.24352328, -0.4827893, 0.59484255, 0.082213186, -0.3628679, -0.68231165, 0.2896967, 0.46904355, -0.65452886, -0.06627126, -0.12744367, 0.8427015, -0.33810276, -0.39343542, -0.6839421, -0.24471663, 0.43825462, 0.62330925, 0.20084947, 0.0841477, 0.977454, 0.11479468, -0.06820232, -0.9764576, -0.12927033, 0.20054972, -0.56312895, -0.4514544, -0.18552664, 0.59545326, -0.4534751, -0.27336287, 0.59226835, 0.40775412, -0.0069364863, -0.47682306, 0.49966025, 0.37582088, -0.5886136, 0.31695515, 0.111579016, 0.5630594, -0.48117727, -0.41725034, 0.5278656, -0.27049688, -0.48454633, -0.59697217, -0.06650971, -0.27974695, 0.90856135, 0.05333608, -0.25019687, -0.8807117, 0.20531891, 0.263647, -0.90277094, -0.1273943, 0.29336792, 0.8715263, -0.15719566, 0.3734115, -0.5263189, -0.32824618, 0.4996626, 0.47664148, -0.0068885577, 0.053105574, 0.8750009, 0.32470253, -0.15454252, -0.5908538, 0.4658794, -0.09727988, -0.7823577, -0.39818847, -0.3876489, -0.49817133, 0.31564978, -0.30067965, -0.58799505, -0.38890144)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_ei4jv"]
 size = Vector3(1, 1.8120728, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mk6yg"]
+bg_color = Color(0.003921569, 0, 0, 0.70980394)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Theme" id="Theme_q486e"]
+MarginContainer/constants/margin_bottom = 10
+MarginContainer/constants/margin_left = 10
+MarginContainer/constants/margin_right = 10
+MarginContainer/constants/margin_top = 10
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_mk6yg")
 
 [node name="EnemyTestScene" type="Node3D" unique_id=349421303]
 
@@ -97,39 +111,27 @@ mesh = SubResource("PlaneMesh_ufd8i")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3995733, 0)
 script = SubResource("GDScript_ufd8i")
 base_enemy_scene = SubResource("PackedScene_ei4jv")
-target = NodePath("../../CharacterBody3D2")
+target = NodePath("")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2048539440]
 
-[node name="CharacterBody3D2" type="CharacterBody3D" parent="." unique_id=4763456]
+[node name="Player" parent="." unique_id=1291810518 instance=ExtResource("2_3fo60")]
+
+[node name="HealthManager" type="Node3D" parent="Player" unique_id=1658112697]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3220727, 31.200262)
-script = ExtResource("3_ei4jv")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D2" unique_id=1460907729]
-mesh = SubResource("CapsuleMesh_ei4jv")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D2" unique_id=1311361340]
-shape = SubResource("ConvexPolygonShape3D_3fo60")
-
-[node name="Neck" type="Node3D" parent="CharacterBody3D2" unique_id=400661380]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6087563, 0)
-
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D2/Neck" unique_id=949802368]
-
-[node name="HealthManager" type="Node3D" parent="CharacterBody3D2" unique_id=1658112697]
 script = ExtResource("4_ei4jv")
 immunity_time = 0.4
 
-[node name="StandingHitbox" type="Area3D" parent="CharacterBody3D2/HealthManager" unique_id=2023054649]
+[node name="StandingHitbox" type="Area3D" parent="Player/HealthManager" unique_id=2023054649]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D2/HealthManager/StandingHitbox" unique_id=1549622729]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/HealthManager/StandingHitbox" unique_id=1549622729]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12142944, 0)
 shape = SubResource("BoxShape3D_ei4jv")
 
-[node name="HUD" type="CanvasLayer" parent="CharacterBody3D2" unique_id=1669172915]
+[node name="HUD" type="CanvasLayer" parent="Player" unique_id=1669172915]
 layer = -1
 
-[node name="HSlider" type="HSlider" parent="CharacterBody3D2/HUD" unique_id=1896636135]
+[node name="HSlider" type="HSlider" parent="Player/HUD" unique_id=1896636135]
 offset_right = 310.0
 offset_bottom = 16.0
 max_value = 1.0
@@ -138,14 +140,38 @@ value = 1.0
 
 [node name="HeavyEnemy" parent="." unique_id=582232653 node_paths=PackedStringArray("target") instance=ExtResource("3_3fo60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2017794, 3.9369533, 26.878283)
-target = NodePath("../CharacterBody3D2")
+target = NodePath("../Player")
 
 [node name="LightEnemy" parent="." unique_id=1151919179 node_paths=PackedStringArray("target") instance=ExtResource("1_gsdq8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.69128895, 1.4849942, 24.627514)
-target = NodePath("../CharacterBody3D2")
+target = NodePath("../Player")
 
 [node name="LightEnemy2" parent="." unique_id=470083721 node_paths=PackedStringArray("target") instance=ExtResource("1_gsdq8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.086177, 1.484994, 25.777092)
-target = NodePath("../CharacterBody3D2")
+target = NodePath("../Player")
 
-[connection signal="area_entered" from="CharacterBody3D2/HealthManager/StandingHitbox" to="CharacterBody3D2/HealthManager" method="_on_standing_hitbox_area_entered"]
+[node name="UserInterface" type="Control" parent="." unique_id=294581207]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DebugPanel" type="PanelContainer" parent="UserInterface" unique_id=2022748572]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 210.0
+offset_bottom = 50.0
+theme = SubResource("Theme_q486e")
+script = ExtResource("6_igbfk")
+
+[node name="MarginContainer" type="MarginContainer" parent="UserInterface/DebugPanel" unique_id=2144727197]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/DebugPanel/MarginContainer" unique_id=94697834]
+unique_name_in_owner = true
+layout_mode = 2
+
+[connection signal="area_entered" from="Player/HealthManager/StandingHitbox" to="Player/HealthManager" method="_on_standing_hitbox_area_entered"]
+
+[editable path="Player"]
