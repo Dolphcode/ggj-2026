@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bhn2c52hsqllt"]
+
+[ext_resource type="Script" uid="uid://b4tr4nobltx4d" path="res://game/enemy/base_enemy.gd" id="1_553o2"]
+[ext_resource type="CylinderMesh" uid="uid://dihxwvlbc15a8" path="res://game/enemy/light_enemy/light_enemy_test_mesh.tres" id="2_dp154"]
+[ext_resource type="Script" uid="uid://boeclsab002kg" path="res://game/enemy/light_enemy/light_enemy_walk_state.gd" id="3_ykew5"]
+[ext_resource type="Script" uid="uid://bm2pqsldojg01" path="res://game/enemy/light_enemy/light_enemy_attack_state.gd" id="4_8c2jf"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ei4jv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gsdq8"]
+
+[node name="LightEnemy" type="CharacterBody3D" unique_id=1151919179 node_paths=PackedStringArray("starting_state", "target")]
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+script = ExtResource("1_553o2")
+base_speed = 10.0
+attack_range_sq = 4.0
+turn_speed = 3.0
+starting_state = NodePath("LightEnemyWalkState")
+target = NodePath("")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1191374424]
+mesh = ExtResource("2_dp154")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=808385287]
+shape = SubResource("CapsuleShape3D_ei4jv")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1197479458]
+
+[node name="LightEnemyWalkState" type="Node" parent="." unique_id=1243584189 node_paths=PackedStringArray("exit_state")]
+script = ExtResource("3_ykew5")
+exit_state = NodePath("../LightEnemyAttackState")
+transition_cd = 0.5
+
+[node name="MeleeHurtbox" type="Area3D" parent="." unique_id=223013557]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0960028)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeleeHurtbox" unique_id=1652190868]
+shape = SubResource("BoxShape3D_gsdq8")
+
+[node name="LightEnemyAttackState" type="Node" parent="." unique_id=251605023 node_paths=PackedStringArray("exit_state")]
+script = ExtResource("4_8c2jf")
+exit_state = NodePath("../LightEnemyWalkState")
+transition_cd = 0.4

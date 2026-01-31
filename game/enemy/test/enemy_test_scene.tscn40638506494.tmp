@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://c0n5bf5u056ob"]
 
-[ext_resource type="PackedScene" uid="uid://bhn2c52hsqllt" path="res://game/enemy/light_enemy/light_enemy.tscn" id="1_gsdq8"]
-[ext_resource type="Script" uid="uid://b4tr4nobltx4d" path="res://game/enemy/base_enemy.gd" id="1_wqye2"]
+[ext_resource type="PackedScene" uid="uid://dgce8xspmpwf1" path="res://game/enemy/base_enemy.tscn" id="1_ufd8i"]
+[ext_resource type="Script" uid="uid://boeclsab002kg" path="res://game/enemy/light_enemy/light_enemy_walk_state.gd" id="2_gsdq8"]
 [ext_resource type="Script" path="res://player.gd" id="2_ufd8i"]
+[ext_resource type="Script" uid="uid://bm2pqsldojg01" path="res://game/enemy/light_enemy/light_enemy_attack_state.gd" id="3_ei4jv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gsdq8"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_wqye2"]
 vertices = PackedVector3Array(-49, 0.7974999, 49, -3.5, 0.7974999, 21.5, -3.5, 0.7974999, 19.5, -3.5, 0.7974999, 13.5, 22.75, 0.7974999, 13, 22.75, 0.7974999, 20, 49, 0.7974999, 49, 3.5, 0.7974999, 11.5, 3.5, 0.7974999, 13.25, 15.75, 0.7974999, 13.25, 15.75, 0.7974999, 11.5, 22.5, 0.7974999, 11.25, 49, 0.7974999, -49, -49, 0.7974999, -49, -1.75, 0.7974999, 11.25, 1.75, 0.7974999, 11.25, -3.5, 0.7974999, 11.5, -2.5, 4.2974997, 12.25, -2.5, 4.2974997, 20.75, 2.5, 4.2974997, 20.75, 2.5, 4.2974997, 12.25, 16.75, 4.2974997, 12.25, 16.75, 4.2974997, 20.75, 21.75, 4.2974997, 20.75, 21.75, 4.2974997, 12.25, -2.25, 0.7974999, 12.5, -2.25, 0.7974999, 20.5, 2.25, 0.7974999, 20.5, 2.25, 0.7974999, 12.5, 17, 0.7974999, 12.5, 17, 0.7974999, 20.5, 21.5, 0.7974999, 20.5, 21.5, 0.7974999, 12.5, 17.5, 0.7974999, 11.25, 3.5, 0.7974999, 19.75, 15.75, 0.7974999, 19.75, 15.75, 0.7974999, 21.5, 3.5, 0.7974999, 21.5, 17.5, 0.7974999, 21.75, 1.75, 0.7974999, 21.75, -1.75, 0.7974999, 21.75, 22.5, 0.7974999, 21.75, 21, 0.7974999, 21.75)
@@ -40,25 +43,6 @@ func _process(delta):
 	pass
 "
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_gsdq8"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ei4jv"]
-
-[sub_resource type="PackedScene" id="PackedScene_ei4jv"]
-_bundled = {
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"id_paths": [PackedInt32Array(), PackedInt32Array(), PackedInt32Array()],
-"names": PackedStringArray("BaseEnemy", "CharacterBody3D", "axis_lock_angular_x", "axis_lock_angular_y", "script", "target", "MeshInstance3D", "MeshInstance3D", "mesh", "CollisionShape3D", "CollisionShape3D", "shape", "NavigationAgent3D", "NavigationAgent3D"),
-"node_count": 4,
-"node_ids": PackedInt32Array(1688740671, 1770669045, 162676934, 381323567),
-"node_paths": [NodePath("."), NodePath("."), NodePath(".")],
-"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 4, 2, 0, 3, 1, 4, 2, 1073741829, 3, 0, 1073741824, 0, 7, 6, -1, 1, 8, 4, 0, 1073741825, 0, 10, 9, -1, 1, 11, 5, 0, 1073741826, 0, 13, 12, -1, 0, 0),
-"variants": [true, true, ExtResource("1_wqye2"), NodePath(""), SubResource("CapsuleMesh_gsdq8"), SubResource("CapsuleShape3D_ei4jv")],
-"version": 3
-}
-
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ei4jv"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_3fo60"]
@@ -68,9 +52,28 @@ points = PackedVector3Array(-0.12520654, -0.532801, -0.4805069, 0.022783129, 0.4
 
 [node name="World" type="Node3D" parent="." unique_id=743827807]
 
-[node name="LightEnemy" parent="World" unique_id=1151919179 node_paths=PackedStringArray("target") instance=ExtResource("1_gsdq8")]
+[node name="BaseEnemy" parent="World" unique_id=1688740671 node_paths=PackedStringArray("starting_state", "target") instance=ExtResource("1_ufd8i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5153193, 0)
+axis_lock_angular_y = false
+axis_lock_angular_z = true
+base_speed = 5.0
+attack_range_sq = 36.0
+starting_state = NodePath("LightEnemyWalkState")
 target = NodePath("../../CharacterBody3D2")
+
+[node name="LightEnemyWalkState" type="Node" parent="World/BaseEnemy" unique_id=300476867 node_paths=PackedStringArray("exit_state")]
+script = ExtResource("2_gsdq8")
+exit_state = NodePath("../LightEnemyAttackState")
+
+[node name="MeleeHurtbox" type="Area3D" parent="World/BaseEnemy" unique_id=1631410946]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0960028)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/BaseEnemy/MeleeHurtbox" unique_id=616760419]
+shape = SubResource("BoxShape3D_gsdq8")
+
+[node name="LightEnemyAttackState" type="Node" parent="World/BaseEnemy" unique_id=415250285 node_paths=PackedStringArray("exit_state")]
+script = ExtResource("3_ei4jv")
+exit_state = NodePath("../LightEnemyWalkState")
 
 [node name="GroundRegion" type="NavigationRegion3D" parent="World" unique_id=940912004]
 navigation_mesh = SubResource("NavigationMesh_wqye2")
@@ -95,15 +98,7 @@ mesh = SubResource("PlaneMesh_ufd8i")
 [node name="Node3D" type="Node3D" parent="World" unique_id=1274394843 node_paths=PackedStringArray("target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3995733, 0)
 script = SubResource("GDScript_ufd8i")
-base_enemy_scene = SubResource("PackedScene_ei4jv")
-target = NodePath("../../CharacterBody3D2")
-
-[node name="LightEnemy2" parent="World" unique_id=964327241 node_paths=PackedStringArray("target") instance=ExtResource("1_gsdq8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6248, 1.5000019, -3.2765265)
-target = NodePath("../../CharacterBody3D2")
-
-[node name="LightEnemy3" parent="World" unique_id=648074914 node_paths=PackedStringArray("target") instance=ExtResource("1_gsdq8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.90644, 1.5, -22.37574)
+base_enemy_scene = ExtResource("1_ufd8i")
 target = NodePath("../../CharacterBody3D2")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2048539440]
@@ -122,3 +117,5 @@ shape = SubResource("ConvexPolygonShape3D_3fo60")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6087563, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D2/Neck" unique_id=949802368]
+
+[editable path="World/BaseEnemy"]
