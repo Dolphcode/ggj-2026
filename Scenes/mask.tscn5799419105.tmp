@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://beso6rnak84f6"]
+
+[ext_resource type="Script" uid="uid://c6rt4smhvo0gi" path="res://Scenes/mask.gd" id="1_6rdje"]
+[ext_resource type="Script" uid="uid://bd06g5xj3iovr" path="res://Scripts/state_machine.gd" id="1_b0qmb"]
+[ext_resource type="Script" uid="uid://0fomi5vf51ff" path="res://Scripts/Masks/fire_mask.gd" id="2_qd5pu"]
+[ext_resource type="Script" uid="uid://dqoobj0v62hkr" path="res://Scripts/Masks/ice_mask.gd" id="3_ue75b"]
+[ext_resource type="Script" uid="uid://bb0sbb65rlpcn" path="res://Scripts/Masks/rage_mask.gd" id="4_6rdje"]
+[ext_resource type="Script" uid="uid://chastcpfddeia" path="res://Scripts/Masks/radar_mask.gd" id="5_fvi41"]
+[ext_resource type="Script" uid="uid://c7rb82ueg31cp" path="res://Scripts/Masks/schitzo_mask.gd" id="6_plefk"]
+[ext_resource type="Script" uid="uid://obrmafvhtdrp" path="res://Scripts/Masks/no_mask.gd" id="7_ue75b"]
+
+[node name="Mask" type="Node3D" unique_id=2126738232]
+script = ExtResource("1_6rdje")
+
+[node name="State Machine" type="Node" parent="." unique_id=2141438105 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_b0qmb")
+initial_state = NodePath("no_mask")
+
+[node name="fire_mask" type="Node" parent="State Machine" unique_id=139503172]
+script = ExtResource("2_qd5pu")
+metadata/_custom_type_script = "uid://0fomi5vf51ff"
+
+[node name="ice_mask" type="Node" parent="State Machine" unique_id=926258323]
+script = ExtResource("3_ue75b")
+metadata/_custom_type_script = "uid://dqoobj0v62hkr"
+
+[node name="rage_mask" type="Node" parent="State Machine" unique_id=993869043]
+script = ExtResource("4_6rdje")
+metadata/_custom_type_script = "uid://bb0sbb65rlpcn"
+
+[node name="radar_mask" type="Node" parent="State Machine" unique_id=1156407100]
+script = ExtResource("5_fvi41")
+metadata/_custom_type_script = "uid://chastcpfddeia"
+
+[node name="schitzo_mask" type="Node" parent="State Machine" unique_id=1377305719]
+script = ExtResource("6_plefk")
+metadata/_custom_type_script = "uid://c7rb82ueg31cp"
+
+[node name="no_mask" type="Node" parent="State Machine" unique_id=389855961]
+script = ExtResource("7_ue75b")
+metadata/_custom_type_script = "uid://obrmafvhtdrp"
