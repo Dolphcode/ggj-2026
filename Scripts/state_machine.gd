@@ -5,8 +5,7 @@ extends Node
 var current_state : State
 var mask_time : float
 var gun_type : String
-var previous_state = 'no_mask'
-var mask_queue = ['fire_mask', 'ice_mask']
+var mask_queue = ['radar_mask']
 var states : Dictionary = {}
 
 func _ready():
@@ -28,8 +27,7 @@ func _physics_process(delta):
 		current_state.Physics_Update(delta)
 		
 
-func on_child_transition(state_name, new_state_name):
-	var state = states.get(state_name.to_lower())
+func on_child_transition(state, new_state_name):
 	if state != current_state:
 		return
 	
@@ -44,12 +42,12 @@ func on_child_transition(state_name, new_state_name):
 	current_state = new_state
 	
 	
-func mask_update(delta: float):
+func mask_update(delta: float, mask):
 	#	decreases mask time until it reaches 0
 	if mask_time > 0:
 		mask_time -= delta
 	else:
-		on_child_transition(previous_state, 'no_mask')
+		on_child_transition(mask, 'no_mask')
 		print('unequip')
 
 func on_mask_pickup(mask):

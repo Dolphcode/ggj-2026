@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://biu3eca3kvtv8"]
+
+[ext_resource type="PackedScene" uid="uid://bnvtxdnjmhy44" path="res://game/rooms/center_room.tscn" id="1_y2akx"]
+[ext_resource type="PackedScene" uid="uid://c0053grdowoba" path="res://game/rooms/fire_room_2ex.tscn" id="2_r4hkc"]
+[ext_resource type="PackedScene" uid="uid://d13f435cvlvrt" path="res://game/rooms/room_2_exit.tscn" id="2_vxsou"]
+[ext_resource type="PackedScene" uid="uid://cmbb27oomcrty" path="res://game/hallways/hallway_t.tscn" id="3_a2d3g"]
+[ext_resource type="PackedScene" uid="uid://m114ang3hux" path="res://game/rooms/heal_room_2ex.tscn" id="4_rmfcp"]
+[ext_resource type="PackedScene" uid="uid://dr38si31qbh8a" path="res://game/rooms/rage_room_2ex.tscn" id="5_y2akx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_y2akx"]
+size = Vector3(250, 1, 250)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j1cge"]
+size = Vector3(250, 1, 250)
+
+[node name="Map" type="Node3D" unique_id=284070738]
+
+[node name="CenterRoom" parent="." unique_id=728229828 instance=ExtResource("1_y2akx")]
+
+[node name="FireRoom" parent="." unique_id=304454262 instance=ExtResource("2_r4hkc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65, 0, -65)
+
+[node name="IceRoom" parent="." unique_id=1274965841 instance=ExtResource("2_vxsou")]
+transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 65, 0, 65)
+
+[node name="HealRoom" parent="." unique_id=233768609 instance=ExtResource("4_rmfcp")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -65, 0, 65)
+
+[node name="RageRoom" parent="." unique_id=1900128006 instance=ExtResource("5_y2akx")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -65, 0, -65)
+
+[node name="HallwayTCFI" parent="." unique_id=938054079 instance=ExtResource("3_a2d3g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 0)
+
+[node name="HallwayTCIH" parent="." unique_id=461095228 instance=ExtResource("3_a2d3g")]
+transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 0, 0, 40)
+
+[node name="HallwayTCHR" parent="." unique_id=722326394 instance=ExtResource("3_a2d3g")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -40, 0, 0)
+
+[node name="HallwayTCRF" parent="." unique_id=1135405578 instance=ExtResource("3_a2d3g")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, -40)
+
+[node name="floor" type="StaticBody3D" parent="." unique_id=1475687250]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floor" unique_id=1558936551]
+mesh = SubResource("BoxMesh_y2akx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor" unique_id=280102456]
+shape = SubResource("BoxShape3D_j1cge")

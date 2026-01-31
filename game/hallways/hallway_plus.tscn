@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b3r7nw6l2ubgu"]
+
+[ext_resource type="PackedScene" uid="uid://bdenbukjfujkh" path="res://game/hallways/hallway_opening.tscn" id="1_rtptr"]
+
+[node name="HallwayPLUS" type="Node3D" unique_id=573801181]
+
+[node name="HallwayOpening" parent="." unique_id=1168577269 instance=ExtResource("1_rtptr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 0)
+
+[node name="HallwayOpening2" parent="." unique_id=2120099678 instance=ExtResource("1_rtptr")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 25, 0, 0)

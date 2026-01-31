@@ -1,12 +1,25 @@
 extends State
 class_name rage_mask
 
+#Enables berserk mode
+#allows you to one shot enemies for a short time
+#sends you into a blind rage
+#significantly impairs vision
+#medium length
 
-
+@onready var mask = get_parent().get_parent()
+@onready var cam = mask.player.get_node("Neck/Camera3D")
+@onready var trauma = 1.0
+@onready var max_offset = Vector3(0.2, 0.2, 0.2)
+@onready var amount = pow(trauma, 2)
 #Called on equpping rage mask
 func Enter():
-	pass
-	#mask_time = 20 #medium
+	get_parent().mask_time = 20 #medium
+	mask.player.speed_modifier = 2.0 #currently increases speed [may remove this]
+	#	change camera fov and color
+
+
+
 	#gun_type = 'normal' #note that this gun will be mega buffed
 	
 #Called on rage mask timeout/new mask equipped
@@ -14,7 +27,11 @@ func Exit():
 	pass
 	
 func Update(delta: float):
-	get_parent().mask_update(delta)
+	get_parent().mask_update(delta, self)
 		
 func Physics_Update(_delta:float):
-	pass		
+		# Randomize position slightly for violent effect
+	cam.position.x = randf_range(-max_offset.x, max_offset.x) * amount
+	cam.position.y = randf_range(-max_offset.y, max_offset.y) * amount
+	# Add FOV kick
+	cam.fov = 70 + (15 * amount)
