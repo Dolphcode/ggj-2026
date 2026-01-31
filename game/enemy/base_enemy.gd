@@ -7,6 +7,7 @@ class_name BaseEnemy
 @export var attack_range_sq: float = 100.0
 @export var turn_speed: float = 2.0
 @export var global_cd: float = 1.0
+@export var max_health: float = 100.0
 
 @export_category("State Config")
 @export var starting_state: BaseEnemyState
@@ -20,8 +21,11 @@ class_name BaseEnemy
 var current_state: BaseEnemyState
 var transition_state: BaseEnemyState
 var global_cd_timer: float = 0.0
+var current_health: float = 0.0
 
 func _ready():
+	current_health = max_health
+	
 	current_state = starting_state
 	current_state.enter()
 	transition_state = current_state
@@ -50,3 +54,10 @@ func _physics_process(delta: float) -> void:
 	current_state.physics_update(delta)
 	
 	move_and_slide()
+
+
+func damage(amount: float) -> void:
+	current_health = clampf(current_health - amount, 0.0, max_health)
+	
+	if current_health <= 0:
+		queue_free()

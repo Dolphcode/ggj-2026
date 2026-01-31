@@ -5,6 +5,11 @@
 [ext_resource type="Script" uid="uid://boeclsab002kg" path="res://game/enemy/chasing_enemy/chasing_enemy_walk_state.gd" id="3_y5uiq"]
 [ext_resource type="Script" uid="uid://bm2pqsldojg01" path="res://game/enemy/chasing_enemy/chasing_enemy_attack_state.gd" id="4_pj7bv"]
 [ext_resource type="Script" uid="uid://bek8u6neeuy4l" path="res://game/enemy/chasing_enemy/chasing_enemy_prowl_state.gd" id="5_fes66"]
+[ext_resource type="Script" uid="uid://ba3d66ym0uqm7" path="res://game/enemy/enemy_hitbox.gd" id="6_npjtq"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_d3kem"]
+radius = 0.75
+height = 1.5
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wj2oh"]
 radius = 0.7
@@ -13,7 +18,13 @@ height = 3.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_gsdq8"]
 size = Vector3(1, 1, 1.7265625)
 
-[node name="HeavyEnemy" type="CharacterBody3D" unique_id=582232653 node_paths=PackedStringArray("starting_state", "target")]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_npjtq"]
+radius = 0.7
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ximuc"]
+radius = 0.75
+
+[node name="HeavyEnemy" type="CharacterBody3D" unique_id=582232653 node_paths=PackedStringArray("starting_state")]
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 script = ExtResource("1_w1sw4")
@@ -22,11 +33,14 @@ attack_range_sq = 4.0
 turn_speed = 3.0
 global_cd = 1.2
 starting_state = NodePath("LightEnemyWalkState")
-target = NodePath("")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1497723096]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.044994116, 0)
+[node name="Body" type="MeshInstance3D" parent="." unique_id=1497723096]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5824199, 0)
 mesh = ExtResource("2_d3kem")
+
+[node name="Head" type="MeshInstance3D" parent="." unique_id=1428001918]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41758013, 0)
+mesh = SubResource("SphereMesh_d3kem")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1036316549]
 shape = SubResource("CapsuleShape3D_wj2oh")
@@ -58,3 +72,29 @@ script = ExtResource("5_fes66")
 exit_state = NodePath("../LightEnemyWalkState")
 transition_cd = 0.4
 attack_state = NodePath("../LightEnemyAttackState")
+
+[node name="Hitboxes" type="Node3D" parent="." unique_id=1678682758]
+
+[node name="Body" type="Area3D" parent="Hitboxes" unique_id=2069930356 node_paths=PackedStringArray("controller")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5824199, 0)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("6_npjtq")
+damage_modifier = 0.7
+controller = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Body" unique_id=1706417004]
+shape = SubResource("CapsuleShape3D_npjtq")
+debug_color = Color(0.9431837, 1.155138e-05, 0.6050125, 0.41960785)
+
+[node name="Head" type="Area3D" parent="Hitboxes" unique_id=2026813815 node_paths=PackedStringArray("controller")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41758013, 0)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("6_npjtq")
+damage_modifier = 3.0
+controller = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Head" unique_id=873130356]
+shape = SubResource("SphereShape3D_ximuc")
+debug_color = Color(0.9431837, 1.155138e-05, 0.6050125, 0.41960785)
