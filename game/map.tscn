@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://bnvtxdnjmhy44" path="res://game/rooms/center_room.tscn" id="1_y2akx"]
 [ext_resource type="PackedScene" uid="uid://c0053grdowoba" path="res://game/rooms/fire_room_2ex.tscn" id="2_r4hkc"]
-[ext_resource type="PackedScene" uid="uid://d13f435cvlvrt" path="res://game/rooms/room_2_exit.tscn" id="2_vxsou"]
 [ext_resource type="PackedScene" uid="uid://cmbb27oomcrty" path="res://game/hallways/hallway_t.tscn" id="3_a2d3g"]
+[ext_resource type="PackedScene" uid="uid://o08wnubtl0ww" path="res://ice_room_2ex.tscn" id="3_y2akx"]
 [ext_resource type="PackedScene" uid="uid://m114ang3hux" path="res://game/rooms/heal_room_2ex.tscn" id="4_rmfcp"]
 [ext_resource type="PackedScene" uid="uid://dr38si31qbh8a" path="res://game/rooms/rage_room_2ex.tscn" id="5_y2akx"]
 
@@ -20,7 +20,7 @@ size = Vector3(250, 1, 250)
 [node name="FireRoom" parent="." unique_id=304454262 instance=ExtResource("2_r4hkc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65, 0, -65)
 
-[node name="IceRoom" parent="." unique_id=1274965841 instance=ExtResource("2_vxsou")]
+[node name="IceRoom" parent="." unique_id=1852164121 instance=ExtResource("3_y2akx")]
 transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 65, 0, 65)
 
 [node name="HealRoom" parent="." unique_id=233768609 instance=ExtResource("4_rmfcp")]
@@ -48,3 +48,6 @@ mesh = SubResource("BoxMesh_y2akx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="floor" unique_id=280102456]
 shape = SubResource("BoxShape3D_j1cge")
+
+[node name="MapManager" type="Node" parent="." unique_id=1605410741]
+unique_name_in_owner = true
