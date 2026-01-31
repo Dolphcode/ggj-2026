@@ -34,9 +34,11 @@ func _process(delta):
 func hit():
 	if immunity_active_time >= 0.0:
 		return
+	print("I was hit")
 		
 	current_health -= 10
 	immunity_active_time = immunity_time
 
 func _on_standing_hitbox_area_entered(area):
+	print("test")
 	hit()

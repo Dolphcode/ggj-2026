@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://codwnbkvywc6b" path="res://Scripts/player.gd" id="1_ivnbd"]
 [ext_resource type="Script" uid="uid://ch52jbq64etrc" path="res://game/player/hitscan.gd" id="2_440e6"]
 [ext_resource type="PackedScene" uid="uid://beso6rnak84f6" path="res://Scenes/mask.tscn" id="2_swd4e"]
+[ext_resource type="Script" uid="uid://bvfh8twprbjeu" path="res://game/player/health_manager.gd" id="4_440e6"]
+[ext_resource type="Script" uid="uid://b4u284eg6beo0" path="res://Scenes/debug.gd" id="5_emnvn"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_fbliu"]
 
@@ -11,12 +13,28 @@ points = PackedVector3Array(-0.12520654, -0.532801, -0.4805069, 0.022783129, 0.4
 
 [sub_resource type="BoxMesh" id="BoxMesh_ivnbd"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_emnvn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mk6yg"]
+bg_color = Color(0.003921569, 0, 0, 0.70980394)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Theme" id="Theme_bq1e6"]
+MarginContainer/constants/margin_bottom = 10
+MarginContainer/constants/margin_left = 10
+MarginContainer/constants/margin_right = 10
+MarginContainer/constants/margin_top = 10
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_mk6yg")
+
 [node name="Player" type="CharacterBody3D" unique_id=1291810518]
 script = ExtResource("1_ivnbd")
-SPEED = 10.0
-JUMP_VELOCITY = 9.0
-SENSITIVITY = 0.005
-GRAVITY_MODIFIER = 2.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1734791064]
 mesh = SubResource("CapsuleMesh_fbliu")
@@ -38,3 +56,46 @@ mesh = SubResource("BoxMesh_ivnbd")
 
 [node name="Mask" parent="." unique_id=2126738232 node_paths=PackedStringArray("player") instance=ExtResource("2_swd4e")]
 player = NodePath("..")
+
+[node name="HealthManager" type="Node3D" parent="." unique_id=1142276691]
+script = ExtResource("4_440e6")
+immunity_time = 0.4
+
+[node name="StandingHitbox" type="Area3D" parent="HealthManager" unique_id=1041679191]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HealthManager/StandingHitbox" unique_id=861649110]
+shape = SubResource("CapsuleShape3D_emnvn")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1013997634]
+layer = -1
+
+[node name="HSlider" type="HSlider" parent="HUD" unique_id=820842300]
+offset_right = 310.0
+offset_bottom = 16.0
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="UserInterface" type="Control" parent="HUD" unique_id=179065454]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DebugPanel" type="PanelContainer" parent="HUD/UserInterface" unique_id=936962239]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 210.0
+offset_bottom = 50.0
+theme = SubResource("Theme_bq1e6")
+script = ExtResource("5_emnvn")
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/UserInterface/DebugPanel" unique_id=659440964]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/UserInterface/DebugPanel/MarginContainer" unique_id=348997293]
+unique_name_in_owner = true
+layout_mode = 2
+
+[connection signal="area_entered" from="HealthManager/StandingHitbox" to="HealthManager" method="_on_standing_hitbox_area_entered"]

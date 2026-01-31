@@ -4,8 +4,6 @@
 [ext_resource type="Script" uid="uid://b4tr4nobltx4d" path="res://game/enemy/base_enemy.gd" id="1_wqye2"]
 [ext_resource type="PackedScene" uid="uid://dvbdmcuj60ayg" path="res://game/player/player_main.tscn" id="2_3fo60"]
 [ext_resource type="PackedScene" uid="uid://b1e0v0qeay4rd" path="res://game/enemy/chasing_enemy/heavy_enemy/heavy_enemy.tscn" id="3_3fo60"]
-[ext_resource type="Script" uid="uid://bvfh8twprbjeu" path="res://game/player/health_manager.gd" id="4_ei4jv"]
-[ext_resource type="Script" uid="uid://b4u284eg6beo0" path="res://Scenes/debug.gd" id="6_igbfk"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_wqye2"]
 vertices = PackedVector3Array(-49, 0.7974999, 49, -3.5, 0.7974999, 21.5, -3.5, 0.7974999, 19.5, -3.5, 0.7974999, 13.5, 22.75, 0.7974999, 13, 22.75, 0.7974999, 20, 49, 0.7974999, 49, 3.5, 0.7974999, 11.5, 3.5, 0.7974999, 13.25, 15.75, 0.7974999, 13.25, 15.75, 0.7974999, 11.5, 22.5, 0.7974999, 11.25, 49, 0.7974999, -49, -49, 0.7974999, -49, -1.75, 0.7974999, 11.25, 1.75, 0.7974999, 11.25, -3.5, 0.7974999, 11.5, -2.5, 4.2974997, 12.25, -2.5, 4.2974997, 20.75, 2.5, 4.2974997, 20.75, 2.5, 4.2974997, 12.25, 16.75, 4.2974997, 12.25, 16.75, 4.2974997, 20.75, 21.75, 4.2974997, 20.75, 21.75, 4.2974997, 12.25, -2.25, 0.7974999, 12.5, -2.25, 0.7974999, 20.5, 2.25, 0.7974999, 20.5, 2.25, 0.7974999, 12.5, 17, 0.7974999, 12.5, 17, 0.7974999, 20.5, 21.5, 0.7974999, 20.5, 21.5, 0.7974999, 12.5, 17.5, 0.7974999, 11.25, 3.5, 0.7974999, 19.75, 15.75, 0.7974999, 19.75, 15.75, 0.7974999, 21.5, 3.5, 0.7974999, 21.5, 17.5, 0.7974999, 21.75, 1.75, 0.7974999, 21.75, -1.75, 0.7974999, 21.75, 22.5, 0.7974999, 21.75, 21, 0.7974999, 21.75)
@@ -62,27 +60,6 @@ _bundled = {
 "version": 3
 }
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ei4jv"]
-size = Vector3(1, 1.8120728, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mk6yg"]
-bg_color = Color(0.003921569, 0, 0, 0.70980394)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="Theme" id="Theme_q486e"]
-MarginContainer/constants/margin_bottom = 10
-MarginContainer/constants/margin_left = 10
-MarginContainer/constants/margin_right = 10
-MarginContainer/constants/margin_top = 10
-PanelContainer/styles/panel = SubResource("StyleBoxFlat_mk6yg")
-
 [node name="EnemyTestScene" type="Node3D" unique_id=349421303]
 
 [node name="World" type="Node3D" parent="." unique_id=743827807]
@@ -107,36 +84,14 @@ shape = SubResource("BoxShape3D_wqye2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29815763, 0)
 mesh = SubResource("PlaneMesh_ufd8i")
 
-[node name="Node3D" type="Node3D" parent="World" unique_id=1274394843 node_paths=PackedStringArray("target")]
+[node name="Node3D" type="Node3D" parent="World" unique_id=1274394843]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3995733, 0)
 script = SubResource("GDScript_ufd8i")
 base_enemy_scene = SubResource("PackedScene_ei4jv")
-target = NodePath("")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2048539440]
 
 [node name="Player" parent="." unique_id=1291810518 instance=ExtResource("2_3fo60")]
-
-[node name="HealthManager" type="Node3D" parent="Player" unique_id=1658112697]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3220727, 31.200262)
-script = ExtResource("4_ei4jv")
-immunity_time = 0.4
-
-[node name="StandingHitbox" type="Area3D" parent="Player/HealthManager" unique_id=2023054649]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/HealthManager/StandingHitbox" unique_id=1549622729]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12142944, 0)
-shape = SubResource("BoxShape3D_ei4jv")
-
-[node name="HUD" type="CanvasLayer" parent="Player" unique_id=1669172915]
-layer = -1
-
-[node name="HSlider" type="HSlider" parent="Player/HUD" unique_id=1896636135]
-offset_right = 310.0
-offset_bottom = 16.0
-max_value = 1.0
-step = 0.01
-value = 1.0
 
 [node name="HeavyEnemy" parent="." unique_id=582232653 node_paths=PackedStringArray("target") instance=ExtResource("3_3fo60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2017794, 3.9369533, 26.878283)
@@ -149,29 +104,5 @@ target = NodePath("../Player")
 [node name="LightEnemy2" parent="." unique_id=470083721 node_paths=PackedStringArray("target") instance=ExtResource("1_gsdq8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.086177, 1.484994, 25.777092)
 target = NodePath("../Player")
-
-[node name="UserInterface" type="Control" parent="." unique_id=294581207]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="DebugPanel" type="PanelContainer" parent="UserInterface" unique_id=2022748572]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 210.0
-offset_bottom = 50.0
-theme = SubResource("Theme_q486e")
-script = ExtResource("6_igbfk")
-
-[node name="MarginContainer" type="MarginContainer" parent="UserInterface/DebugPanel" unique_id=2144727197]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/DebugPanel/MarginContainer" unique_id=94697834]
-unique_name_in_owner = true
-layout_mode = 2
-
-[connection signal="area_entered" from="Player/HealthManager/StandingHitbox" to="Player/HealthManager" method="_on_standing_hitbox_area_entered"]
 
 [editable path="Player"]
