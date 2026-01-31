@@ -14,7 +14,7 @@ func Exit():
 	pass
 	
 func Update(delta: float):
-	get_parent().mask_update(delta)
+	get_parent().mask_update(delta, self)
 		
 func Physics_Update(_delta:float):
 	pass		
