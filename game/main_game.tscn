@@ -2320,6 +2320,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.308834, 3, 0.92626953)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12447357, 3, -17.844099)
 
 [node name="MapManager" parent="." unique_id=1265604319 node_paths=PackedStringArray("top_left", "top_right", "bottom_left", "bottom_right", "center") instance=ExtResource("12_v7erx")]
+process_mode = 3
 top_left = NodePath("../RoomSetups/FireRoom")
 top_right = NodePath("../RoomSetups/IceRoom")
 bottom_left = NodePath("../RoomSetups/RageRoom")
