@@ -21,6 +21,9 @@ var player_velocity
 var sliding: bool = false
 var slide_transition: Tween = null
 
+signal die
+signal start
+
 @onready var slide_check = $SlideCheck
 
 func _ready():
@@ -82,14 +85,18 @@ func _physics_process(delta: float) -> void:
 	
 	# Direction is based on the neck
 	var direction = (neck.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction and not sliding:
+	if direction.length_squared() != 0 and not sliding:
 		if get_node("Footsteps").playing == false and is_on_floor():
 			get_node("Footsteps").play() #adjust (add more empty space)
 		velocity.x = lerp(velocity.x, direction.x * SPEED * speed_modifier, ACCELERATION)
 		velocity.z = lerp(velocity.z, direction.z * SPEED * speed_modifier, ACCELERATION)
 	else:
+		print("decelerating")
+		
 		velocity.x = move_toward(velocity.x, 0, DECELERATION)
 		velocity.z = move_toward(velocity.z, 0, DECELERATION)
+		print(velocity)
+		print(DECELERATION)
 		
 	if Input.is_action_just_pressed("attack"): 
 		print("attack")
@@ -105,3 +112,11 @@ func _physics_process(delta: float) -> void:
 	var result = space_state.intersect_ray(query)
 	if result:
 		current_room = result.collider.get_parent()
+
+
+func _on_retry_button_button_up() -> void:
+	start.emit()
+
+
+func _on_menu_button_button_up() -> void:
+	get_tree().change_scene_to_file("res://game/menus/main_menu.tscn")

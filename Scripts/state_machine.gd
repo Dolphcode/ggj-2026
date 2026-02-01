@@ -9,6 +9,12 @@ var mask_queue = ['fire_mask', 'rage_mask', 'radar_mask', 'ice_mask']
 #var mask_queue = []
 var states : Dictionary = {}
 
+#UI variables for ease and save on overhead
+@onready var interface:Control = get_node("../../HUD/UserInterface")
+@onready var mask_rect:ColorRect = interface.get_node("MaskRect")
+@onready var mask_label:Label = mask_rect.get_node("MaskLabel")
+@onready var score_label:Label = interface.get_node("ScoreLabel")
+
 func _ready():
 	for child in get_children():
 		if child is State:
@@ -42,6 +48,22 @@ func on_child_transition(state, new_state_name):
 	new_state.Enter()
 	current_state = new_state
 	
+	match new_state_name:
+		"fire_mask":
+			mask_rect.color = 0xff000080
+			mask_label.text = "Fire Mask"
+		"ice_mask":
+			mask_rect.color = 0x0000ff80
+			mask_label.text = "Ice Mask"
+		"radar_mask":
+			mask_rect.color = 0x00ff0080
+			mask_label.text = "Radar Mask"
+		"rage_mask":
+			mask_rect.color = 0x00000080
+			mask_label.text = "Rage Mask"
+		_:
+			mask_rect.color = 0x99999980
+			mask_label.text = "No Mask"
 	
 func mask_update(delta: float, mask):
 	#	decreases mask time until it reaches 0

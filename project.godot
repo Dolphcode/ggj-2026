@@ -24,9 +24,14 @@ buses/default_bus_layout="uid://d2hobt7qmt0ut"
 global="*uid://cc8yyknp2bf4j"
 AudioManager="*uid://dhspjh6prttgh"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/func_godot/plugin.cfg")
+
 [global_group]
 
 mask_spawns=""
+mask_objs=""
 
 [input]
 

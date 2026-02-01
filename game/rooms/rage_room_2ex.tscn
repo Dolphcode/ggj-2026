@@ -39,7 +39,7 @@ mesh = SubResource("BoxMesh_evjb2")
 shape = SubResource("BoxShape3D_axig5")
 
 [node name="SpawnPoint" type="Marker3D" parent="." index="8" unique_id=1499695639 groups=["mask_spawns"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, -22.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 1.5, -22.5)
 
 [node name="ESpawn1" type="Marker3D" parent="." index="9" unique_id=508322862 groups=["spawns"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9362192, 3, 7.6180096)

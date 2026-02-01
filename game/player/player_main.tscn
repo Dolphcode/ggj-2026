@@ -60,7 +60,15 @@ MarginContainer/constants/margin_right = 10
 MarginContainer/constants/margin_top = 10
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_mk6yg")
 
+[sub_resource type="LabelSettings" id="LabelSettings_xc0o6"]
+line_spacing = 0.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_8suo6"]
+line_spacing = 0.0
+font_size = 40
+
 [node name="Player" type="CharacterBody3D" unique_id=1291810518]
+process_mode = 3
 script = ExtResource("1_ivnbd")
 JUMP_VELOCITY = 10.0
 
@@ -133,6 +141,74 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 
+[node name="MaskRect" type="ColorRect" parent="HUD/UserInterface" unique_id=60251436]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 975.0
+offset_top = 15.0
+offset_right = 1125.0
+offset_bottom = 55.0
+color = Color(0.6, 0.6, 0.6, 0.39215687)
+
+[node name="MaskLabel" type="Label" parent="HUD/UserInterface/MaskRect" unique_id=1822922156]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "No Mask"
+label_settings = SubResource("LabelSettings_xc0o6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="HUD/UserInterface" unique_id=1753284901]
+layout_mode = 0
+offset_left = 560.0
+offset_top = 10.0
+offset_right = 600.0
+offset_bottom = 33.0
+text = "Score: 0
+(you trash lol)"
+
+[node name="EndScreen" type="Control" parent="HUD/UserInterface" unique_id=1403583691]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LoseLabel" type="Label" parent="HUD/UserInterface/EndScreen" unique_id=201513093]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 260.0
+offset_right = 809.0
+offset_bottom = 315.0
+text = "The Wizards Got You!"
+label_settings = SubResource("LabelSettings_8suo6")
+
+[node name="FinalLabel" type="Label" parent="HUD/UserInterface/EndScreen" unique_id=1613045314]
+layout_mode = 0
+offset_left = 560.0
+offset_top = 320.0
+offset_right = 653.0
+offset_bottom = 343.0
+text = "Final Score: 0"
+
+[node name="RetryButton" type="Button" parent="HUD/UserInterface/EndScreen" unique_id=928640389]
+layout_mode = 0
+offset_left = 580.0
+offset_top = 360.0
+offset_right = 630.0
+offset_bottom = 391.0
+text = "Retry"
+
+[node name="MenuButton" type="Button" parent="HUD/UserInterface/EndScreen" unique_id=1770736854]
+layout_mode = 0
+offset_left = 557.0
+offset_top = 400.0
+offset_right = 653.0
+offset_bottom = 431.0
+text = "Main Menu"
+
 [node name="PlayerStateMachine" type="Node" parent="." unique_id=1902627902 node_paths=PackedStringArray("CURRENT_STATE")]
 process_mode = 4
 script = ExtResource("6_bq1e6")
@@ -195,3 +271,5 @@ stream = ExtResource("19_re72c")
 bus = &"SFX"
 
 [connection signal="area_entered" from="HealthManager/StandingHitbox" to="HealthManager" method="_on_standing_hitbox_area_entered"]
+[connection signal="button_up" from="HUD/UserInterface/EndScreen/RetryButton" to="." method="_on_retry_button_button_up"]
+[connection signal="button_up" from="HUD/UserInterface/EndScreen/MenuButton" to="." method="_on_menu_button_button_up"]

@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://c0ngyu56f67hj"]
+
+[ext_resource type="Script" uid="uid://bvb8fxug145tt" path="res://credits_menu.gd" id="1_rqd6s"]
+
+[node name="CreditsMenu" type="Control" unique_id=1793551625]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rqd6s")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1268517375]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=523527262]
+layout_mode = 2
+text = "Programming Done By:
+CrusaderDolphinus, riikyo, Raxisgreat, jds472
+Artwork Done By:
+CrusaderDolphinus, riikyo
+Audio Done By:
+rax you got allat
+Voice Acting Done By:
+jds472 - wizard
+CrusaderDolphinus - frog
+Raxisgreat - stegosaurus 
+riikyo - bird"
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="VBoxContainer" unique_id=1978899525]
+layout_mode = 2
+text = "Back"
+
+[connection signal="button_up" from="VBoxContainer/BackButton" to="." method="_on_back_button_button_up"]

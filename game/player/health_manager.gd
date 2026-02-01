@@ -38,6 +38,9 @@ func hit():
 		
 	current_health -= 10
 	immunity_active_time = immunity_time
+	if (current_health <= 0):
+		hud.get_node("HSlider").value = 0
+		get_node("..").die.emit()
 
 func _on_standing_hitbox_area_entered(area):
 	print("test")

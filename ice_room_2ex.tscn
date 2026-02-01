@@ -74,4 +74,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.308575, 3, 12.476)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.819593, 3, -10.770433)
 
 [node name="SpawnPoint" type="Marker3D" parent="." index="15" unique_id=963556821 groups=["mask_spawns"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, -6.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1.5, -6.6)
