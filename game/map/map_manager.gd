@@ -32,6 +32,7 @@ extends Node
 @onready var mask_state = %Player.get_node("Mask/State Machine")
 
 var score = 0
+var paused = false
 @onready var ui:Control = %Player.get_node("HUD/UserInterface")
 @onready var end_screen:Control = ui.get_node("EndScreen")
 
@@ -50,7 +51,18 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if Input.is_action_just_pressed("pause") and not paused:
+		paused = true
+		get_tree().paused = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		end_screen.visible = true
+		end_screen.get_node("LoseLabel").visible = false
+		end_screen.get_node("FinalLabel").text = "Current Score: " + str(score)
+	elif Input.is_action_just_pressed("pause") and paused:
+		paused = false
+		get_tree().paused = false
+		end_screen.visible = false
+		end_screen.get_node("LoseLabel").visible = true
 
 func _on_enemy_spawn_timer_timeout() -> void:
 	if (enemy_cap < get_tree().get_nodes_in_group("enemies").size()):
@@ -66,7 +78,15 @@ func _on_enemy_spawn_timer_timeout() -> void:
 			children_in_group.append(node)
 	
 	var spawn_pos = children_in_group.pick_random().global_position
-	var new_enemy: BaseEnemy = enemies.pick_random().instantiate()
+	#= enemies.pick_random().instantiate()
+	var new_enemy: BaseEnemy
+	var chance = randi() % 100
+	if chance > 54:
+		new_enemy = enemies[0] #light enemy
+	elif chance > 24:
+		new_enemy = enemies[2] #lunging enemy
+	elif chance > -1:
+		new_enemy = enemies[1] #heavy enemy
 	new_enemy.position = spawn_pos
 	new_enemy.target = %Player
 	new_enemy.add_to_group("enemies")

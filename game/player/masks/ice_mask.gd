@@ -5,6 +5,7 @@ class_name ice_mask
 @export var mask_time = 30
 @export var speed_multiplier = 3.0
 @export var new_fov = 150.0
+@onready var world_environment:WorldEnvironment = mask.player.get_node("../WorldEnvironment")
 
 @onready var double_barrel_model: Node3D = get_parent().get_parent().get_parent().get_node("Neck/Camera3D/doublebarrel")
 @onready var ice_barrel_model: Node3D = get_parent().get_parent().get_parent().get_node("Neck/Camera3D/icebarrel")
@@ -30,6 +31,7 @@ func Enter():
 	mask.player.DECELERATION_DEFAULT = 0.1
 	mask.player.DECELERATION_SLIDE = 0.0
 	mask.player.get_node("Neck/Camera3D").fov = new_fov
+	world_environment.environment.fog_enabled = false
 
 	
 #Called on ice mask timeout/new mask equipped
@@ -42,6 +44,7 @@ func Exit():
 	mask.player.DECELERATION_DEFAULT = old_decel_default
 	mask.player.DECELERATION_SLIDE = old_decel_slide
 	mask.player.get_node("Neck/Camera3D").fov = old_fov
+	world_environment.environment.fog_enabled = true
 
 
 func Update(delta: float):

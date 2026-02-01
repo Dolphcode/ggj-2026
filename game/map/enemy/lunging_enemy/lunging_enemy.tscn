@@ -8,7 +8,7 @@
 [ext_resource type="Material" uid="uid://dw5y76xsfepl4" path="res://assets/shaders/frog_overlay.tres" id="5_xfwsl"]
 [ext_resource type="Texture2D" uid="uid://wk0sb743uskr" path="res://assets/models/frog_enemy_FrogTexture.png" id="5_y3a02"]
 [ext_resource type="Script" uid="uid://ba3d66ym0uqm7" path="res://game/map/enemy/enemy_hitbox.gd" id="6_hsw54"]
-[ext_resource type="AudioStream" uid="uid://dcd3maemr17fy" path="res://assets/frog ribbit.mp3" id="9_rmfyv"]
+[ext_resource type="AudioStream" uid="uid://dcd3maemr17fy" path="res://assets/audio/frog ribbit.mp3" id="9_rmfyv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hsw54"]
 size = Vector3(1.35, 0.902, 1.833)

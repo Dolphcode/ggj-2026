@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cynpsf6ap4e72"
+path="res://.godot/imported/crow death.mp3-60b79dc565c7f2b9fd8e6e3b4cc91c49.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/crow death.mp3"
+dest_files=["res://.godot/imported/crow death.mp3-60b79dc565c7f2b9fd8e6e3b4cc91c49.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

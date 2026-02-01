@@ -8,7 +8,7 @@
 [ext_resource type="Material" uid="uid://d10fnbsrsupkk" path="res://assets/shaders/libra_overlay.tres" id="6_egcso"]
 [ext_resource type="Script" uid="uid://ba3d66ym0uqm7" path="res://game/map/enemy/enemy_hitbox.gd" id="6_npjtq"]
 [ext_resource type="Texture2D" uid="uid://pxerfji2a7g5" path="res://assets/models/librasaurus_spinosaurus.png" id="6_ximuc"]
-[ext_resource type="AudioStream" uid="uid://dqe15rcma67uf" path="res://assets/goat.mp3" id="9_bgkjq"]
+[ext_resource type="AudioStream" uid="uid://dqe15rcma67uf" path="res://assets/audio/goat.mp3" id="9_bgkjq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wj2oh"]
 radius = 0.4506836

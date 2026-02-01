@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bllf7pkpmya0h" path="res://assets/textures/fire_mask_icon.png" id="11_qroyc"]
 [ext_resource type="Texture2D" uid="uid://dr77vb0y8ngkh" path="res://assets/textures/blank_icon.png" id="11_tttvm"]
 [ext_resource type="Script" uid="uid://bo33hort7o2en" path="res://game/player/weapons/flamethrower/flamethrower.gd" id="11_xc0o6"]
-[ext_resource type="AudioStream" uid="uid://cpa2o67uckn6j" path="res://assets/burning effect (on fire, fire mask).mp3" id="12_8suo6"]
+[ext_resource type="AudioStream" uid="uid://cpa2o67uckn6j" path="res://assets/audio/burning effect (on fire, fire mask).mp3" id="12_8suo6"]
 [ext_resource type="PackedScene" uid="uid://bbjpg54y0atqm" path="res://game/player/healing_zone.tscn" id="12_xc0o6"]
 [ext_resource type="AudioStream" uid="uid://b6ftpj8xcmwdw" path="res://assets/healing (radar mask).mp3" id="14_1lye5"]
 [ext_resource type="AudioStream" uid="uid://cpxpe88g678f" path="res://assets/shotgun reload.mp3" id="15_6vp58"]

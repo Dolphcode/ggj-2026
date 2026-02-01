@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cv2trrtx5ff2y"
+path="res://.godot/imported/shotgun unload (shooting).mp3-f9c39a68ebeef5d4f0151b6165839642.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/shotgun unload (shooting).mp3"
+dest_files=["res://.godot/imported/shotgun unload (shooting).mp3-f9c39a68ebeef5d4f0151b6165839642.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

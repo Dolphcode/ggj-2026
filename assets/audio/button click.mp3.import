@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://daskshyto2x7d"
+path="res://.godot/imported/button click.mp3-c1ecb3a075da1fb9ff930a470b73d6aa.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/button click.mp3"
+dest_files=["res://.godot/imported/button click.mp3-c1ecb3a075da1fb9ff930a470b73d6aa.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

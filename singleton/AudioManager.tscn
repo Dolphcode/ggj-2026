@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://bgpefhjp4s6jd" path="res://assets/rage mask.mp3" id="11_w82uh"]
 [ext_resource type="AudioStream" uid="uid://daskshyto2x7d" path="res://assets/button click.mp3" id="12_llhet"]
 [ext_resource type="AudioStream" uid="uid://d0di76iip2dql" path="res://assets/slide whoosh (v2).mp3" id="14_ew2jo"]
+[ext_resource type="AudioStream" uid="uid://bfqpc5h1qocu" path="res://assets/joey narrator story.mp3" id="15_3q4xm"]
 
 [node name="AudioManager" type="Node" unique_id=267221631]
 script = ExtResource("1_m6ohh")
@@ -64,3 +65,6 @@ stream = ExtResource("12_llhet")
 [node name="AudioSlide" type="AudioStreamPlayer" parent="." unique_id=1609951251]
 stream = ExtResource("14_ew2jo")
 volume_db = -20.0
+
+[node name="Narrator" type="AudioStreamPlayer" parent="." unique_id=1667814662]
+stream = ExtResource("15_3q4xm")

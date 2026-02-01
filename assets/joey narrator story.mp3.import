@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bfqpc5h1qocu"
+path="res://.godot/imported/joey narrator story.mp3-c1cccfed57061f3e0dfa9d874356b34e.mp3str"
+
+[deps]
+
+source_file="res://assets/joey narrator story.mp3"
+dest_files=["res://.godot/imported/joey narrator story.mp3-c1cccfed57061f3e0dfa9d874356b34e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
