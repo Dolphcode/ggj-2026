@@ -11,6 +11,9 @@ height = 15.0
 height = 15.0
 radius = 3.0
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_a05wt"]
+radius = 1.0
+
 [node name="Room2Exit" unique_id=728229828 instance=ExtResource("1_i8gsm")]
 
 [node name="floor" parent="." index="0" unique_id=157937396]
@@ -61,17 +64,20 @@ mesh = SubResource("CylinderMesh_7vv8q")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pillar5" index="1" unique_id=1969543171]
 shape = SubResource("CylinderShape3D_uowdt")
 
-[node name="ESpawn1" type="Marker3D" parent="." index="11" unique_id=1664567035 groups=["spawns"]]
+[node name="SpawnPoint" type="StaticBody3D" parent="." index="11" unique_id=271398034 groups=["mask_spawns"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.530005, 1, -6.634281)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpawnPoint" index="0" unique_id=1481793957]
+shape = SubResource("SphereShape3D_a05wt")
+
+[node name="ESpawn1" type="Marker3D" parent="." index="12" unique_id=1664567035]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 3, 12.476)
 
-[node name="ESpawn2" type="Marker3D" parent="." index="12" unique_id=363677409 groups=["spawns"]]
+[node name="ESpawn2" type="Marker3D" parent="." index="13" unique_id=363677409]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.102871, 3, -4.7155924)
 
-[node name="ESpawn3" type="Marker3D" parent="." index="13" unique_id=511150998 groups=["spawns"]]
+[node name="ESpawn3" type="Marker3D" parent="." index="14" unique_id=511150998]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.308575, 3, 12.476)
 
-[node name="ESpawn4" type="Marker3D" parent="." index="14" unique_id=303562669 groups=["spawns"]]
+[node name="ESpawn4" type="Marker3D" parent="." index="15" unique_id=303562669]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.819593, 3, -10.770433)
-
-[node name="SpawnPoint" type="Marker3D" parent="." index="15" unique_id=963556821 groups=["mask_spawns"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, -6.6)

@@ -8,9 +8,6 @@ size = Vector3(10, 0.5, 10)
 [sub_resource type="BoxShape3D" id="BoxShape3D_5dqlc"]
 size = Vector3(10, 0.5, 10)
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_x1tkr"]
-radius = 1.0
-
 [node name="Room2Exit" unique_id=728229828 instance=ExtResource("1_3vqin")]
 
 [node name="floor" parent="." index="0" unique_id=157937396]
@@ -53,7 +50,7 @@ mesh = SubResource("BoxMesh_deg4s")
 shape = SubResource("BoxShape3D_5dqlc")
 
 [node name="Platform5" type="StaticBody3D" parent="." index="10" unique_id=229300804]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.325117, 2.7563949, -19.567764)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.325117, 2.7563949, -18.074362)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platform5" index="0" unique_id=402503300]
 mesh = SubResource("BoxMesh_deg4s")
@@ -61,11 +58,8 @@ mesh = SubResource("BoxMesh_deg4s")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Platform5" index="1" unique_id=1170470420]
 shape = SubResource("BoxShape3D_5dqlc")
 
-[node name="SpawnPoint" type="StaticBody3D" parent="." index="11" unique_id=123358322 groups=["mask_spawns"]]
+[node name="SpawnPoint" type="Marker3D" parent="." index="11" unique_id=502738456 groups=["mask_spawns"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SpawnPoint" index="0" unique_id=779022320]
-shape = SubResource("SphereShape3D_x1tkr")
 
 [node name="ESpawn1" type="Marker3D" parent="." index="12" unique_id=1754475738 groups=["spawns"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.522458, 3, 13.499748)

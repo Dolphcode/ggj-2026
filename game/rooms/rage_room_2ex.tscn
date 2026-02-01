@@ -8,9 +8,6 @@ size = Vector3(20, 20, 5)
 [sub_resource type="BoxShape3D" id="BoxShape3D_axig5"]
 size = Vector3(20, 20, 5)
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_hngby"]
-radius = 1.0
-
 [node name="Room2Exit" unique_id=728229828 instance=ExtResource("1_hngby")]
 
 [node name="floor" parent="." index="0" unique_id=157937396]
@@ -41,11 +38,8 @@ mesh = SubResource("BoxMesh_evjb2")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wall6/WallPart1" index="1" unique_id=418099764]
 shape = SubResource("BoxShape3D_axig5")
 
-[node name="SpawnPoint" type="StaticBody3D" parent="." index="8" unique_id=2101980737 groups=["mask_spawns"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 1, -22.5)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SpawnPoint" index="0" unique_id=1365458244]
-shape = SubResource("SphereShape3D_hngby")
+[node name="SpawnPoint" type="Marker3D" parent="." index="8" unique_id=1499695639 groups=["mask_spawns"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, -22.5)
 
 [node name="ESpawn1" type="Marker3D" parent="." index="9" unique_id=508322862 groups=["spawns"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9362192, 3, 7.6180096)
