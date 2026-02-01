@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bsuais1h2b48b"
+path="res://.godot/imported/taking damage.mp3-7a0fb7b72d88934bddb3032ef5e9e375.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/taking damage.mp3"
+dest_files=["res://.godot/imported/taking damage.mp3-7a0fb7b72d88934bddb3032ef5e9e375.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

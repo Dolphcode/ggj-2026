@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dd6qunuj7uljs"
+path="res://.godot/imported/crow caw caw.mp3-cf6e23f4510d4f987d166150303b3c23.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/crow caw caw.mp3"
+dest_files=["res://.godot/imported/crow caw caw.mp3-cf6e23f4510d4f987d166150303b3c23.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
