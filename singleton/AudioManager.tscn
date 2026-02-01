@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dhspjh6prttgh"]
+
+[ext_resource type="AudioStream" uid="uid://ccvvsonb5ik7i" path="res://assets/Wizard Shotgun Background Music.mp3" id="1_xv1y8"]
+
+[node name="AudioManager" type="Node" unique_id=267221631]
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=543398434]
+stream = ExtResource("1_xv1y8")
+autoplay = true
+bus = &"Music"
+parameters/looping = true

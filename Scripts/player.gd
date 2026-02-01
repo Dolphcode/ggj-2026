@@ -45,6 +45,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("slide"):
+		get_node("Slide").play()
 		speed_modifier = 0.0
 		velocity = (neck.transform.basis * Vector3.FORWARD).normalized() * SLIDE_BOOST
 		DECELERATION = DECELERATION_SLIDE
@@ -72,6 +73,7 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		get_node("Jump").play()
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -81,6 +83,8 @@ func _physics_process(delta: float) -> void:
 	# Direction is based on the neck
 	var direction = (neck.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction and not sliding:
+		if get_node("Footsteps").playing == false and is_on_floor():
+			get_node("Footsteps").play() #adjust (add more empty space)
 		velocity.x = lerp(velocity.x, direction.x * SPEED * speed_modifier, ACCELERATION)
 		velocity.z = lerp(velocity.z, direction.z * SPEED * speed_modifier, ACCELERATION)
 	else:

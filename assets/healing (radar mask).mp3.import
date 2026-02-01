@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b6ftpj8xcmwdw"
+path="res://.godot/imported/healing (radar mask).mp3-8b89dd59dc5f70049a0160a0ecaa1292.mp3str"
+
+[deps]
+
+source_file="res://assets/healing (radar mask).mp3"
+dest_files=["res://.godot/imported/healing (radar mask).mp3-8b89dd59dc5f70049a0160a0ecaa1292.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

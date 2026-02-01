@@ -5,8 +5,8 @@ extends Node
 var current_state : State
 var mask_time : float
 var gun_type : String
-#var mask_queue = ['fire_mask', 'rage_mask', 'radar_mask', 'ice_mask']\
-var mask_queue = []
+var mask_queue = ['fire_mask', 'rage_mask', 'radar_mask', 'ice_mask']
+#var mask_queue = []
 var states : Dictionary = {}
 
 func _ready():
@@ -48,12 +48,14 @@ func mask_update(delta: float, mask):
 	if mask_time > 0:
 		mask_time -= delta
 	else:
+		get_parent().player.get_node("MaskPowerDown").play()
 		on_child_transition(mask, 'no_mask')
 
 
 #class_name fire_mask
 
 func _on_mask_pick_up(mask):
+	get_parent().player.get_node("MaskPickup").play()
 	mask_queue.append(mask)
 	#print(mask_queue)
 	#print("added ", mask)
