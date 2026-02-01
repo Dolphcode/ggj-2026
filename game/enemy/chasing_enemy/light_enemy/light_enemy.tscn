@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://bm2pqsldojg01" path="res://game/enemy/chasing_enemy/chasing_enemy_attack_state.gd" id="4_8c2jf"]
 [ext_resource type="Texture2D" uid="uid://dp4iexgt0fj4q" path="res://assets/models/bird_enemy_bird.png" id="5_bqmi1"]
 [ext_resource type="Script" uid="uid://bek8u6neeuy4l" path="res://game/enemy/chasing_enemy/chasing_enemy_prowl_state.gd" id="5_dp154"]
+[ext_resource type="Script" uid="uid://ba3d66ym0uqm7" path="res://game/enemy/enemy_hitbox.gd" id="6_2gn6t"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ei4jv"]
 radius = 0.43847656
@@ -1081,6 +1082,13 @@ _data = {
 &"Walk_Body": SubResource("Animation_817ln")
 }
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ebysx"]
+radius = 0.32177734
+height = 2.1137695
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_n8vh6"]
+radius = 0.30313557
+
 [node name="LightEnemy" type="CharacterBody3D" unique_id=1151919179 node_paths=PackedStringArray("starting_state")]
 axis_lock_angular_x = true
 axis_lock_angular_z = true
@@ -1088,6 +1096,7 @@ script = ExtResource("1_553o2")
 base_speed = 500.0
 attack_range_sq = 4.0
 turn_speed = 3.0
+max_health = 15.0
 starting_state = NodePath("LightEnemyWalkState")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=808385287]
@@ -1250,3 +1259,31 @@ skeleton = NodePath("..")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="bird_enemy" unique_id=1385857981]
 libraries/ = SubResource("AnimationLibrary_oyqyy")
 speed_scale = 3.0
+
+[node name="Hitboxes" type="Node3D" parent="." unique_id=284238946]
+
+[node name="Body" type="Area3D" parent="Hitboxes" unique_id=555541132 node_paths=PackedStringArray("controller")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1629426, 0)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("6_2gn6t")
+damage_modifier = 0.7
+controller = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Body" unique_id=1158425134]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.08245075, 0)
+shape = SubResource("CapsuleShape3D_ebysx")
+debug_color = Color(0.9431837, 1.155138e-05, 0.6050125, 0.41960785)
+
+[node name="Head" type="Area3D" parent="Hitboxes" unique_id=1513320046 node_paths=PackedStringArray("controller")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0863676, 0)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("6_2gn6t")
+damage_modifier = 3.0
+controller = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Head" unique_id=1521479860]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06007719, 0)
+shape = SubResource("SphereShape3D_n8vh6")
+debug_color = Color(0.9431837, 1.155138e-05, 0.6050125, 0.41960785)

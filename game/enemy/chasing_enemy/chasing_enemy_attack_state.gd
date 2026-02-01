@@ -2,20 +2,16 @@ extends BaseEnemyState
 
 @export_category("Transition Config")
 @export var exit_state: BaseEnemyState
-@export var attack_time: float = 0.2
 @export var anim_player: AnimationPlayer
 
 @export_category("Hurtbox Config")
 @export var melee_hurtbox: Area3D
 
-var curr_transition_cd: float = 0.0
 var attack_done: bool = false
 
 func enter() -> void:
 	anim_player.play("Attack")
-	curr_transition_cd = attack_time
 	attack_done = false
-	
 
 
 func exit() -> void:
