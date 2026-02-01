@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://bcu35tbftcvch"
-path="res://.godot/imported/goat-sound-390298.mp3-ffe41ac2465502d1afa08aed7882107e.mp3str"
+path="res://.godot/imported/goat-sound-390298.mp3-bb9e89e789d98cd64b4de141c19fa6c5.mp3str"
 
 [deps]
 
-source_file="res://game/enemy/chasing_enemy/heavy_enemy/goat-sound-390298.mp3"
-dest_files=["res://.godot/imported/goat-sound-390298.mp3-ffe41ac2465502d1afa08aed7882107e.mp3str"]
+source_file="res://game/map/enemy/chasing_enemy/heavy_enemy/goat-sound-390298.mp3"
+dest_files=["res://.godot/imported/goat-sound-390298.mp3-bb9e89e789d98cd64b4de141c19fa6c5.mp3str"]
 
 [params]
 

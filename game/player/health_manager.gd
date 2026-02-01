@@ -38,14 +38,11 @@ func _process(delta):
 func hit(damage: float) -> void:
 	if immunity_active_time >= 0.0:
 		return
-<<<<<<< HEAD
-	print("I was hit")
-	get_parent().get_node("TakingDamage").play()
-	current_health -= 10
-=======
 		
-	current_health = clampf(current_health - 10, 0.0, max_health)
->>>>>>> da6e152272abbff7d20264cbaf376d52e7f5956e
+	get_parent().get_node("TakingDamage").play()
+		
+	current_health = clampf(current_health - damage, 0.0, max_health)
+	
 	immunity_active_time = immunity_time
 	if (current_health <= 0):
 		hud.get_node("HSlider").value = 0
