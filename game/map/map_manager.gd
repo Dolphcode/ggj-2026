@@ -126,7 +126,7 @@ func on_player_death():
 	AudioManager.get_node(death_sounds.pick_random()).play()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	end_screen.visible = true
-	end_screen.get_node("FinalLabel").text = "Final Score: " + str(score)
+	end_screen.get_node("VBoxContainer/FinalLabel").text = "Final Score: " + str(score)
 
 
 func start_game() -> void:
