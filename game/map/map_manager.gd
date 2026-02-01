@@ -34,8 +34,8 @@ extends Node
 var score = 0
 var score_modifier = 100
 var paused = false
-@onready var ui:Control = %Player.get_node("HUD/UserInterface")
-@onready var end_screen:Control = ui.get_node("EndScreen")
+@onready var ui:CanvasLayer = %Player.get_node("HUD")
+@onready var end_screen:Control = ui.get_node("UserInterface/EndScreen")
 
 #enum MaskType {FIRE, ICE, RADAR, RAGE}
 #enum EnemyType {LIGHT, HEAVY, LUNGE, DASH, FLYLUNGE, FLYSNIPE}
