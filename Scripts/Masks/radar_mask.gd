@@ -11,7 +11,7 @@ class_name radar_mask
 #Called on equpping radar_mask mask
 func Enter():
 	get_parent().mask_time = mask_time #medium
-	mask.player.get_node("HealingZone").process_mode = PROCESS_MODE_INHERIT
+	mask.player.get_node("HealingZone/HealingArea3D").set_deferred("collision_mask", 0x2)
 	mask.player.get_node("HealingZone/healing").play()
 	#cam.position.y += campera_positon_y_increase
 	#gun_type = 'normal'
@@ -21,6 +21,7 @@ func Enter():
 #Called on radar_mask mask timeout/new mask equipped
 func Exit():
 	#cam.position.y -= campera_positon_y_increase
+	mask.player.get_node("HealingZone/HealingArea3D").set_deferred("collision_mask", 0x0)
 	cam.current = true
 	radar_cam.current = false
 	mask.player.get_node("HealingZone/healing").stop()

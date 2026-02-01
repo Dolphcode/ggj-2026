@@ -420,6 +420,7 @@ radius = 0.32168517
 radius = 0.4139036
 
 [node name="LungingEnemy" type="CharacterBody3D" unique_id=309565408 node_paths=PackedStringArray("starting_state", "mesh", "anim_player")]
+collision_layer = 3
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 script = ExtResource("1_y3a02")

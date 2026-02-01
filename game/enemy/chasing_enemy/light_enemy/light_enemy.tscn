@@ -1091,6 +1091,7 @@ height = 2.1137695
 radius = 0.30313557
 
 [node name="LightEnemy" type="CharacterBody3D" unique_id=1151919179 node_paths=PackedStringArray("starting_state", "mesh", "anim_player")]
+collision_layer = 3
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 script = ExtResource("1_553o2")

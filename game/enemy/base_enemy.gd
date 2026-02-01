@@ -81,6 +81,16 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
+func start_heal_effect() -> void:
+	if mesh != null:
+			mesh.set_instance_shader_parameter("is_healing", true)
+
+
+func stop_heal_effect() -> void:
+	if mesh != null:
+			mesh.set_instance_shader_parameter("is_healing", false)
+
+
 func freeze() -> void:
 	if is_frozen:
 		anim_player.play("Idle")

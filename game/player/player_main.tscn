@@ -1,14 +1,9 @@
 [gd_scene format=3 uid="uid://dvbdmcuj60ayg"]
 
 [ext_resource type="Script" uid="uid://codwnbkvywc6b" path="res://Scripts/player.gd" id="1_ivnbd"]
-[ext_resource type="Script" uid="uid://ch52jbq64etrc" path="res://game/player/hitscan.gd" id="2_440e6"]
 [ext_resource type="PackedScene" uid="uid://beso6rnak84f6" path="res://Scenes/mask.tscn" id="2_swd4e"]
 [ext_resource type="Script" uid="uid://bvfh8twprbjeu" path="res://game/player/health_manager.gd" id="4_440e6"]
 [ext_resource type="Script" uid="uid://b4u284eg6beo0" path="res://Scenes/debug.gd" id="5_emnvn"]
-[ext_resource type="Script" uid="uid://voh7wlmwukvx" path="res://Scenes/player_state_machine.gd" id="6_bq1e6"]
-[ext_resource type="Script" uid="uid://dmspwsgr34mh2" path="res://Scenes/idle_player_state.gd" id="7_78qes"]
-[ext_resource type="Script" uid="uid://k3nqu20j7rgj" path="res://game/player/walking_player_state.gd" id="8_fhw4t"]
-[ext_resource type="Script" uid="uid://fon3xsuljw03" path="res://game/player/sliding_player_state.gd" id="9_fhw4t"]
 [ext_resource type="Script" uid="uid://dh7iygl7pnosl" path="res://game/player/weapons/shotgun/shotgun.gd" id="10_w4oxq"]
 [ext_resource type="Script" uid="uid://bo33hort7o2en" path="res://game/player/weapons/flamethrower/flamethrower.gd" id="11_xc0o6"]
 [ext_resource type="AudioStream" uid="uid://cpa2o67uckn6j" path="res://assets/burning effect (on fire, fire mask).mp3" id="12_8suo6"]
@@ -55,6 +50,9 @@ line_spacing = 0.0
 line_spacing = 0.0
 font_size = 40
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_s2aeh"]
+radius = 5.567383
+
 [node name="Player" type="CharacterBody3D" unique_id=1291810518]
 process_mode = 3
 script = ExtResource("1_ivnbd")
@@ -74,7 +72,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6087563, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Neck" unique_id=1144383541]
 current = true
-script = ExtResource("2_440e6")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Neck/Camera3D" unique_id=1905272515]
 transform = Transform3D(0.099938214, -0.025739664, 0.002392798, -0.0016301495, 0.26366207, 0.096447736, -0.0031134225, -0.96427155, 0.026307954, 0, -0.424, -0.4)
@@ -197,20 +194,6 @@ offset_right = 653.0
 offset_bottom = 431.0
 text = "Main Menu"
 
-[node name="PlayerStateMachine" type="Node" parent="." unique_id=1902627902 node_paths=PackedStringArray("CURRENT_STATE")]
-process_mode = 4
-script = ExtResource("6_bq1e6")
-CURRENT_STATE = NodePath("IdlePlayerState")
-
-[node name="IdlePlayerState" type="Node" parent="PlayerStateMachine" unique_id=881553182]
-script = ExtResource("7_78qes")
-
-[node name="WalkingPlayerState" type="Node" parent="PlayerStateMachine" unique_id=1658952921]
-script = ExtResource("8_fhw4t")
-
-[node name="SlidingPlayerState" type="Node" parent="PlayerStateMachine" unique_id=1072508362]
-script = ExtResource("9_fhw4t")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1680644644]
 
 [node name="Shotgun" type="Node3D" parent="." unique_id=1309335887 node_paths=PackedStringArray("player_cam", "facing_obj", "fire_point")]
@@ -243,13 +226,20 @@ bus = &"SFX"
 parameters/looping = true
 
 [node name="HealingZone" parent="." unique_id=1579785082 instance=ExtResource("12_xc0o6")]
-process_mode = 4
 
 [node name="healing" type="AudioStreamPlayer3D" parent="HealingZone" unique_id=1650781790]
 stream = ExtResource("14_1lye5")
 volume_db = -25.0
 bus = &"SFX"
 parameters/looping = true
+
+[node name="HealingArea3D" type="Area3D" parent="HealingZone" unique_id=1581339521]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HealingZone/HealingArea3D" unique_id=1153727714]
+shape = SubResource("CylinderShape3D_s2aeh")
+debug_color = Color(0.21859553, 0.59728026, 1.92523e-07, 0.41960785)
 
 [node name="MaskPickup" type="AudioStreamPlayer3D" parent="." unique_id=779779859]
 stream = ExtResource("15_q6l8d")
@@ -275,3 +265,5 @@ bus = &"SFX"
 [connection signal="area_entered" from="HealthManager/StandingHitbox" to="HealthManager" method="_on_standing_hitbox_area_entered"]
 [connection signal="button_up" from="HUD/UserInterface/EndScreen/RetryButton" to="." method="_on_retry_button_button_up"]
 [connection signal="button_up" from="HUD/UserInterface/EndScreen/MenuButton" to="." method="_on_menu_button_button_up"]
+[connection signal="body_entered" from="HealingZone/HealingArea3D" to="HealingZone" method="_on_healing_area_3d_body_entered"]
+[connection signal="body_exited" from="HealingZone/HealingArea3D" to="HealingZone" method="_on_healing_area_3d_body_exited"]
