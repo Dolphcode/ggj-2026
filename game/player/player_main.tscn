@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://b4u284eg6beo0" path="res://singleton/debug.gd" id="5_emnvn"]
 [ext_resource type="PackedScene" uid="uid://cxg81j7bnsoyg" path="res://assets/models/player/flamethrower.glb" id="5_r1j4a"]
 [ext_resource type="AudioStream" uid="uid://fpfif27mcbwk" path="res://assets/flamethower.mp3" id="8_ib0wo"]
+[ext_resource type="FontFile" uid="uid://b1vbnj75yl3i2" path="res://assets/font/BlackCastleMF.ttf" id="9_4c06t"]
 [ext_resource type="Script" uid="uid://dh7iygl7pnosl" path="res://game/player/weapons/shotgun/shotgun.gd" id="10_w4oxq"]
 [ext_resource type="Script" uid="uid://bo33hort7o2en" path="res://game/player/weapons/flamethrower/flamethrower.gd" id="11_xc0o6"]
 [ext_resource type="AudioStream" uid="uid://cpa2o67uckn6j" path="res://assets/burning effect (on fire, fire mask).mp3" id="12_8suo6"]
@@ -309,6 +310,21 @@ _data = {
 &"Walk": SubResource("Animation_njeyh")
 }
 
+[sub_resource type="GDScript" id="GDScript_r1j4a"]
+script/source = "extends Node3D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	get_parent().get_node(\"SubViewport/FaceCam\").position = global_position
+	get_parent().get_node(\"SubViewport/FaceCam\").global_rotation = global_rotation
+"
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_emnvn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mk6yg"]
@@ -336,6 +352,15 @@ line_spacing = 0.0
 line_spacing = 0.0
 font_size = 40
 
+[sub_resource type="LabelSettings" id="LabelSettings_g8fnv"]
+font = ExtResource("9_4c06t")
+font_size = 72
+shadow_size = 4
+shadow_color = Color(1, 1, 1, 0.627451)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_r1j4a"]
+viewport_path = NodePath("Neck/SubViewport")
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_s2aeh"]
 radius = 5.567383
 
@@ -347,7 +372,7 @@ script = ExtResource("1_ivnbd")
 JUMP_VELOCITY = 10.0
 
 [node name="RadarCamera3D" type="Camera3D" parent="." unique_id=778106180]
-transform = Transform3D(1.6666665, 0, 0, 0, -7.2852316e-08, 1.6666665, 0, -1.6666665, -7.2852316e-08, 0, 11.748, -0.444)
+transform = Transform3D(1.6666665, 0, 0, 0, -7.2852316e-08, 1.6666665, 0, -1.6666665, -7.2852316e-08, 0, 15.324266, -0.44399998)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1107922669]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6265869, 0)
@@ -492,6 +517,19 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -
 visible = false
 
 [node name="WeaponPivot" type="Node3D" parent="Neck" unique_id=962293482]
+
+[node name="SubViewport" type="SubViewport" parent="Neck" unique_id=979201664]
+handle_input_locally = false
+size = Vector2i(128, 128)
+render_target_update_mode = 4
+
+[node name="FaceCam" type="Camera3D" parent="Neck/SubViewport" unique_id=144996738]
+transform = Transform3D(-1, 0, -8.742279e-08, 0, 1, 0, 8.742279e-08, 0, -1, 0, 1.6924834, -0.9152732)
+fov = 51.9
+
+[node name="CameraPosition" type="Node3D" parent="Neck" unique_id=75012528]
+transform = Transform3D(-0.99999994, 0, -1.509958e-07, 0, 0.99999994, 0, 1.509958e-07, 0, -0.99999994, 0, 0.218, -0.866)
+script = SubResource("GDScript_r1j4a")
 
 [node name="Mask" parent="." unique_id=2126738232 node_paths=PackedStringArray("player") instance=ExtResource("2_swd4e")]
 player = NodePath("..")
@@ -685,6 +723,50 @@ text = "No Mask"
 label_settings = SubResource("LabelSettings_xc0o6")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="HUD" unique_id=1290615019]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -128.0
+offset_right = 221.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/PanelContainer" unique_id=292845681]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HUD/PanelContainer/HBoxContainer" unique_id=1081077177]
+layout_mode = 2
+text = "100%"
+label_settings = SubResource("LabelSettings_g8fnv")
+
+[node name="Label2" type="Label" parent="HUD/PanelContainer/HBoxContainer" unique_id=880365928]
+layout_mode = 2
+text = "100%"
+label_settings = SubResource("LabelSettings_g8fnv")
+
+[node name="PanelContainer2" type="PanelContainer" parent="HUD/PanelContainer/HBoxContainer" unique_id=1734015404]
+layout_mode = 2
+
+[node name="PanelContainer3" type="PanelContainer" parent="HUD/PanelContainer/HBoxContainer" unique_id=1425485655]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="HUD/PanelContainer/HBoxContainer" unique_id=2023624299]
+layout_mode = 2
+
+[node name="TextureRect2" type="MarginContainer" parent="HUD/PanelContainer/HBoxContainer/PanelContainer" unique_id=1466631800]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="TextureRect" type="TextureRect" parent="HUD/PanelContainer/HBoxContainer/PanelContainer/TextureRect2" unique_id=1594427984]
+layout_mode = 2
+texture = SubResource("ViewportTexture_r1j4a")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1680644644]
 
