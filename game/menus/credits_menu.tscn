@@ -2281,7 +2281,8 @@ Voice Acting:
 jds472 - wizard
 CrusaderDolphinus - goat death
 raxisgreat - frog death
-riikyo - bird death"
+riikyo - bird death
+(The Wizard's Name is Jarmew)"
 horizontal_alignment = 1
 
 [node name="BackButton" type="Button" parent="VBoxContainer" unique_id=1978899525]
