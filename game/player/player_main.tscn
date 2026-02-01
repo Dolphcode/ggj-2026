@@ -60,6 +60,9 @@ process_mode = 3
 script = ExtResource("1_ivnbd")
 JUMP_VELOCITY = 10.0
 
+[node name="RadarCamera3D" type="Camera3D" parent="." unique_id=778106180]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 14.39768, 0)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1734791064]
 mesh = SubResource("CapsuleMesh_fbliu")
 
@@ -70,6 +73,7 @@ shape = SubResource("ConvexPolygonShape3D_f7nhd")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6087563, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Neck" unique_id=1144383541]
+current = true
 script = ExtResource("2_440e6")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Neck/Camera3D" unique_id=1905272515]

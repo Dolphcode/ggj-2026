@@ -17,7 +17,6 @@ func Enter():
 	old_fov = mask.player.get_node("Neck/Camera3D").fov
 	
 	get_parent().mask_time = mask_time #long
-	#gun_type = 'cold gun'
 	mask.player.get_node("FrozenShotgun").process_mode = PROCESS_MODE_INHERIT
 	mask.player.get_node('Shotgun').process_mode = PROCESS_MODE_DISABLED
 	mask.player.speed_modifier = speed_multiplier
