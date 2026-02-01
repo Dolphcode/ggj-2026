@@ -55,15 +55,31 @@ func _process(delta):
 						health_manager.damage_modifier_max, 
 						1.0 - health_manager.current_health / health_manager.max_health)	
 						
-						_spawn_impact_marker(intersection.position, hitbox)
+						_spawn_impact_marker(intersection.position, intersection.normal, hitbox, is_ice)
 						hitbox.damage(damage * modifier, false, is_ice)
 	else:
 		reload_time -= delta
 		if reload_time <= 0.0:
 			reload_sfx.play()
 
+@onready var blood = preload("res://game/particles/blood_particles.tscn")
+@onready var crit_blood = preload("res://game/particles/crit_blood_particles.tscn")
+@onready var ice_part = preload("res://game/particles/ice_particles.tscn")
 
-func _spawn_impact_marker(position: Vector3, new_parent: Node3D) -> void:
+func _spawn_impact_marker(position: Vector3, normal: Vector3, hitbox: EnemyHitbox, is_ice: bool) -> void:
+	var particles: OneShotParticles = null
+	
+	if is_ice:
+		particles = ice_part.instantiate()
+	elif hitbox.damage_modifier > 1.0:
+		particles = crit_blood.instantiate()
+	else:
+		particles = blood.instantiate()
+	
+	particles.process_material.direction = normal
+	particles.position = position
+	get_parent().get_parent().call_deferred("add_child", particles)
+	'''
 	var marker = MeshInstance3D.new()
 	var box = BoxMesh.new()
 	box.size = Vector3(0.1, 0.1, 0.1)
@@ -77,3 +93,4 @@ func _spawn_impact_marker(position: Vector3, new_parent: Node3D) -> void:
 	marker.global_position = position
 	
 	get_tree().create_timer(2.0).timeout.connect(marker.queue_free)
+	'''
