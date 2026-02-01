@@ -32,6 +32,7 @@ extends Node
 @onready var mask_state = %Player.get_node("Mask/State Machine")
 
 var score = 0
+var score_modifier = 100
 var paused = false
 @onready var ui:Control = %Player.get_node("HUD/UserInterface")
 @onready var end_screen:Control = ui.get_node("EndScreen")
@@ -82,17 +83,17 @@ func _on_enemy_spawn_timer_timeout() -> void:
 	var new_enemy: BaseEnemy
 	var chance = randi() % 100
 	if chance > 54:
-		new_enemy = enemies[0] #light enemy
+		new_enemy = enemies[0].instantiate() #light enemy
 	elif chance > 24:
-		new_enemy = enemies[2] #lunging enemy
+		new_enemy = enemies[2].instantiate() #lunging enemy
 	elif chance > -1:
-		new_enemy = enemies[1] #heavy enemy
+		new_enemy = enemies[1].instantiate() #heavy enemy
 	new_enemy.position = spawn_pos
 	new_enemy.target = %Player
 	new_enemy.add_to_group("enemies")
 	new_enemy.die.connect(on_enemy_death)
 	#print("spawned enemy ", new_enemy.name, " at ", spawn_pos)
-	call_deferred("add_child", new_enemy)
+	get_parent().call_deferred("add_child", new_enemy)
 	pass # Replace with function body.
 
 func _on_mask_spawn_timer_timeout() -> void:
@@ -116,7 +117,7 @@ func spawn_masks():
 	pass
 	
 func on_enemy_death():
-	score += 1
+	score += 1 * score_modifier
 	ui.get_node("ScoreLabel").text = "Score: " + str(score)
 	
 func on_player_death():
