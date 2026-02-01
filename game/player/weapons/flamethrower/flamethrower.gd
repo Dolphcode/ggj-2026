@@ -26,7 +26,7 @@ func _process(delta):
 		var direction = -facing_obj.global_transform.basis.z
 		
 		# Set the direction of the flamethrower
-		new_instance.direction = Vector3(direction.x + randf()/2, direction.y + randf()/2, direction.z + randf()/2)
+		new_instance.direction = Vector3(direction.x + randf_range(-1, 1)/4, direction.y + randf_range(-1, 1)/4, direction.z + randf_range(-1, 1)/4)
 		new_instance.position = fire_point.global_position
 		
 		# Apply damage modifier to projectile

@@ -1164,15 +1164,12 @@ spot_angle = 73.155
 [node name="HUD" parent="Player" index="6" unique_id=1013997634]
 process_mode = 3
 
-[node name="UserInterface" parent="Player/HUD" index="0" unique_id=179065454]
+[node name="UserInterface" parent="Player/HUD" index="1" unique_id=179065454]
 offset_right = 0.0
 offset_bottom = 0.0
 
 [node name="TextureRect" parent="Player/HUD/PanelContainer/HBoxContainer/PanelContainer/VBoxContainer/Margins" parent_id_path=PackedInt32Array(1291810518, 1466631800) index="0" unique_id=1594427984]
 texture = SubResource("ViewportTexture_3ce54")
-
-[node name="TextureRect" parent="Player/HUD" index="2" unique_id=594226744]
-texture = null
 
 [node name="TextureRect2" type="TextureRect" parent="Player/HUD" index="3" unique_id=1554543919]
 anchors_preset = 8
@@ -1187,6 +1184,9 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_3ce54")
+
+[node name="TextureRect" parent="Player/HUD" index="4" unique_id=594226744]
+texture = null
 
 [node name="Shoot" parent="Player" index="14" unique_id=360649000]
 volume_db = -23.0
