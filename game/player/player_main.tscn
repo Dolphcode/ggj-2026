@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://cv2trrtx5ff2y" path="res://assets/shotgun unload (shooting).mp3" id="16_aye87"]
 [ext_resource type="AudioStream" uid="uid://u5w0cbkrnsgs" path="res://assets/footsteps3.0.mp3" id="17_s2aeh"]
 [ext_resource type="AudioStream" uid="uid://doxvwhq8mae73" path="res://assets/slide movement.mp3" id="18_agfdf"]
+[ext_resource type="AudioStream" uid="uid://dxprrrfu1ef2d" path="res://assets/damage-40114.mp3" id="19_agfdf"]
 [ext_resource type="AudioStream" uid="uid://dw3f11hqk2h3l" path="res://assets/jump.mp3" id="19_re72c"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_fbliu"]
@@ -273,6 +274,11 @@ bus = &"SFX"
 
 [node name="Slide" type="AudioStreamPlayer3D" parent="." unique_id=1847241051]
 stream = ExtResource("18_agfdf")
+bus = &"SFX"
+
+[node name="TakingDamage" type="AudioStreamPlayer3D" parent="." unique_id=1109734871]
+stream = ExtResource("19_agfdf")
+volume_db = -11.963
 bus = &"SFX"
 
 [node name="Jump" type="AudioStreamPlayer3D" parent="." unique_id=1712025578]
