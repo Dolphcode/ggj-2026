@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://dalcqrp2mwywh"
+path="res://.godot/imported/128vs256.map-a2c40489b75cf74a8c868ec5e7deb746.tres"
+
+[deps]
+
+source_file="res://Trenchbroom/Maps/128vs256.map"
+dest_files=["res://.godot/imported/128vs256.map-a2c40489b75cf74a8c868ec5e7deb746.tres"]
+
+[params]
+

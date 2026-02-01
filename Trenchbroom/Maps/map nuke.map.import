@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://c8om13g5efix7"
+path="res://.godot/imported/map nuke.map-76d13ff12c0a61ff53f8e0d0f51a2ed8.tres"
+
+[deps]
+
+source_file="res://Trenchbroom/Maps/map nuke.map"
+dest_files=["res://.godot/imported/map nuke.map-76d13ff12c0a61ff53f8e0d0f51a2ed8.tres"]
+
+[params]
+

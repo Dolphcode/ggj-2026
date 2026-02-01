@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://7540ix1mo8be"]
+
+[ext_resource type="Texture2D" uid="uid://creeqm4xjpjyf" path="res://Trenchbroom/Textures/Quake Palette/str_stonebrk4.bmp" id="1_2d5y5"]
+
+[resource]
+albedo_texture = ExtResource("1_2d5y5")
+metallic_specular = 0.0
+texture_filter = 2
