@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://b4rtnnyjivp1j"
+path="res://.godot/imported/384center.5.map-a8e348de740a4db605df79b53a1714fd.tres"
+
+[deps]
+
+source_file="res://Trenchbroom/Maps/autosave/384center.5.map"
+dest_files=["res://.godot/imported/384center.5.map-a8e348de740a4db605df79b53a1714fd.tres"]
+
+[params]
+

@@ -79,7 +79,6 @@ center = NodePath("../NavigationRegion3D/CenterRoom")
 
 [node name="EnemySpawnTimer" type="Timer" parent="." unique_id=1862076091]
 unique_name_in_owner = true
-autostart = true
 
 [node name="MaskSpawnTimer" type="Timer" parent="." unique_id=1338159385]
 unique_name_in_owner = true
