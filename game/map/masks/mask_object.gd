@@ -14,6 +14,8 @@ func _process(delta):
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	mask_pick_up.emit(type)
-	queue_free()
-	pass # Replace with function body.
+	if body is Player:
+		var mask_queue: MaskHandler = body.get_node("Mask/StateMachine")
+		if not mask_queue.is_queue_full():
+			mask_queue.mask_queue.append(type)
+			queue_free()

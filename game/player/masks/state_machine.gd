@@ -1,4 +1,5 @@
 extends Node
+class_name MaskHandler
 
 @export var initial_state : State
 
