@@ -14,11 +14,14 @@ class_name fire_mask
 #Called on equpping fire mask
 func Enter():
 	get_parent().mask_time = mask_time #short
-	#gun_type = 'flamethrower'
+	mask.player.get_node("Flamethrower").process_mode = PROCESS_MODE_INHERIT
+	mask.player.get_node('Shotgun').process_mode = PROCESS_MODE_DISABLED
 	mask.player.speed_modifier = speed_modifier #10% speed
 	mask.player.get_node("Neck/Camera3D").fov = new_fov
 #Called on fire mask timeout/new mask equipped
 func Exit():
+	mask.player.get_node("Flamethrower").process_mode = PROCESS_MODE_DISABLED
+	mask.player.get_node('Shotgun').process_mode = PROCESS_MODE_INHERIT
 	mask.player.speed_modifier = 1.0
 	mask.player.get_node("Neck/Camera3D").fov = 75.0
 	
