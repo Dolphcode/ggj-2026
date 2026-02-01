@@ -92,7 +92,6 @@ func spawn_masks():
 		new_mask = masks[count].instantiate()
 		new_mask.position = spawn.global_position
 		#print("spawned ", new_mask.type, " at ", spawn.get_parent().name)
-		new_mask.mask_pick_up.connect(mask_state._on_mask_pick_up)
 		call_deferred("add_child", new_mask)
 		count += 1
 	pass

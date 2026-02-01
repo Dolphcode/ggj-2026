@@ -6,7 +6,7 @@ class_name MaskHandler
 var current_state : State
 var mask_time : float
 var gun_type : String
-var mask_queue = ['radar_mask', 'rage_mask', 'radar_mask', 'ice_mask']
+var mask_queue = []
 #var mask_queue = []
 var states : Dictionary = {}
 
@@ -75,13 +75,5 @@ func mask_update(delta: float, mask):
 		on_child_transition(mask, 'no_mask')
 
 
-#class_name fire_mask
-
-func _on_mask_pick_up(mask):
-	get_parent().player.get_node("MaskPickup").play()
-	mask_queue.append(mask)
-	#print(mask_queue)
-	#print("added ", mask)
-
 func is_queue_full():
-	return mask_queue >= 3
+	return len(mask_queue) >= 3

@@ -1,7 +1,6 @@
 extends Node3D
 
 @export var type = "fire_mask"
-signal mask_pick_up(Node3D)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,7 +14,8 @@ func _process(delta):
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body is Player:
-		var mask_queue: MaskHandler = body.get_node("Mask/StateMachine")
+		var mask_queue: MaskHandler = body.get_node("Mask/State Machine")
 		if not mask_queue.is_queue_full():
+			body.get_node("MaskPickup").play()
 			mask_queue.mask_queue.append(type)
 			queue_free()
