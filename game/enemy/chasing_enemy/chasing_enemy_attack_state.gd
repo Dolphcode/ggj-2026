@@ -10,6 +10,7 @@ extends BaseEnemyState
 var attack_done: bool = false
 
 func enter() -> void:
+ 	get_parent().get_node("BirdSound").play()
 	anim_player.play("Attack")
 	attack_done = false
 
