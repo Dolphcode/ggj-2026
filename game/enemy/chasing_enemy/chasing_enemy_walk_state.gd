@@ -34,7 +34,6 @@ func physics_update(delta: float) -> void:
 	# Get the next position
 	var target_pos: Vector3 = controller.nav_agent.get_next_path_position()
 	var target_dir: Vector2 = Vector2(controller.position.z - target_pos.z, controller.position.x - target_pos.x)
-	print(name + " " + str(controller.target.position) + " " + str(target_pos))
 	controller.rotation.y = rotate_toward(controller.rotation.y, target_dir.angle(), controller.turn_speed * delta)
 	
 	# Convert to motion
