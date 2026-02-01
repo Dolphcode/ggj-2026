@@ -18,19 +18,24 @@ initial_state = NodePath("no_mask")
 
 [node name="fire_mask" type="Node" parent="State Machine" unique_id=139503172]
 script = ExtResource("2_qd5pu")
-DOT = 0.02
+DOT = 0.05
+mask_time = 5
 metadata/_custom_type_script = "uid://0fomi5vf51ff"
 
 [node name="ice_mask" type="Node" parent="State Machine" unique_id=926258323]
 script = ExtResource("3_ue75b")
+mask_time = 15
 metadata/_custom_type_script = "uid://dqoobj0v62hkr"
 
 [node name="rage_mask" type="Node" parent="State Machine" unique_id=993869043]
 script = ExtResource("4_6rdje")
+mask_time = 10
 metadata/_custom_type_script = "uid://bb0sbb65rlpcn"
 
 [node name="radar_mask" type="Node" parent="State Machine" unique_id=1156407100]
 script = ExtResource("5_fvi41")
+mask_time = 10
+healing = 0.2
 metadata/_custom_type_script = "uid://chastcpfddeia"
 
 [node name="schitzo_mask" type="Node" parent="State Machine" unique_id=1377305719]
