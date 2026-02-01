@@ -1224,7 +1224,7 @@ size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=1745352765]
-transform = Transform3D(0.63470924, -0.22211331, -0.7401417, 0, 0.9578012, -0.28743187, 0.77275085, 0.1824357, 0.60792524, -92.29407, 26.408508, 92.42693)
+transform = Transform3D(0.6347092, -0.22211331, -0.7401417, 0, 0.9578012, -0.28743187, 0.77275085, 0.1824357, 0.60792524, -92.29407, 26.408508, 92.42693)
 
 [node name="TrenchbroomMap" type="Node3D" parent="." unique_id=1880650537]
 
@@ -2273,16 +2273,15 @@ theme_override_fonts/font = ExtResource("13_f8tn8")
 theme_override_font_sizes/font_size = 30
 text = "Programming Done By:
 CrusaderDolphinus, riikyo, raxisgreat, jds472
-Artwork Done By:
+Artwork:
 CrusaderDolphinus, riikyo
-Audio Done By:
-rax you got allat
-Voice Acting Done By:
+Audio:
+SFX and Music From pixabay.com and quicksounds.com
+Voice Acting:
 jds472 - wizard
 CrusaderDolphinus - goat death
 raxisgreat - frog death
-riikyo - bird death
-(The Wizard's name is Jarmew)"
+riikyo - bird death"
 horizontal_alignment = 1
 
 [node name="BackButton" type="Button" parent="VBoxContainer" unique_id=1978899525]
