@@ -50,7 +50,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("slide"):
-		get_node("Slide").play()
+		get_node("AudioSlide").play()
 		speed_modifier = 0.0
 		velocity = (neck.transform.basis * Vector3.FORWARD).normalized() * SLIDE_BOOST
 		DECELERATION = DECELERATION_SLIDE
@@ -125,4 +125,5 @@ func _on_retry_button_button_up() -> void:
 
 
 func _on_menu_button_button_up() -> void:
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://game/menus/main_menu.tscn")

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dr0fvccifk4do"]
+
+[ext_resource type="Script" path="res://game/map_manager.gd" id="1_somw0"]
+[ext_resource type="PackedScene" path="res://game/masks/fire_mask.tscn" id="2_8eg3r"]
+[ext_resource type="PackedScene" path="res://game/masks/ice_mask.tscn" id="3_t5xmk"]
+[ext_resource type="PackedScene" path="res://game/masks/radar_mask.tscn" id="4_wj08o"]
+[ext_resource type="PackedScene" path="res://game/masks/rage_mask.tscn" id="5_oh6np"]
+[ext_resource type="PackedScene" path="res://game/enemy/chasing_enemy/light_enemy/light_enemy.tscn" id="6_c2p4q"]
+[ext_resource type="PackedScene" path="res://game/enemy/chasing_enemy/heavy_enemy/heavy_enemy.tscn" id="7_d6e30"]
+[ext_resource type="PackedScene" path="res://game/enemy/lunging_enemy/lunging_enemy.tscn" id="8_hvh2l"]
+
+[node name="MapManager" type="Node" unique_id=1265604319]
+unique_name_in_owner = true
+script = ExtResource("1_somw0")
+enemy_spawn_time = 0.5
+mask_spawn_time = 2.0
+fire_mask_obj = ExtResource("2_8eg3r")
+ice_mask_obj = ExtResource("3_t5xmk")
+radar_mask_obj = ExtResource("4_wj08o")
+rage_mask_obj = ExtResource("5_oh6np")
+light_enemy = ExtResource("6_c2p4q")
+heavy_enemy = ExtResource("7_d6e30")
+lunge_enemy = ExtResource("8_hvh2l")
+dash_enemy = ExtResource("8_hvh2l")
+flylunge_enemy = ExtResource("6_c2p4q")
+flysnipe_enemy = ExtResource("7_d6e30")

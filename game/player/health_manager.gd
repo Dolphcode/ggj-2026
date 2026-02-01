@@ -38,8 +38,9 @@ func _process(delta):
 func hit(damage: float) -> void:
 	if immunity_active_time >= 0.0:
 		return
-		
-	get_parent().get_node("TakingDamage").play()
+	
+	var damage_sounds = ["TakingDamage", "TakingDamage2", "TakingDamage3"]
+	get_parent().get_node(damage_sounds.pick_random()).play()
 		
 	current_health = clampf(current_health - damage, 0.0, max_health)
 	

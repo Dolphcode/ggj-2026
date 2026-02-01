@@ -16,6 +16,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_pressed("attack"):
+		if get_node("flame").playing == false:
+			get_node("flame").play()
 		# Create a projectile
 		var new_instance = projectile.instantiate()
 		new_instance.transform.origin = Vector3(get_parent().global_position.x + randf()/2, get_parent().global_position.y + randf()/2, get_parent().global_position.z + randf()/2)
@@ -35,6 +37,9 @@ func _process(delta):
 		
 		# Add to the scene
 		get_parent().get_parent().add_child(new_instance)
+	elif get_node("flame").playing == true:
+		get_node("flame").stop()
+		
 			
 #func _physics_process(delta):
 	#if get_tree().root.get_node('Node3D').has_node("Projectile"):
