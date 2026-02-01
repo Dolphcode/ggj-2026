@@ -82,11 +82,11 @@ func _on_enemy_spawn_timer_timeout() -> void:
 	var new_enemy: BaseEnemy
 	var chance = randi() % 100
 	if chance > 54:
-		new_enemy = enemies[0] #light enemy
+		new_enemy = enemies[0].instantiate() #light enemy
 	elif chance > 24:
-		new_enemy = enemies[2] #lunging enemy
+		new_enemy = enemies[2].instantiate() #lunging enemy
 	elif chance > -1:
-		new_enemy = enemies[1] #heavy enemy
+		new_enemy = enemies[1].instantiate() #heavy enemy
 	new_enemy.position = spawn_pos
 	new_enemy.target = %Player
 	new_enemy.add_to_group("enemies")

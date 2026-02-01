@@ -34,7 +34,7 @@ func _process(delta):
 	# Update healthbar
 	var relative_health: float = current_health / max_health
 	hud_slider.value = relative_health
-	hud_text.text = str(roundi(relative_health * 100)) + "%"
+	hud_text.text = str(roundi(clampf(relative_health * 100, 0, 100))) + "%"
 
 
 func hit(damage: float) -> void:
