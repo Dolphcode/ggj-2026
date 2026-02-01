@@ -1168,6 +1168,16 @@ process_mode = 3
 offset_right = 0.0
 offset_bottom = 0.0
 
+[node name="EndScreen" parent="Player/HUD/UserInterface" index="1" unique_id=1403583691]
+offset_right = 1151.0
+offset_bottom = 646.0
+
+[node name="VBoxContainer" parent="Player/HUD/UserInterface/EndScreen" index="0" unique_id=773284968]
+offset_left = -287.0
+offset_top = -160.5
+offset_right = 250.0
+offset_bottom = 124.5
+
 [node name="TextureRect" parent="Player/HUD/PanelContainer/HBoxContainer/PanelContainer/VBoxContainer/Margins" parent_id_path=PackedInt32Array(1291810518, 1466631800) index="0" unique_id=1594427984]
 texture = SubResource("ViewportTexture_3ce54")
 
