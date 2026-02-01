@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://blfefr0pvojq6"
+path="res://.godot/imported/mask pickup.mp3-5a18cb29028fb2499da7b5440c0beb30.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/mask pickup.mp3"
+dest_files=["res://.godot/imported/mask pickup.mp3-5a18cb29028fb2499da7b5440c0beb30.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
