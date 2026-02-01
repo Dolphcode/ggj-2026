@@ -1129,8 +1129,17 @@ unique_name_in_owner = true
 process_mode = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.623634, 7.3660254, 91.74871)
 
+[node name="HealthManager" parent="Player" index="6" unique_id=1142276691]
+max_health = null
+damage_modifier_min = null
+damage_modifier_max = null
+
 [node name="HUD" parent="Player" index="7" unique_id=1013997634]
 process_mode = 3
+
+[node name="UserInterface" parent="Player/HUD" index="1" unique_id=179065454]
+offset_right = 0.0
+offset_bottom = 0.0
 
 [node name="WorldMesh" type="NavigationRegion3D" parent="." unique_id=1019665203]
 navigation_mesh = SubResource("NavigationMesh_c1210")
@@ -2294,9 +2303,11 @@ autostart = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=8657324]
 environment = SubResource("Environment_v7erx")
 
+[connection signal="die" from="Player" to="Player/Mask/State Machine" method="_on_player_die"]
 [connection signal="die" from="Player" to="MapManager" method="on_player_death"]
 [connection signal="start" from="Player" to="MapManager" method="start_game"]
 [connection signal="timeout" from="EnemySpawnTimer" to="MapManager" method="_on_enemy_spawn_timer_timeout"]
 [connection signal="timeout" from="MaskSpawnTimer" to="MapManager" method="_on_mask_spawn_timer_timeout"]
 
 [editable path="Player"]
+[editable path="Player/Mask"]

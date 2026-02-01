@@ -28,7 +28,12 @@ text = "Instructions:
 WASD to move around, Space to jump
 Click to lock your mouse and fire, move mouse to look around once mouse is locked
 Q to activate the first mask in your queue (only when you have no masks active)
-Escape to unlock your mouse"
+Escape to unlock your mouse
+Mask Effects:
+Fire Mask - Slows you down, gives you a flamethrower, and shrinks your view
+Ice Mask: Makes you fast, gives you ice physics, increases field of view, and makes you slide
+Radar Mask: Gives you a top-down view and healing for yourself and enemies around you
+Rage Mask: Speeds you up and increases damage, and shakes your camera"
 horizontal_alignment = 1
 
 [node name="BackButton" type="Button" parent="VBoxContainer" unique_id=121087105]

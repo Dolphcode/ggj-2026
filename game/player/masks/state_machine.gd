@@ -89,3 +89,7 @@ func color_queue():
 
 func is_queue_full():
 	return len(mask_queue) >= 3
+
+
+func _on_player_die() -> void:
+	on_child_transition(current_state, "no_mask")
