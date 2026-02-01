@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://m114ang3hux"]
+
+[ext_resource type="PackedScene" uid="uid://d13f435cvlvrt" path="res://game/map/legacy/rooms/room_2_exit.tscn" id="1_3vqin"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_deg4s"]
+size = Vector3(10, 0.5, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5dqlc"]
+size = Vector3(10, 0.5, 10)
+
+[node name="Room2Exit" unique_id=728229828 instance=ExtResource("1_3vqin")]
+
+[node name="floor" parent="." index="0" unique_id=157937396]
+collision_layer = 17
+
+[node name="Platform" type="StaticBody3D" parent="." index="6" unique_id=749542728]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6397514, 2.7563949, -9.541464)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Platform" index="0" unique_id=813102670]
+mesh = SubResource("BoxMesh_deg4s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform" index="1" unique_id=888138370]
+shape = SubResource("BoxShape3D_5dqlc")
+
+[node name="Platform2" type="StaticBody3D" parent="." index="7" unique_id=1896143898]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.338284, 4.3473563, 2.8036213)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Platform2" index="0" unique_id=440406753]
+mesh = SubResource("BoxMesh_deg4s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform2" index="1" unique_id=417216713]
+shape = SubResource("BoxShape3D_5dqlc")
+
+[node name="Platform3" type="StaticBody3D" parent="." index="8" unique_id=1114753392]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.986326, 1.824791, 1.0347366)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Platform3" index="0" unique_id=940021966]
+mesh = SubResource("BoxMesh_deg4s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform3" index="1" unique_id=1477625559]
+shape = SubResource("BoxShape3D_5dqlc")
+
+[node name="Platform4" type="StaticBody3D" parent="." index="9" unique_id=1572671925]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4125686, 5.371714, 12.31702)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Platform4" index="0" unique_id=966897385]
+mesh = SubResource("BoxMesh_deg4s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform4" index="1" unique_id=1497449877]
+shape = SubResource("BoxShape3D_5dqlc")
+
+[node name="Platform5" type="StaticBody3D" parent="." index="10" unique_id=229300804]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.325117, 2.7563949, -18.074362)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Platform5" index="0" unique_id=402503300]
+mesh = SubResource("BoxMesh_deg4s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform5" index="1" unique_id=1170470420]
+shape = SubResource("BoxShape3D_5dqlc")
+
+[node name="SpawnPoint" type="Marker3D" parent="." index="11" unique_id=502738456 groups=["mask_spawns"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="ESpawn1" type="Marker3D" parent="." index="12" unique_id=1754475738 groups=["spawns"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.522458, 3, 13.499748)
+
+[node name="ESpawn2" type="Marker3D" parent="." index="13" unique_id=1859435036 groups=["spawns"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4626226, 3, 2.5679808)
+
+[node name="ESpawn3" type="Marker3D" parent="." index="14" unique_id=1506105408 groups=["spawns"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.239859, 3, -9.367201)
+
+[node name="ESpawn4" type="Marker3D" parent="." index="15" unique_id=1861176391 groups=["spawns"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 3, -18.374458)

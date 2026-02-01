@@ -8,6 +8,10 @@ class_name HealthManager
 @export_category("Health Config")
 @export var max_health: float = 100.0
 
+@export_category("Damage Modifier")
+@export var damage_modifier_min: float = 1.0
+@export var damage_modifier_max: float = 2.0
+
 # State
 var immunity_active_time: float = 0.0
 var current_health: float
@@ -31,17 +35,22 @@ func _process(delta):
 	hud.get_node("HSlider").value = relative_health
 
 
-func hit():
+func hit(damage: float) -> void:
 	if immunity_active_time >= 0.0:
 		return
+<<<<<<< HEAD
 	print("I was hit")
 	get_parent().get_node("TakingDamage").play()
 	current_health -= 10
+=======
+		
+	current_health = clampf(current_health - 10, 0.0, max_health)
+>>>>>>> da6e152272abbff7d20264cbaf376d52e7f5956e
 	immunity_active_time = immunity_time
 	if (current_health <= 0):
 		hud.get_node("HSlider").value = 0
 		get_node("..").die.emit()
 
 func _on_standing_hitbox_area_entered(area):
-	print("test")
-	hit()
+	if area is EnemyHurtbox:
+		hit(area.get_damage())

@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://ca84oxeao652q"]
+
+[ext_resource type="Shader" uid="uid://bvamd2u3tinip" path="res://assets/shaders/overlay_effect_shader.tres" id="1_5clos"]
+[ext_resource type="Texture2D" uid="uid://dp4iexgt0fj4q" path="res://assets/models/bird_enemy_bird.png" id="2_5clos"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_5clos")
+shader_parameter/is_healing = false
+shader_parameter/Skin = ExtResource("2_5clos")
+shader_parameter/is_frozen = false

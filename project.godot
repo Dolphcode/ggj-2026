@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GGJ 2026"
-run/main_scene="uid://drxhuruib0o4r"
+run/main_scene="uid://2wihxxfmyanb"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -78,7 +78,9 @@ slide={
 
 [layer_names]
 
+3d_physics/layer_2="Enemy"
 3d_physics/layer_3="Enemy Hitboxes"
+3d_physics/layer_4="Enemy Projectiles"
 
 [physics]
 
