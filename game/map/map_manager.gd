@@ -59,7 +59,6 @@ func _on_enemy_spawn_timer_timeout() -> void:
 	var current_room: Node3D = rooms.pick_random()
 	while (%Player.current_room == current_room):
 		current_room = rooms.pick_random()
-		print(current_room)
 	
 	var children_in_group = []
 	for node in get_tree().get_nodes_in_group("spawns"):

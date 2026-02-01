@@ -39,7 +39,6 @@ func _process(delta):
 			
 			# See if intersection
 			if not intersection.is_empty():
-				print(intersection.collider.name)
 				var hitbox: Node3D = intersection.collider
 				if hitbox is EnemyHitbox:
 					# Apply damage modifier to projectile

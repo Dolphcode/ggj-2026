@@ -38,7 +38,6 @@ func _process(delta):
 func hit(damage: float) -> void:
 	if immunity_active_time >= 0.0:
 		return
-	print("I was hit")
 		
 	current_health = clampf(current_health - 10, 0.0, max_health)
 	immunity_active_time = immunity_time
