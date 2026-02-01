@@ -112,6 +112,8 @@ func _physics_process(delta: float) -> void:
 	var result = space_state.intersect_ray(query)
 	if result:
 		current_room = result.collider.get_parent()
+		
+	global.debug.add_property("Current Room", current_room, 3)
 
 
 func _on_retry_button_button_up() -> void:

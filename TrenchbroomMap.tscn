@@ -1115,6 +1115,9 @@ points = PackedVector3Array(-30.625, 7, 13.375, -30.625, 0.5, 13.375, -31.125, 7
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_slfp4"]
 points = PackedVector3Array(0, 0.5, 44, 0, 0, 44, -44, 0.5, 44, -44, 0, 44, 0, 0.5, 0, 0, 0, 0, -44, 0.5, 0, -44, 0, 0)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_c1210"]
+size = Vector3(50, 1, 50)
+
 [node name="TrenchbroomMap" type="Node3D" unique_id=1578550726]
 
 [node name="Player" parent="." unique_id=1291810518 instance=ExtResource("11_gwitp")]
@@ -2134,5 +2137,62 @@ shape = SubResource("ConvexPolygonShape3D_ipwue")
 
 [node name="entity_0_brush_332_collision_shape" type="CollisionShape3D" parent="WorldMesh/FuncGodotMap/entity_0_worldspawn" unique_id=880178012]
 shape = SubResource("ConvexPolygonShape3D_slfp4")
+
+[node name="RoomSetups" type="Node3D" parent="." unique_id=409849461]
+
+[node name="FireRoom" type="Node3D" parent="RoomSetups" unique_id=1783530764]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -148.5, 1, 30)
+
+[node name="Floor" type="StaticBody3D" parent="RoomSetups/FireRoom" unique_id=946638948]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomSetups/FireRoom/Floor" unique_id=2130688055]
+shape = SubResource("BoxShape3D_c1210")
+debug_color = Color(0.1577988, 0.64503413, 0, 0.41960785)
+
+[node name="IceRoom" type="Node3D" parent="RoomSetups" unique_id=1095821798]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -148.5, 1, 150)
+
+[node name="Floor" type="StaticBody3D" parent="RoomSetups/IceRoom" unique_id=499014189]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomSetups/IceRoom/Floor" unique_id=437139155]
+shape = SubResource("BoxShape3D_c1210")
+debug_color = Color(0.1577988, 0.64503413, 0, 0.41960785)
+
+[node name="RageRoom" type="Node3D" parent="RoomSetups" unique_id=818219794]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.5, 1, 150)
+
+[node name="Floor" type="StaticBody3D" parent="RoomSetups/RageRoom" unique_id=405050123]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomSetups/RageRoom/Floor" unique_id=1608469374]
+shape = SubResource("BoxShape3D_c1210")
+debug_color = Color(0.1577988, 0.64503413, 0, 0.41960785)
+
+[node name="HealRoom" type="Node3D" parent="RoomSetups" unique_id=339906354]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.5, 1, 30)
+
+[node name="Floor" type="StaticBody3D" parent="RoomSetups/HealRoom" unique_id=1064781037]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomSetups/HealRoom/Floor" unique_id=962930794]
+shape = SubResource("BoxShape3D_c1210")
+debug_color = Color(0.1577988, 0.64503413, 0, 0.41960785)
+
+[node name="CenterRoom" type="Node3D" parent="RoomSetups" unique_id=1104983187]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 1, 90)
+
+[node name="Floor" type="StaticBody3D" parent="RoomSetups/CenterRoom" unique_id=1071904022]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomSetups/CenterRoom/Floor" unique_id=2126137081]
+shape = SubResource("BoxShape3D_c1210")
+debug_color = Color(0.1577988, 0.64503413, 0, 0.41960785)
 
 [editable path="Player"]
