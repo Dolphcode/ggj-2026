@@ -1,0 +1,27 @@
+// Game: GGJ2026
+// Format: Valve
+// entity 0
+{
+"mapversion" "220"
+"wad" ""
+"classname" "worldspawn"
+"_tb_mod" "Trenchbroom"
+// brush 0
+{
+( -128 -128 -16 ) ( -128 -127 -16 ) ( -128 -128 -15 ) "Quake Palette/str_metalgen4" [ 0 -1 0 176 ] [ 0 0 -1 -144 ] 180 1 1
+( -128 -128 -16 ) ( -128 -128 -15 ) ( -127 -128 -16 ) "Quake Palette/str_metalgen4" [ 1 0 0 -64 ] [ 0 0 -1 -144 ] 180 1 1
+( -128 -128 -16 ) ( -127 -128 -16 ) ( -128 -127 -16 ) "Quake Palette/str_metalgen4" [ -1 0 0 64 ] [ 0 -1 0 176 ] 180 1 1
+( 0 0 0 ) ( 0 1 0 ) ( 1 0 0 ) "Quake Palette/str_metalgen4" [ 1 0 0 -64 ] [ 0 -1 0 176 ] 180 1 1
+( 0 0 0 ) ( 1 0 0 ) ( 0 0 1 ) "Quake Palette/str_metalgen4" [ -1 0 0 64 ] [ 0 0 -1 -144 ] 180 1 1
+( 0 0 0 ) ( 0 0 1 ) ( 0 1 0 ) "Quake Palette/str_metalgen4" [ 0 1 0 -176 ] [ 0 0 -1 -144 ] 180 1 1
+}
+// brush 1
+{
+( -256 -416 -16 ) ( -256 -415 -16 ) ( -256 -416 -15 ) "Quake Palette/str_metalgen4" [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -256 -416 -16 ) ( -256 -416 -15 ) ( -255 -416 -16 ) "Quake Palette/str_metalgen4" [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -256 -416 -16 ) ( -255 -416 -16 ) ( -256 -415 -16 ) "Quake Palette/str_metalgen4" [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 0 -160 0 ) ( 0 -159 0 ) ( 1 -160 0 ) "Quake Palette/str_metalgen4" [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 0 -160 0 ) ( 1 -160 0 ) ( 0 -160 1 ) "Quake Palette/str_metalgen4" [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 0 -160 0 ) ( 0 -160 1 ) ( 0 -159 0 ) "Quake Palette/str_metalgen4" [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}
