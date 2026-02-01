@@ -71,12 +71,14 @@ func _spawn_impact_marker(position: Vector3, normal: Vector3, hitbox: EnemyHitbo
 	
 	if is_ice:
 		particles = ice_part.instantiate()
+		particles.process_material.direction = normal
 	elif hitbox.damage_modifier > 1.0:
 		particles = crit_blood.instantiate()
 	else:
 		particles = blood.instantiate()
+		particles.process_material.direction = normal
 	
-	particles.process_material.direction = normal
+	
 	particles.position = position
 	get_parent().get_parent().call_deferred("add_child", particles)
 	'''

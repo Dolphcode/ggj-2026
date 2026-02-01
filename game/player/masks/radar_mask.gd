@@ -35,6 +35,7 @@ func Update(delta: float):
 	get_parent().mask_update(delta, self)
 	mask.player.get_node("HealthManager").current_health += healing
 	cam.rotation_degrees = Vector3(0, 0, 0) 
+	radar_cam.rotation.z = cam.get_parent().rotation.y
 
 
 func Physics_Update(_delta:float):

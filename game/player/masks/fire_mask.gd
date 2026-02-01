@@ -6,6 +6,9 @@ class_name fire_mask
 # speed HEAVILY reduced
 # DOT (to you) [shorter time limit]
 
+@onready var double_barrel_model: Node3D = get_parent().get_parent().get_parent().get_node("Neck/Camera3D/doublebarrel")
+@onready var flamethrower_model: Node3D = get_parent().get_parent().get_parent().get_node("Neck/Camera3D/flamethrower")
+
 @onready var mask = get_parent().get_parent()
 @export var DOT = 0.1
 @export var new_fov = 45.0
@@ -17,6 +20,9 @@ var old_fov: float = 0.0
 
 #Called on equpping fire mask
 func Enter():
+	double_barrel_model.visible = false
+	flamethrower_model.visible = true
+	
 	get_parent().mask_time = mask_time #short
 	AudioManager.get_node("FireEquip").play()
 	mask.player.get_node("Flamethrower").process_mode = PROCESS_MODE_INHERIT
@@ -29,6 +35,9 @@ func Enter():
 
 #Called on fire mask timeout/new mask equipped
 func Exit():
+	double_barrel_model.visible = true
+	flamethrower_model.visible = false
+	
 	mask.player.get_node("Flamethrower").process_mode = PROCESS_MODE_DISABLED
 	mask.player.get_node("Flamethrower/burning").stop()
 	mask.player.get_node('Shotgun').process_mode = PROCESS_MODE_INHERIT

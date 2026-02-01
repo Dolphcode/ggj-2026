@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b23hvg2fibhxi"]
 
 [ext_resource type="PackedScene" uid="uid://bmycs00iuf1hr" path="res://game/map/masks/mask_object.tscn" id="1_1gvmx"]
+[ext_resource type="PackedScene" uid="uid://inojdag1kv3r" path="res://assets/models/masks/ice_mask.glb" id="2_85j24"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d2iaa"]
 albedo_color = Color(0, 0, 1, 1)
@@ -13,5 +14,9 @@ height = 2.0
 [node name="MaskObject" unique_id=1112021744 instance=ExtResource("1_1gvmx")]
 type = "ice_mask"
 
-[node name="MeshInstance3D" parent="." index="1" unique_id=947544457]
+[node name="ice_mask" parent="." index="1" unique_id=121202455 instance=ExtResource("2_85j24")]
+transform = Transform3D(0.2928892, 0.40523565, 0, -0.40523565, 0.2928892, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="MeshInstance3D" parent="." index="2" unique_id=947544457]
+visible = false
 mesh = SubResource("SphereMesh_h0vch")

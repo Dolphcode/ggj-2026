@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bs5fwg6p537j"]
 
 [ext_resource type="PackedScene" uid="uid://bmycs00iuf1hr" path="res://game/map/masks/mask_object.tscn" id="1_0lh7g"]
+[ext_resource type="PackedScene" uid="uid://dvd2eifcx5k05" path="res://assets/models/masks/fire_mask.glb" id="2_sfi51"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jci6b"]
 albedo_color = Color(1, 0, 0, 1)
@@ -13,4 +14,8 @@ height = 2.0
 [node name="MaskObject" unique_id=1112021744 instance=ExtResource("1_0lh7g")]
 
 [node name="MeshInstance3D" parent="." index="1" unique_id=947544457]
+visible = false
 mesh = SubResource("SphereMesh_u17es")
+
+[node name="fire_mask" parent="." index="2" unique_id=1614623374 instance=ExtResource("2_sfi51")]
+transform = Transform3D(0.2928892, 0.40523565, 0, -0.40523565, 0.2928892, 0, 0, 0, 0.5, 0, 0, 0)
