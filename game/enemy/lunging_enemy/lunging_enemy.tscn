@@ -5,12 +5,13 @@
 [ext_resource type="Script" uid="uid://sdbqpirlt7sc" path="res://game/enemy/lunging_enemy/lunging_enemy_prowl_state.gd" id="4_cm1ri"]
 [ext_resource type="Script" uid="uid://b7e2xk1lxqhd0" path="res://game/enemy/lunging_enemy/lunging_enemy_attack_state.gd" id="5_v7jqj"]
 [ext_resource type="Texture2D" uid="uid://wk0sb743uskr" path="res://assets/models/frog_enemy_FrogTexture.png" id="5_y3a02"]
+[ext_resource type="Script" uid="uid://ba3d66ym0uqm7" path="res://game/enemy/enemy_hitbox.gd" id="6_hsw54"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hsw54"]
 size = Vector3(1.35, 0.902, 1.833)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gsdq8"]
-size = Vector3(1, 1, 1.7265625)
+size = Vector3(1, 1.4716187, 2.2695313)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t1bjj"]
 resource_name = "Material.001"
@@ -411,6 +412,12 @@ _data = {
 &"Walk": SubResource("Animation_vx2yr")
 }
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_xfwsl"]
+radius = 0.32168517
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cm1ri"]
+radius = 0.4139036
+
 [node name="LungingEnemy" type="CharacterBody3D" unique_id=309565408 node_paths=PackedStringArray("starting_state")]
 axis_lock_angular_x = true
 axis_lock_angular_z = true
@@ -418,6 +425,7 @@ script = ExtResource("1_y3a02")
 base_speed = 500.0
 attack_range_sq = 400.0
 turn_speed = 3.0
+max_health = 10.0
 starting_state = NodePath("Walking")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=571733528]
@@ -427,10 +435,10 @@ shape = SubResource("BoxShape3D_hsw54")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1053282796]
 
 [node name="MeleeHurtbox" type="Area3D" parent="." unique_id=1349355844]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0960028)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43771797, 0.11788368)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeleeHurtbox" unique_id=1496426339]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.36328125)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18692017, -0.17773438)
 shape = SubResource("BoxShape3D_gsdq8")
 disabled = true
 
@@ -564,3 +572,29 @@ skeleton = NodePath("..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="frog_enemy" unique_id=915050345]
 libraries/ = SubResource("AnimationLibrary_846no")
+
+[node name="Hitboxes" type="Node3D" parent="." unique_id=1672741197]
+
+[node name="Head" type="Area3D" parent="Hitboxes" unique_id=1088552921 node_paths=PackedStringArray("controller")]
+transform = Transform3D(-0.59927505, -0.8005432, 0, 0.8005432, -0.59927505, 0, 0, 0, 1, 0, 0.78299284, 0)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("6_hsw54")
+controller = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Head" unique_id=1101677812]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.076319814, 0.11720908, -0.42534018)
+shape = SubResource("SphereShape3D_xfwsl")
+debug_color = Color(0.9431837, 1.155138e-05, 0.6050125, 0.41960785)
+
+[node name="Head2" type="Area3D" parent="Hitboxes" unique_id=221025957 node_paths=PackedStringArray("controller")]
+transform = Transform3D(-0.59927505, -0.8005432, 0, 0.8005432, -0.59927505, 0, 0, 0, 1, 0, 0.6289903, 0.5573425)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("6_hsw54")
+controller = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Head2" unique_id=1063981708]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18270853, 0.19685017, -0.21748137)
+shape = SubResource("SphereShape3D_cm1ri")
+debug_color = Color(0.9431837, 1.155138e-05, 0.6050125, 0.41960785)
