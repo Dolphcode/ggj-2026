@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b1e0v0qeay4rd" path="res://game/map/enemy/chasing_enemy/heavy_enemy/heavy_enemy.tscn" id="7_d6e30"]
 [ext_resource type="PackedScene" uid="uid://mysqranrbj22" path="res://game/map/enemy/lunging_enemy/lunging_enemy.tscn" id="8_hvh2l"]
 
-[node name="MapManager" type="Node" unique_id=1265604319 node_paths=PackedStringArray("top_left", "top_right", "bottom_left", "bottom_right", "center")]
+[node name="MapManager" type="Node" unique_id=1265604319]
 unique_name_in_owner = true
 script = ExtResource("1_somw0")
 enemy_spawn_time = 0.5
@@ -24,8 +24,3 @@ lunge_enemy = ExtResource("8_hvh2l")
 dash_enemy = ExtResource("8_hvh2l")
 flylunge_enemy = ExtResource("6_c2p4q")
 flysnipe_enemy = ExtResource("7_d6e30")
-top_left = NodePath("")
-top_right = NodePath("")
-bottom_left = NodePath("")
-bottom_right = NodePath("")
-center = NodePath("")

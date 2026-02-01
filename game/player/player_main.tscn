@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://beso6rnak84f6" path="res://game/player/masks/mask.tscn" id="2_swd4e"]
 [ext_resource type="Script" uid="uid://bvfh8twprbjeu" path="res://game/player/health_manager.gd" id="4_440e6"]
 [ext_resource type="Script" uid="uid://b4u284eg6beo0" path="res://singleton/debug.gd" id="5_emnvn"]
+[ext_resource type="AudioStream" uid="uid://fpfif27mcbwk" path="res://assets/flamethower.mp3" id="8_ib0wo"]
 [ext_resource type="Script" uid="uid://dh7iygl7pnosl" path="res://game/player/weapons/shotgun/shotgun.gd" id="10_w4oxq"]
 [ext_resource type="Script" uid="uid://bo33hort7o2en" path="res://game/player/weapons/flamethrower/flamethrower.gd" id="11_xc0o6"]
 [ext_resource type="AudioStream" uid="uid://cpa2o67uckn6j" path="res://assets/burning effect (on fire, fire mask).mp3" id="12_8suo6"]
@@ -13,10 +14,15 @@
 [ext_resource type="AudioStream" uid="uid://blfefr0pvojq6" path="res://assets/mask pickup.mp3" id="15_q6l8d"]
 [ext_resource type="AudioStream" uid="uid://dcowqmx22ewfw" path="res://assets/mask power down.mp3" id="16_6vp58"]
 [ext_resource type="AudioStream" uid="uid://cv2trrtx5ff2y" path="res://assets/shotgun unload (shooting).mp3" id="16_aye87"]
+[ext_resource type="AudioStream" uid="uid://d0di76iip2dql" path="res://assets/slide whoosh (v2).mp3" id="16_ib0wo"]
+[ext_resource type="AudioStream" uid="uid://cocvb6vw6h8rb" path="res://assets/jump whoosh (actual).mp3" id="16_s2aeh"]
+[ext_resource type="AudioStream" uid="uid://skjo2u0syfjg" path="res://assets/death player 3.mp3" id="17_agfdf"]
 [ext_resource type="AudioStream" uid="uid://u5w0cbkrnsgs" path="res://assets/footsteps3.0.mp3" id="17_s2aeh"]
-[ext_resource type="AudioStream" uid="uid://doxvwhq8mae73" path="res://assets/slide movement.mp3" id="18_agfdf"]
-[ext_resource type="AudioStream" uid="uid://dxprrrfu1ef2d" path="res://assets/damage-40114.mp3" id="19_agfdf"]
-[ext_resource type="AudioStream" uid="uid://dw3f11hqk2h3l" path="res://assets/jump.mp3" id="19_re72c"]
+[ext_resource type="AudioStream" uid="uid://dkjtnrvf3ddwc" path="res://assets/death player 2.mp3" id="18_re72c"]
+[ext_resource type="AudioStream" uid="uid://cam8ka11i81ii" path="res://assets/player death 1.mp3" id="19_8fwjf"]
+[ext_resource type="AudioStream" uid="uid://bbs1sv4y4hlpb" path="res://assets/player actual death 1.mp3" id="21_6nmbf"]
+[ext_resource type="AudioStream" uid="uid://baoenmpsq5you" path="res://assets/player actual death 2.mp3" id="22_r1j4a"]
+[ext_resource type="AudioStream" uid="uid://dsqh0qyjgr3y0" path="res://assets/player actual death 3.mp3" id="23_4c06t"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_fbliu"]
 
@@ -312,19 +318,19 @@ facing_obj = NodePath("../Neck/Camera3D")
 fire_point = NodePath("../Neck/Camera3D/MeshInstance3D/ShotgunFirePoint")
 health_manager = NodePath("../HealthManager")
 
-[node name="burning" type="AudioStreamPlayer3D" parent="Flamethrower" unique_id=1570720102]
+[node name="flame" type="AudioStreamPlayer" parent="Flamethrower" unique_id=1766813519]
+stream = ExtResource("8_ib0wo")
+volume_db = -8.0
+
+[node name="burning" type="AudioStreamPlayer" parent="Flamethrower" unique_id=1605865873]
 stream = ExtResource("12_8suo6")
-volume_db = -25.0
-bus = &"SFX"
-parameters/looping = true
+volume_db = -3.0
 
 [node name="HealingZone" parent="." unique_id=1579785082 instance=ExtResource("12_xc0o6")]
 
-[node name="healing" type="AudioStreamPlayer3D" parent="HealingZone" unique_id=1650781790]
+[node name="healing" type="AudioStreamPlayer" parent="HealingZone" unique_id=1443957784]
 stream = ExtResource("14_1lye5")
 volume_db = -25.0
-bus = &"SFX"
-parameters/looping = true
 
 [node name="HealingArea3D" type="Area3D" parent="HealingZone" unique_id=1581339521]
 collision_layer = 2
@@ -334,41 +340,49 @@ collision_mask = 0
 shape = SubResource("CylinderShape3D_s2aeh")
 debug_color = Color(0.21859553, 0.59728026, 1.92523e-07, 0.41960785)
 
-[node name="MaskPickup" type="AudioStreamPlayer3D" parent="." unique_id=779779859]
+[node name="MaskPickup" type="AudioStreamPlayer" parent="." unique_id=1543397859]
 stream = ExtResource("15_q6l8d")
-bus = &"SFX"
 
-[node name="MaskPowerDown" type="AudioStreamPlayer3D" parent="." unique_id=102408728]
+[node name="MaskPowerDown" type="AudioStreamPlayer" parent="." unique_id=1967953895]
 stream = ExtResource("16_6vp58")
-bus = &"SFX"
 
-[node name="Footsteps" type="AudioStreamPlayer3D" parent="." unique_id=1124615662]
-stream = ExtResource("17_s2aeh")
-volume_db = -30.0
-bus = &"SFX"
+[node name="AudioSlide" type="AudioStreamPlayer" parent="." unique_id=556898593]
+stream = ExtResource("16_ib0wo")
+volume_db = -20.0
 
-[node name="Slide" type="AudioStreamPlayer3D" parent="." unique_id=1847241051]
-stream = ExtResource("18_agfdf")
-bus = &"SFX"
-
-[node name="TakingDamage" type="AudioStreamPlayer3D" parent="." unique_id=1109734871]
-stream = ExtResource("19_agfdf")
-volume_db = -11.963
-bus = &"SFX"
-
-[node name="Jump" type="AudioStreamPlayer3D" parent="." unique_id=1712025578]
-stream = ExtResource("19_re72c")
-bus = &"SFX"
-
-[node name="Reload" type="AudioStreamPlayer3D" parent="." unique_id=800801730]
-stream = ExtResource("15_6vp58")
-volume_db = -5.0
-bus = &"SFX"
-
-[node name="Shoot" type="AudioStreamPlayer3D" parent="." unique_id=655068441]
+[node name="Shoot" type="AudioStreamPlayer" parent="." unique_id=360649000]
 stream = ExtResource("16_aye87")
-volume_db = -5.0
-bus = &"SFX"
+volume_db = -15.0
+
+[node name="Reload" type="AudioStreamPlayer" parent="." unique_id=882841368]
+stream = ExtResource("15_6vp58")
+volume_db = -15.0
+
+[node name="Jump" type="AudioStreamPlayer" parent="." unique_id=587248302]
+stream = ExtResource("16_s2aeh")
+volume_db = 5.0
+
+[node name="TakingDamage3" type="AudioStreamPlayer" parent="." unique_id=847440901]
+stream = ExtResource("17_agfdf")
+
+[node name="TakingDamage2" type="AudioStreamPlayer" parent="." unique_id=17990551]
+stream = ExtResource("18_re72c")
+
+[node name="TakingDamage" type="AudioStreamPlayer" parent="." unique_id=147377743]
+stream = ExtResource("19_8fwjf")
+
+[node name="Footsteps" type="AudioStreamPlayer" parent="." unique_id=753859103]
+stream = ExtResource("17_s2aeh")
+volume_db = -15.0
+
+[node name="PlayerDeath" type="AudioStreamPlayer" parent="." unique_id=1682541518]
+stream = ExtResource("21_6nmbf")
+
+[node name="PlayerDeath2" type="AudioStreamPlayer" parent="." unique_id=1662625032]
+stream = ExtResource("22_r1j4a")
+
+[node name="PlayerDeath3" type="AudioStreamPlayer" parent="." unique_id=2010832949]
+stream = ExtResource("23_4c06t")
 
 [connection signal="area_entered" from="HealthManager/StandingHitbox" to="HealthManager" method="_on_standing_hitbox_area_entered"]
 [connection signal="button_up" from="HUD/UserInterface/EndScreen/RetryButton" to="." method="_on_retry_button_button_up"]
