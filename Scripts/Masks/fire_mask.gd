@@ -7,21 +7,24 @@ class_name fire_mask
 # DOT (to you) [shorter time limit]
 
 @onready var mask = get_parent().get_parent()
-
+@export var DOT = 0.1
+@export var new_fov = 45.0
+@export var speed_modifier = 0.1
+@export var mask_time = 10
 #Called on equpping fire mask
 func Enter():
-	get_parent().mask_time = 10 #short
+	get_parent().mask_time = mask_time #short
 	#gun_type = 'flamethrower'
-	mask.player.speed_modifier = 0.1 #10% speed
-	mask.player.get_node("Neck/Camera3D").fov = 45.0
+	mask.player.speed_modifier = speed_modifier #10% speed
+	mask.player.get_node("Neck/Camera3D").fov = new_fov
 #Called on fire mask timeout/new mask equipped
 func Exit():
 	mask.player.speed_modifier = 1.0
 	mask.player.get_node("Neck/Camera3D").fov = 75.0
-	pass
 	
 func Update(delta: float):
 	get_parent().mask_update(delta, self)
+	mask.player.get_node("HealthManager").current_health -= DOT
 		
 func Physics_Update(_delta:float):
 	pass		

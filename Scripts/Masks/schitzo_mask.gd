@@ -4,9 +4,11 @@ class_name schitzo_mask
 
 
 #Called on equpping schitzo mask
+@export var mask_time = 30
+
+
 func Enter():
-	pass
-	#mask_time = 30 #long
+	get_parent().mask_time = mask_time #long
 	#gun_type = 'normal'
 	
 #Called on schitzo mask timeout/new mask equipped

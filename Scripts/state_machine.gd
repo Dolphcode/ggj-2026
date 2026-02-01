@@ -49,5 +49,11 @@ func mask_update(delta: float, mask):
 	else:
 		on_child_transition(mask, 'no_mask')
 
+
+#class_name fire_mask
+
 func on_mask_pickup(mask):
 	mask_queue.append(mask)
+
+func is_queue_full():
+	return mask_queue >= 3
