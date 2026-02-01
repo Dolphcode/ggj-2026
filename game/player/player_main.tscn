@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://fon3xsuljw03" path="res://game/player/sliding_player_state.gd" id="9_fhw4t"]
 [ext_resource type="Script" uid="uid://dh7iygl7pnosl" path="res://game/player/weapons/shotgun/shotgun.gd" id="10_w4oxq"]
 [ext_resource type="Script" uid="uid://bo33hort7o2en" path="res://game/player/flamethrower.gd" id="11_xc0o6"]
+[ext_resource type="PackedScene" uid="uid://bbjpg54y0atqm" path="res://healing_zone.tscn" id="12_xc0o6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_emnvn"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -146,9 +147,11 @@ script = ExtResource("10_w4oxq")
 player_cam = NodePath("../Neck/Camera3D")
 spread_factor = 20.0
 
-[node name="Flamethrower" type="Node3D" parent="." unique_id=584384676 node_paths=PackedStringArray("player_cam")]
+[node name="Flamethrower" type="Node3D" parent="." unique_id=584384676]
 process_mode = 4
 script = ExtResource("11_xc0o6")
-player_cam = NodePath("")
+
+[node name="HealingZone" parent="." unique_id=1579785082 instance=ExtResource("12_xc0o6")]
+process_mode = 4
 
 [connection signal="area_entered" from="HealthManager/StandingHitbox" to="HealthManager" method="_on_standing_hitbox_area_entered"]

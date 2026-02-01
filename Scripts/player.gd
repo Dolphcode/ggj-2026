@@ -23,7 +23,8 @@ var slide_transition: Tween = null
 
 @onready var slide_check = $SlideCheck
 
-func _ready(): 
+func _ready():
+	DECELERATION = DECELERATION_DEFAULT 
 	global.player = self
 
 func _unhandled_input(event: InputEvent) -> void:
