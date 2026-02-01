@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dhspjh6prttgh"]
 
 [ext_resource type="Script" uid="uid://b2ne1ojfnvepx" path="res://singleton/audio_manager.gd" id="1_m6ohh"]
-<<<<<<< HEAD
 [ext_resource type="AudioStream" uid="uid://ccvvsonb5ik7i" path="res://assets/Wizard Shotgun Background Music.mp3" id="1_xv1y8"]
 [ext_resource type="AudioStream" uid="uid://cj4w7whsrdptx" path="res://assets/goat death.mp3" id="3_tqu67"]
 [ext_resource type="AudioStream" uid="uid://bvud01dq5btmh" path="res://assets/frog death v2.mp3" id="4_ew2jo"]
@@ -16,21 +15,6 @@
 [ext_resource type="AudioStream" uid="uid://daskshyto2x7d" path="res://assets/button click.mp3" id="12_llhet"]
 [ext_resource type="AudioStream" uid="uid://d0di76iip2dql" path="res://assets/slide whoosh (v2).mp3" id="14_ew2jo"]
 [ext_resource type="AudioStream" uid="uid://bfqpc5h1qocu" path="res://assets/joey narrator story.mp3" id="15_3q4xm"]
-=======
-[ext_resource type="AudioStream" uid="uid://ccvvsonb5ik7i" path="res://assets/audio/Wizard Shotgun Background Music.mp3" id="1_xv1y8"]
-[ext_resource type="AudioStream" uid="uid://cj4w7whsrdptx" path="res://assets/audio/goat death.mp3" id="3_tqu67"]
-[ext_resource type="AudioStream" uid="uid://bvud01dq5btmh" path="res://assets/audio/frog death v2.mp3" id="4_ew2jo"]
-[ext_resource type="AudioStream" uid="uid://bbs1sv4y4hlpb" path="res://assets/audio/player actual death 1.mp3" id="5_62yln"]
-[ext_resource type="AudioStream" uid="uid://cynpsf6ap4e72" path="res://assets/audio/crow death.mp3" id="5_obhnc"]
-[ext_resource type="AudioStream" uid="uid://baoenmpsq5you" path="res://assets/audio/player actual death 2.mp3" id="6_wshm8"]
-[ext_resource type="AudioStream" uid="uid://dsqh0qyjgr3y0" path="res://assets/audio/player actual death 3.mp3" id="7_r6ysb"]
-[ext_resource type="AudioStream" uid="uid://bsqexxr7euipu" path="res://assets/audio/radar mask.mp3" id="8_wshm8"]
-[ext_resource type="AudioStream" uid="uid://4666mas3gd0w" path="res://assets/audio/fire mask.mp3" id="9_r6ysb"]
-[ext_resource type="AudioStream" uid="uid://bql0hxo2qjdk3" path="res://assets/audio/ice mask.mp3" id="10_habyq"]
-[ext_resource type="AudioStream" uid="uid://bgpefhjp4s6jd" path="res://assets/audio/rage mask.mp3" id="11_w82uh"]
-[ext_resource type="AudioStream" uid="uid://daskshyto2x7d" path="res://assets/audio/button click.mp3" id="12_llhet"]
-[ext_resource type="AudioStream" uid="uid://d0di76iip2dql" path="res://assets/audio/slide whoosh (v2).mp3" id="14_ew2jo"]
->>>>>>> textures
 
 [node name="AudioManager" type="Node" unique_id=267221631]
 script = ExtResource("1_m6ohh")
