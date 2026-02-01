@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://bhn2c52hsqllt" path="res://game/enemy/chasing_enemy/light_enemy/light_enemy.tscn" id="8_bxo5i"]
 [ext_resource type="PackedScene" uid="uid://bs5fwg6p537j" path="res://game/masks/fire_mask.tscn" id="8_qa0dq"]
 [ext_resource type="PackedScene" uid="uid://dvbdmcuj60ayg" path="res://game/player/player_main.tscn" id="8_ucqwh"]
-[ext_resource type="PackedScene" uid="uid://b1e0v0qeay4rd" path="res://game/enemy/chasing_enemy/heavy_enemy/heavy_enemy.tscn" id="9_ii8xf"]
 [ext_resource type="PackedScene" uid="uid://b23hvg2fibhxi" path="res://game/masks/ice_mask.tscn" id="9_rbqst"]
 [ext_resource type="PackedScene" uid="uid://bue1fxbrt68ny" path="res://game/masks/radar_mask.tscn" id="10_7e63m"]
 [ext_resource type="PackedScene" uid="uid://mysqranrbj22" path="res://game/enemy/lunging_enemy/lunging_enemy.tscn" id="10_qpf7e"]
@@ -75,11 +74,11 @@ ice_mask_obj = ExtResource("9_rbqst")
 radar_mask_obj = ExtResource("10_7e63m")
 rage_mask_obj = ExtResource("11_3ttva")
 light_enemy = ExtResource("8_bxo5i")
-heavy_enemy = ExtResource("9_ii8xf")
+heavy_enemy = ExtResource("8_bxo5i")
 lunge_enemy = ExtResource("10_qpf7e")
 dash_enemy = ExtResource("10_qpf7e")
 flylunge_enemy = ExtResource("8_bxo5i")
-flysnipe_enemy = ExtResource("9_ii8xf")
+flysnipe_enemy = ExtResource("8_bxo5i")
 top_left = NodePath("../NavigationRegion3D/RageRoom")
 top_right = NodePath("../NavigationRegion3D/FireRoom")
 bottom_left = NodePath("../NavigationRegion3D/HealRoom")
