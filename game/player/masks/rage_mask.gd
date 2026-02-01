@@ -20,6 +20,7 @@ class_name rage_mask
 func Enter():
 	get_parent().mask_time = mask_time #medium
 	AudioManager.get_node("RageEquip").play()
+	AudioManager.get_node("Music").pitch_scale = 2.0
 	mask.player.speed_modifier = speed_multiplier #currently increases speed [may remove this]
 	mask.player.get_node("Shotgun").damage *= damage_multiplier
 	#	change camera fov and color
@@ -31,6 +32,7 @@ func Enter():
 #Called on rage mask timeout/new mask equipped
 func Exit():
 	mask.player.speed_modifier = 1.0
+	AudioManager.get_node("Music").pitch_scale = 1.0
 	mask.player.get_node("Shotgun").damage /= damage_multiplier
 	cam.fov = 75.0
 	
