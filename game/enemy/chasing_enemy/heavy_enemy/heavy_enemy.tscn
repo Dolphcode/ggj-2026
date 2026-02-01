@@ -1018,6 +1018,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7121964, 0)
 shape = SubResource("CapsuleShape3D_wj2oh")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1553337608]
+debug_enabled = true
 
 [node name="LightEnemyWalkState" type="Node" parent="." unique_id=1559462095 node_paths=PackedStringArray("exit_state", "anim_player")]
 script = ExtResource("3_y5uiq")
