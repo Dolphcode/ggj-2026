@@ -8,12 +8,17 @@ extends Node3D
 @export var amount: int = 5
 @export var damage: float = 2.0
 @export var is_ice: bool = false
+@export var reload_cd: float = 0.4
 
 @export_category("Fire Point Config")
 @export var facing_obj : Node3D
 @export var fire_point: Node3D
 
 @onready var health_manager: HealthManager = get_parent().get_node("HealthManager")
+@onready var shoot_sfx: AudioStreamPlayer3D = get_parent().get_node("Shoot")
+@onready var reload_sfx: AudioStreamPlayer3D = get_parent().get_node("Reload")
+
+var reload_time: float = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,32 +27,40 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("attack"):
-		var ray_origin = fire_point.global_position
-		var shot_dir = -facing_obj.global_transform.basis.z
-		for i in range(amount):
-			# Rotate the direction
-			var rotated_shot_dir = shot_dir.rotated(Vector3.UP, randf() * deg_to_rad(spread_factor))
+	if reload_time <= 0.0:
+		if Input.is_action_just_pressed("attack"):
+			reload_time = reload_cd
+			shoot_sfx.play()
 			
-			# Compute the ray end
-			var ray_end = ray_origin + rotated_shot_dir * ray_range
-			
-			# Raycast
-			var new_intersection = PhysicsRayQueryParameters3D.create(ray_origin, ray_end, 4)
-			new_intersection.collide_with_areas = true
-			var intersection = get_world_3d().direct_space_state.intersect_ray(new_intersection)
-			
-			# See if intersection
-			if not intersection.is_empty():
-				var hitbox: Node3D = intersection.collider
-				if hitbox is EnemyHitbox:
-					# Apply damage modifier to projectile
-					var modifier = lerp(health_manager.damage_modifier_min, 
-					health_manager.damage_modifier_max, 
-					1.0 - health_manager.current_health / health_manager.max_health)	
-					
-					_spawn_impact_marker(intersection.position, hitbox)
-					hitbox.damage(damage * modifier, false, is_ice)
+			var ray_origin = fire_point.global_position
+			var shot_dir = -facing_obj.global_transform.basis.z
+			for i in range(amount):
+				# Rotate the direction
+				var rotated_shot_dir = shot_dir.rotated(Vector3.UP, randf() * deg_to_rad(spread_factor))
+				
+				# Compute the ray end
+				var ray_end = ray_origin + rotated_shot_dir * ray_range
+				
+				# Raycast
+				var new_intersection = PhysicsRayQueryParameters3D.create(ray_origin, ray_end, 4)
+				new_intersection.collide_with_areas = true
+				var intersection = get_world_3d().direct_space_state.intersect_ray(new_intersection)
+				
+				# See if intersection
+				if not intersection.is_empty():
+					var hitbox: Node3D = intersection.collider
+					if hitbox is EnemyHitbox:
+						# Apply damage modifier to projectile
+						var modifier = lerp(health_manager.damage_modifier_min, 
+						health_manager.damage_modifier_max, 
+						1.0 - health_manager.current_health / health_manager.max_health)	
+						
+						_spawn_impact_marker(intersection.position, hitbox)
+						hitbox.damage(damage * modifier, false, is_ice)
+	else:
+		reload_time -= delta
+		if reload_time <= 0.0:
+			reload_sfx.play()
 
 
 func _spawn_impact_marker(position: Vector3, new_parent: Node3D) -> void:

@@ -20,4 +20,7 @@ shape = SubResource("SphereShape3D_akgne")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1172718419]
 mesh = SubResource("SphereMesh_akgne")
 
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=426701584]
+visible = false
+
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
