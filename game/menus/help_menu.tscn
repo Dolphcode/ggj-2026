@@ -1224,7 +1224,7 @@ size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=1340686474]
-transform = Transform3D(0.63470924, -0.22211331, -0.7401417, 0, 0.9578012, -0.28743187, 0.7727509, 0.1824357, 0.60792524, -92.29407, 26.408508, 92.42693)
+transform = Transform3D(0.63470924, -0.22211331, -0.7401417, 0, 0.9578012, -0.28743187, 0.77275085, 0.1824357, 0.60792524, -92.29407, 26.408508, 92.42693)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1918674924]
 layout_mode = 1
@@ -1243,15 +1243,15 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_6t0li")
 theme_override_font_sizes/font_size = 30
 text = "Instructions:
-WASD to move around, Space to jump
+WASD to move around, Space to jump, Shift to slide
 Click to lock your mouse and fire, move mouse to look around once mouse is locked
 Q to activate the first mask in your queue (only when you have no masks active)
-Escape to unlock your mouse
+P to pause, Escape to unlock your mouse
 Mask Effects:
-Fire Mask - Slows you down, gives you a flamethrower, and shrinks your view
-Ice Mask: Makes you fast, gives you ice physics, increases field of view, and makes you slide
+Fire Mask - Slows you down, gives you a flamethrower, shrinks your view, and damages you
+Ice Mask: Makes you fast, increases field of view, makes you slide, and freezes enemies
 Radar Mask: Gives you a top-down view and healing for yourself and enemies around you
-Rage Mask: Speeds you up and increases damage, and shakes your camera"
+Rage Mask: Speeds you up, increases damage, quicker reload, and annihilates your camera"
 horizontal_alignment = 1
 
 [node name="BackButton" type="Button" parent="VBoxContainer" unique_id=121087105]
