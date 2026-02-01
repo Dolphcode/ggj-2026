@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://d10fnbsrsupkk"]
+
+[ext_resource type="Shader" uid="uid://bvamd2u3tinip" path="res://assets/shaders/overlay_effect_shader.tres" id="1_upqvg"]
+[ext_resource type="Texture2D" uid="uid://pxerfji2a7g5" path="res://assets/models/librasaurus_spinosaurus.png" id="2_upqvg"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_upqvg")
+shader_parameter/is_healing = false
+shader_parameter/Skin = ExtResource("2_upqvg")
+shader_parameter/is_frozen = false

@@ -8,7 +8,7 @@ class_name EnemyHitbox
 
 func damage(amount: float, is_fire: bool, is_ice: bool) -> void:
 	if not is_fire:
-		controller.damage(amount * damage_modifier)
+		controller.damage(amount * damage_modifier, is_ice)
 	else:
-		controller.damage(amount * fire_modifier)
+		controller.damage(amount * fire_modifier, false)
 	

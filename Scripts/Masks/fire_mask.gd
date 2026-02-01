@@ -24,6 +24,8 @@ func Enter():
 	mask.player.speed_modifier = speed_multiplier #10% speed
 	old_fov = mask.player.get_node("Neck/Camera3D").fov
 	mask.player.get_node("Neck/Camera3D").fov = new_fov
+
+
 #Called on fire mask timeout/new mask equipped
 func Exit():
 	mask.player.get_node("Flamethrower").process_mode = PROCESS_MODE_DISABLED
@@ -31,10 +33,12 @@ func Exit():
 	mask.player.get_node('Shotgun').process_mode = PROCESS_MODE_INHERIT
 	mask.player.speed_modifier = 1.0
 	mask.player.get_node("Neck/Camera3D").fov = old_fov
-	
+
+
 func Update(delta: float):
 	get_parent().mask_update(delta, self)
 	mask.player.get_node("HealthManager").current_health -= DOT
-		
+
+
 func Physics_Update(_delta:float):
 	pass		

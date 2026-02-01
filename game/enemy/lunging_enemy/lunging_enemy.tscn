@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://d4im4mhpdvwon" path="res://game/enemy/lunging_enemy/lunging_enemy_walk_state.gd" id="3_xfwsl"]
 [ext_resource type="Script" uid="uid://sdbqpirlt7sc" path="res://game/enemy/lunging_enemy/lunging_enemy_prowl_state.gd" id="4_cm1ri"]
 [ext_resource type="Script" uid="uid://b7e2xk1lxqhd0" path="res://game/enemy/lunging_enemy/lunging_enemy_attack_state.gd" id="5_v7jqj"]
+[ext_resource type="Material" uid="uid://dw5y76xsfepl4" path="res://assets/shaders/frog_overlay.tres" id="5_xfwsl"]
 [ext_resource type="Texture2D" uid="uid://wk0sb743uskr" path="res://assets/models/frog_enemy_FrogTexture.png" id="5_y3a02"]
 [ext_resource type="Script" uid="uid://ba3d66ym0uqm7" path="res://game/enemy/enemy_hitbox.gd" id="6_hsw54"]
 
@@ -418,7 +419,7 @@ radius = 0.32168517
 [sub_resource type="SphereShape3D" id="SphereShape3D_cm1ri"]
 radius = 0.4139036
 
-[node name="LungingEnemy" type="CharacterBody3D" unique_id=309565408 node_paths=PackedStringArray("starting_state")]
+[node name="LungingEnemy" type="CharacterBody3D" unique_id=309565408 node_paths=PackedStringArray("starting_state", "mesh", "anim_player")]
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 script = ExtResource("1_y3a02")
@@ -427,6 +428,8 @@ attack_range_sq = 400.0
 turn_speed = 3.0
 max_health = 10.0
 starting_state = NodePath("Walking")
+mesh = NodePath("frog_enemy/Body/Skeleton3D/Cube")
+anim_player = NodePath("frog_enemy/AnimationPlayer")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=571733528]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46096802, 0.021972656)
@@ -566,6 +569,7 @@ bones/13/rotation = Quaternion(0.5330068, 6.341389e-08, 0.7902357, 0.3023761)
 bones/13/scale = Vector3(0.9999998, 0.99999994, 1)
 
 [node name="Cube" type="MeshInstance3D" parent="frog_enemy/Body/Skeleton3D" unique_id=1368640142]
+material_override = ExtResource("5_xfwsl")
 mesh = SubResource("ArrayMesh_byljm")
 skin = SubResource("Skin_j6moq")
 skeleton = NodePath("..")

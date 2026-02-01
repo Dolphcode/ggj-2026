@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://bm2pqsldojg01" path="res://game/enemy/chasing_enemy/chasing_enemy_attack_state.gd" id="4_8c2jf"]
 [ext_resource type="Texture2D" uid="uid://dp4iexgt0fj4q" path="res://assets/models/bird_enemy_bird.png" id="5_bqmi1"]
 [ext_resource type="Script" uid="uid://bek8u6neeuy4l" path="res://game/enemy/chasing_enemy/chasing_enemy_prowl_state.gd" id="5_dp154"]
+[ext_resource type="Material" uid="uid://ca84oxeao652q" path="res://assets/shaders/bird_overlay.tres" id="5_ebysx"]
 [ext_resource type="Script" uid="uid://ba3d66ym0uqm7" path="res://game/enemy/enemy_hitbox.gd" id="6_2gn6t"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ei4jv"]
@@ -1089,7 +1090,7 @@ height = 2.1137695
 [sub_resource type="SphereShape3D" id="SphereShape3D_n8vh6"]
 radius = 0.30313557
 
-[node name="LightEnemy" type="CharacterBody3D" unique_id=1151919179 node_paths=PackedStringArray("starting_state")]
+[node name="LightEnemy" type="CharacterBody3D" unique_id=1151919179 node_paths=PackedStringArray("starting_state", "mesh", "anim_player")]
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 script = ExtResource("1_553o2")
@@ -1098,6 +1099,8 @@ attack_range_sq = 4.0
 turn_speed = 3.0
 max_health = 15.0
 starting_state = NodePath("LightEnemyWalkState")
+mesh = NodePath("bird_enemy/Armature/Skeleton3D/Cube")
+anim_player = NodePath("bird_enemy/AnimationPlayer")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=808385287]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2933837, 0.044719696)
@@ -1252,6 +1255,7 @@ bones/15/rotation = Quaternion(-0.0780565, -0.0057440037, 0.029406799, 0.9964986
 bones/15/scale = Vector3(1.0000001, 0.99999994, 0.99999994)
 
 [node name="Cube" type="MeshInstance3D" parent="bird_enemy/Armature/Skeleton3D" unique_id=882650946]
+material_override = ExtResource("5_ebysx")
 mesh = SubResource("ArrayMesh_bqkiq")
 skin = SubResource("Skin_ie8gi")
 skeleton = NodePath("..")

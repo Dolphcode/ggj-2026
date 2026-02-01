@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://boeclsab002kg" path="res://game/enemy/chasing_enemy/chasing_enemy_walk_state.gd" id="3_y5uiq"]
 [ext_resource type="Script" uid="uid://bm2pqsldojg01" path="res://game/enemy/chasing_enemy/chasing_enemy_attack_state.gd" id="4_pj7bv"]
 [ext_resource type="Script" uid="uid://bek8u6neeuy4l" path="res://game/enemy/chasing_enemy/chasing_enemy_prowl_state.gd" id="5_fes66"]
+[ext_resource type="Material" uid="uid://d10fnbsrsupkk" path="res://assets/shaders/libra_overlay.tres" id="6_egcso"]
 [ext_resource type="Script" uid="uid://ba3d66ym0uqm7" path="res://game/enemy/enemy_hitbox.gd" id="6_npjtq"]
 [ext_resource type="Texture2D" uid="uid://pxerfji2a7g5" path="res://assets/models/librasaurus_spinosaurus.png" id="6_ximuc"]
 
@@ -1003,7 +1004,7 @@ _data = {
 &"Walk": SubResource("Animation_npjtq")
 }
 
-[node name="HeavyEnemy" type="CharacterBody3D" unique_id=582232653 node_paths=PackedStringArray("starting_state")]
+[node name="HeavyEnemy" type="CharacterBody3D" unique_id=582232653 node_paths=PackedStringArray("starting_state", "mesh", "anim_player")]
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 script = ExtResource("1_w1sw4")
@@ -1012,6 +1013,8 @@ attack_range_sq = 4.0
 turn_speed = 3.0
 global_cd = 1.2
 starting_state = NodePath("LightEnemyWalkState")
+mesh = NodePath("librasaurus/Armature/Skeleton3D/Cube")
+anim_player = NodePath("librasaurus/AnimationPlayer")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1036316549]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7121964, 0)
@@ -1224,6 +1227,7 @@ bones/19/rotation = Quaternion(0.23668009, -3.3437715e-24, -5.255356e-17, 0.9715
 bones/19/scale = Vector3(1, 1.0000001, 1.0000001)
 
 [node name="Cube" type="MeshInstance3D" parent="librasaurus/Armature/Skeleton3D" unique_id=1625081206]
+material_override = ExtResource("6_egcso")
 mesh = SubResource("ArrayMesh_msnjc")
 skin = SubResource("Skin_07jkb")
 skeleton = NodePath("..")

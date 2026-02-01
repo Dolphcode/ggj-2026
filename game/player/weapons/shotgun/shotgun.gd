@@ -7,6 +7,7 @@ extends Node3D
 @export var spread_factor: float = 5.0
 @export var amount: int = 5
 @export var damage: float = 2.0
+@export var is_ice: bool = false
 
 @export_category("Fire Point Config")
 @export var facing_obj : Node3D
@@ -47,7 +48,7 @@ func _process(delta):
 					1.0 - health_manager.current_health / health_manager.max_health)	
 					
 					_spawn_impact_marker(intersection.position, hitbox)
-					hitbox.damage(damage * modifier, false, false)
+					hitbox.damage(damage * modifier, false, is_ice)
 
 
 func _spawn_impact_marker(position: Vector3, new_parent: Node3D) -> void:
