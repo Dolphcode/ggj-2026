@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://d11ruf3mm71bb"]
 
 [ext_resource type="Script" uid="uid://cr051ci37t0s4" path="res://game/menus/main_menu.gd" id="1_db0cf"]
+[ext_resource type="FontFile" uid="uid://br8dwv1sp4vju" path="res://assets/fonts/OldEnglishGothicPixelRegular-ow2Bo.ttf" id="2_tfb2k"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_owjf0"]
 line_spacing = 0.0
-font_size = 80
+font = ExtResource("2_tfb2k")
+font_size = 100
+outline_size = 25
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Main Menu" type="Control" unique_id=2131031040]
 layout_mode = 3
@@ -15,45 +19,51 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_db0cf")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1559133200]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1933387379]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 643.0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
 
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=831314567]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1559133200]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=831314567]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 size_flags_vertical = 3
-text = "The Wizard with a DOUBLE BARREL SHOTGUN"
+text = "The Wizard with a Double Barrel Shotgun"
 label_settings = SubResource("LabelSettings_owjf0")
 horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=566722364]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=566722364]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 15
+alignment = 1
 
-[node name="HelpButton" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=1305092888]
-layout_mode = 2
-text = "How To Play"
-
-[node name="StartButton" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=211836490]
+[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=211836490]
 layout_mode = 2
 text = "Start"
 
-[node name="StoryButton" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=2020888359]
+[node name="StoryButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=2020888359]
 layout_mode = 2
 text = "Story"
 
-[node name="CreditsButton" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=1270285635]
+[node name="HelpButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1305092888]
+layout_mode = 2
+text = "How To Play"
+
+[node name="CreditsButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1270285635]
 layout_mode = 2
 text = "Credits"
 
-[connection signal="button_up" from="VBoxContainer/VBoxContainer/HelpButton" to="." method="_on_help_button_button_up"]
-[connection signal="button_up" from="VBoxContainer/VBoxContainer/StartButton" to="." method="_on_start_button_button_up"]
-[connection signal="button_up" from="VBoxContainer/VBoxContainer/StoryButton" to="." method="_on_story_button_button_up"]
-[connection signal="button_up" from="VBoxContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_button_up"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/VBoxContainer/StartButton" to="." method="_on_start_button_button_up"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/VBoxContainer/StoryButton" to="." method="_on_story_button_button_up"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/VBoxContainer/HelpButton" to="." method="_on_help_button_button_up"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_button_up"]
