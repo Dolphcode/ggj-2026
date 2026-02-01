@@ -209,10 +209,12 @@ script = ExtResource("9_fhw4t")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1680644644]
 
-[node name="Shotgun" type="Node3D" parent="." unique_id=1309335887 node_paths=PackedStringArray("player_cam")]
+[node name="Shotgun" type="Node3D" parent="." unique_id=1309335887 node_paths=PackedStringArray("player_cam", "facing_obj", "fire_point")]
 script = ExtResource("10_w4oxq")
 player_cam = NodePath("../Neck/Camera3D")
 spread_factor = 20.0
+facing_obj = NodePath("../Neck/Camera3D")
+fire_point = NodePath("../Neck/Camera3D/MeshInstance3D/ShotgunFirePoint")
 
 [node name="Flamethrower" type="Node3D" parent="." unique_id=584384676 node_paths=PackedStringArray("facing_obj", "fire_point", "health_manager")]
 process_mode = 4
