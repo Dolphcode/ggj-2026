@@ -35,7 +35,7 @@ func hit():
 	if immunity_active_time >= 0.0:
 		return
 	print("I was hit")
-		
+	get_parent().get_node("TakingDamage").play()
 	current_health -= 10
 	immunity_active_time = immunity_time
 	if (current_health <= 0):

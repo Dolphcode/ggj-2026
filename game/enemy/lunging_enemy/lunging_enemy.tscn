@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://b7e2xk1lxqhd0" path="res://game/enemy/lunging_enemy/lunging_enemy_attack_state.gd" id="5_v7jqj"]
 [ext_resource type="Texture2D" uid="uid://wk0sb743uskr" path="res://assets/models/frog_enemy_FrogTexture.png" id="5_y3a02"]
 [ext_resource type="Script" uid="uid://ba3d66ym0uqm7" path="res://game/enemy/enemy_hitbox.gd" id="6_hsw54"]
+[ext_resource type="AudioStream" uid="uid://dcd3maemr17fy" path="res://assets/frog ribbit.mp3" id="7_xfwsl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hsw54"]
 size = Vector3(1.35, 0.902, 1.833)
@@ -598,3 +599,6 @@ controller = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18270853, 0.19685017, -0.21748137)
 shape = SubResource("SphereShape3D_cm1ri")
 debug_color = Color(0.9431837, 1.155138e-05, 0.6050125, 0.41960785)
+
+[node name="Ribbit" type="AudioStreamPlayer3D" parent="." unique_id=1223131517]
+stream = ExtResource("7_xfwsl")

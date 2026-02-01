@@ -11,10 +11,10 @@ var start_jump: bool = false
 var finish_jump: bool = false
 
 func enter() -> void:
+	get_parent().get_node("Ribbit").play()
 	start_jump = true
 	finish_jump = false
 	melee_hurtbox.get_node("CollisionShape3D").disabled = false
-	anim_player.play("Attack")
 
 
 func exit() -> void:

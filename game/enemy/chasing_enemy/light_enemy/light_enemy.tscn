@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dp4iexgt0fj4q" path="res://assets/models/bird_enemy_bird.png" id="5_bqmi1"]
 [ext_resource type="Script" uid="uid://bek8u6neeuy4l" path="res://game/enemy/chasing_enemy/chasing_enemy_prowl_state.gd" id="5_dp154"]
 [ext_resource type="Script" uid="uid://ba3d66ym0uqm7" path="res://game/enemy/enemy_hitbox.gd" id="6_2gn6t"]
+[ext_resource type="AudioStream" uid="uid://dd6qunuj7uljs" path="res://assets/crow caw caw.mp3" id="7_ebysx"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ei4jv"]
 radius = 0.43847656
@@ -1287,3 +1288,6 @@ controller = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06007719, 0)
 shape = SubResource("SphereShape3D_n8vh6")
 debug_color = Color(0.9431837, 1.155138e-05, 0.6050125, 0.41960785)
+
+[node name="BirdSound" type="AudioStreamPlayer3D" parent="." unique_id=1941455188]
+stream = ExtResource("7_ebysx")
