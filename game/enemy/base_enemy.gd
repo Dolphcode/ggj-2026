@@ -58,7 +58,7 @@ func _physics_process(delta: float) -> void:
 
 
 func damage(amount: float) -> void:
-	print("Amount: " + str(amount))
+	#print("Amount: " + str(amount))
 	current_health = clampf(current_health - amount, 0.0, max_health)
 	
 	if current_health <= 0:

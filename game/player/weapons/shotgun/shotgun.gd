@@ -8,6 +8,10 @@ extends Node3D
 @export var amount: int = 5
 @export var damage: float = 2.0
 
+@export_category("Fire Point Config")
+@export var facing_obj : Node3D
+@export var fire_point: Node3D
+
 @onready var health_manager: HealthManager = get_parent().get_node("HealthManager")
 
 # Called when the node enters the scene tree for the first time.
@@ -18,18 +22,21 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("attack"):
-		var center = player_cam.get_viewport().get_size() / 2
-	
-		var ray_origin = player_cam.project_ray_origin(center)
+		var ray_origin = fire_point.global_position
+		var shot_dir = -facing_obj.global_transform.basis.z
 		for i in range(amount):
-			var shot_dir = player_cam.project_ray_normal(center).rotated(Vector3.RIGHT, randf() * deg_to_rad(spread_factor))
-			shot_dir = shot_dir.rotated(Vector3.UP, randf() * deg_to_rad(spread_factor))
-			var ray_end = ray_origin + shot_dir * ray_range
+			# Rotate the direction
+			var rotated_shot_dir = shot_dir.rotated(Vector3.UP, randf() * deg_to_rad(spread_factor))
 			
+			# Compute the ray end
+			var ray_end = ray_origin + rotated_shot_dir * ray_range
+			
+			# Raycast
 			var new_intersection = PhysicsRayQueryParameters3D.create(ray_origin, ray_end, 4)
 			new_intersection.collide_with_areas = true
 			var intersection = get_world_3d().direct_space_state.intersect_ray(new_intersection)
 			
+			# See if intersection
 			if not intersection.is_empty():
 				print(intersection.collider.name)
 				var hitbox: Node3D = intersection.collider
