@@ -16,6 +16,8 @@ class_name Player
 @onready var camera := $Neck/Camera3D
 @onready var slide_collider := $SlideCollisionShape3D
 @onready var stand_collider := $CollisionShape3D
+@onready var slide_hitbox := $HealthManager/StandingHitbox/SlideCollisionShape3D
+@onready var stand_hitbox := $HealthManager/StandingHitbox/CollisionShape3D
 
 var current_room:Node3D
 var speed_modifier := 1.0
@@ -58,6 +60,8 @@ func _process(delta: float) -> void:
 		
 		slide_collider.set_deferred("disabled", false)
 		stand_collider.set_deferred("disabled", true)
+		slide_hitbox.set_deferred("disabled", false)
+		stand_hitbox.set_deferred("disabled", true)
 		sliding = true
 	elif Input.is_action_just_released("slide"):
 		speed_modifier = 1.0
@@ -69,6 +73,8 @@ func _process(delta: float) -> void:
 		
 		slide_collider.set_deferred("disabled", true)
 		stand_collider.set_deferred("disabled", false)
+		slide_hitbox.set_deferred("disabled", true)
+		stand_hitbox.set_deferred("disabled", false)
 
 
 func _physics_process(delta: float) -> void:

@@ -102,6 +102,11 @@ immunity_time = 0.4
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HealthManager/StandingHitbox" unique_id=861649110]
 shape = SubResource("CapsuleShape3D_emnvn")
 
+[node name="SlideCollisionShape3D" type="CollisionShape3D" parent="HealthManager/StandingHitbox" unique_id=855646815]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4711914, 0)
+shape = SubResource("CapsuleShape3D_q6l8d")
+disabled = true
+
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1013997634]
 layer = -1
 
