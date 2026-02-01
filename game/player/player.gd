@@ -56,7 +56,7 @@ func _process(delta: float) -> void:
 		DECELERATION = DECELERATION_SLIDE
 		
 		slide_transition = get_tree().create_tween()
-		slide_transition.tween_property(neck, "position", Vector3(neck.position.x, 0.0, neck.position.z), 0.1)
+		slide_transition.tween_property(neck, "position", Vector3(neck.position.x, 1.25, neck.position.z), 0.1)
 		
 		slide_collider.set_deferred("disabled", false)
 		stand_collider.set_deferred("disabled", true)
@@ -67,7 +67,7 @@ func _process(delta: float) -> void:
 		speed_modifier = 1.0
 		DECELERATION = DECELERATION_DEFAULT
 		slide_transition = get_tree().create_tween()
-		slide_transition.tween_property(neck, "position", Vector3(neck.position.x, 0.609, neck.position.z), 0.1)
+		slide_transition.tween_property(neck, "position", Vector3(neck.position.x, 2.528, neck.position.z), 0.1)
 		
 		sliding = false
 		
