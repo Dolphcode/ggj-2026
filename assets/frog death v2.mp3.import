@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bvud01dq5btmh"
+path="res://.godot/imported/frog death v2.mp3-9dcbff0e8a2d06b50fe17cb4ee76f6aa.mp3str"
+
+[deps]
+
+source_file="res://assets/frog death v2.mp3"
+dest_files=["res://.godot/imported/frog death v2.mp3-9dcbff0e8a2d06b50fe17cb4ee76f6aa.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
