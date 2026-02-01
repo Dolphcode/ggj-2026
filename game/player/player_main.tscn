@@ -5,6 +5,23 @@
 [ext_resource type="PackedScene" uid="uid://beso6rnak84f6" path="res://Scenes/mask.tscn" id="2_swd4e"]
 [ext_resource type="Script" uid="uid://bvfh8twprbjeu" path="res://game/player/health_manager.gd" id="4_440e6"]
 [ext_resource type="Script" uid="uid://b4u284eg6beo0" path="res://Scenes/debug.gd" id="5_emnvn"]
+[ext_resource type="Script" uid="uid://voh7wlmwukvx" path="res://Scenes/player_state_machine.gd" id="6_bq1e6"]
+[ext_resource type="Script" uid="uid://dmspwsgr34mh2" path="res://Scenes/idle_player_state.gd" id="7_78qes"]
+[ext_resource type="Script" uid="uid://k3nqu20j7rgj" path="res://game/player/walking_player_state.gd" id="8_fhw4t"]
+[ext_resource type="Script" uid="uid://fon3xsuljw03" path="res://game/player/sliding_player_state.gd" id="9_fhw4t"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_emnvn"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_bq1e6"]
+sky_material = SubResource("ProceduralSkyMaterial_emnvn")
+
+[sub_resource type="Environment" id="Environment_rc3yg"]
+background_mode = 2
+sky = SubResource("Sky_bq1e6")
+tonemap_mode = 2
+glow_enabled = true
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_fbliu"]
 
@@ -35,6 +52,14 @@ PanelContainer/styles/panel = SubResource("StyleBoxFlat_mk6yg")
 
 [node name="Player" type="CharacterBody3D" unique_id=1291810518]
 script = ExtResource("1_ivnbd")
+JUMP_VELOCITY = 10.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1295362240]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=851305803]
+environment = SubResource("Environment_rc3yg")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1734791064]
 mesh = SubResource("CapsuleMesh_fbliu")
@@ -97,5 +122,21 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="HUD/UserInterface/DebugPanel/MarginContainer" unique_id=348997293]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="PlayerStateMachine" type="Node" parent="." unique_id=1902627902 node_paths=PackedStringArray("CURRENT_STATE")]
+process_mode = 4
+script = ExtResource("6_bq1e6")
+CURRENT_STATE = NodePath("IdlePlayerState")
+
+[node name="IdlePlayerState" type="Node" parent="PlayerStateMachine" unique_id=881553182]
+script = ExtResource("7_78qes")
+
+[node name="WalkingPlayerState" type="Node" parent="PlayerStateMachine" unique_id=1658952921]
+script = ExtResource("8_fhw4t")
+
+[node name="SlidingPlayerState" type="Node" parent="PlayerStateMachine" unique_id=1072508362]
+script = ExtResource("9_fhw4t")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1680644644]
 
 [connection signal="area_entered" from="HealthManager/StandingHitbox" to="HealthManager" method="_on_standing_hitbox_area_entered"]
