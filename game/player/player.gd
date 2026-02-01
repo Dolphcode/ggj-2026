@@ -14,6 +14,8 @@ class_name Player
 
 @onready var neck := $Neck
 @onready var camera := $Neck/Camera3D
+@onready var slide_collider := $SlideCollisionShape3D
+@onready var stand_collider := $CollisionShape3D
 
 var current_room:Node3D
 var speed_modifier := 1.0
@@ -54,6 +56,8 @@ func _process(delta: float) -> void:
 		slide_transition = get_tree().create_tween()
 		slide_transition.tween_property(neck, "position", Vector3(neck.position.x, 0.0, neck.position.z), 0.1)
 		
+		slide_collider.set_deferred("disabled", false)
+		stand_collider.set_deferred("disabled", true)
 		sliding = true
 	elif Input.is_action_just_released("slide"):
 		speed_modifier = 1.0
@@ -62,6 +66,9 @@ func _process(delta: float) -> void:
 		slide_transition.tween_property(neck, "position", Vector3(neck.position.x, 0.609, neck.position.z), 0.1)
 		
 		sliding = false
+		
+		slide_collider.set_deferred("disabled", true)
+		stand_collider.set_deferred("disabled", false)
 
 
 func _physics_process(delta: float) -> void:
