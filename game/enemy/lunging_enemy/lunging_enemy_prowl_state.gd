@@ -3,6 +3,7 @@ extends BaseEnemyState
 @export_category("Transition Config")
 @export var exit_state: BaseEnemyState
 @export var transition_cd: float = 0.2
+@export var anim_player: AnimationPlayer
 
 @export_category("Attack Config")
 @export var attack_state: BaseEnemyState
@@ -14,6 +15,7 @@ var attack_transition_cd: float = 0.0
 func enter() -> void:
 	curr_transition_cd = transition_cd
 	attack_transition_cd = attack_cd
+	anim_player.play("Idle")
 
 
 func exit() -> void:
