@@ -214,11 +214,12 @@ script = ExtResource("10_w4oxq")
 player_cam = NodePath("../Neck/Camera3D")
 spread_factor = 20.0
 
-[node name="Flamethrower" type="Node3D" parent="." unique_id=584384676 node_paths=PackedStringArray("facing_obj", "fire_point")]
+[node name="Flamethrower" type="Node3D" parent="." unique_id=584384676 node_paths=PackedStringArray("facing_obj", "fire_point", "health_manager")]
 process_mode = 4
 script = ExtResource("11_xc0o6")
 facing_obj = NodePath("../Neck/Camera3D")
 fire_point = NodePath("../Neck/Camera3D/MeshInstance3D/ShotgunFirePoint")
+health_manager = NodePath("../HealthManager")
 
 [node name="burning" type="AudioStreamPlayer3D" parent="Flamethrower" unique_id=1570720102]
 stream = ExtResource("12_8suo6")

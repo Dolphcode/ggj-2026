@@ -8,6 +8,10 @@ class_name HealthManager
 @export_category("Health Config")
 @export var max_health: float = 100.0
 
+@export_category("Damage Modifier")
+@export var damage_modifier_min: float = 1.0
+@export var damage_modifier_max: float = 2.0
+
 # State
 var immunity_active_time: float = 0.0
 var current_health: float
