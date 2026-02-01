@@ -2,6 +2,7 @@ extends BaseEnemyState
 
 @export_category("Transition Config")
 @export var exit_state: BaseEnemyState
+@export var anim_player: AnimationPlayer
 
 @export_category("Hurtbox Config")
 @export var melee_hurtbox: Area3D
@@ -13,6 +14,7 @@ func enter() -> void:
 	start_jump = true
 	finish_jump = false
 	melee_hurtbox.get_node("CollisionShape3D").disabled = false
+	anim_player.play("Attack")
 
 
 func exit() -> void:
@@ -30,6 +32,7 @@ func update(delta: float) -> void:
 func physics_update(delta: float) -> void:
 	if start_jump:
 		controller.velocity.y = 15
+		anim_player.play("Jump")
 		start_jump = false
 	else:
 		var original_y = controller.velocity.y
@@ -37,5 +40,6 @@ func physics_update(delta: float) -> void:
 		controller.velocity.y = original_y
 		controller.velocity += controller.get_gravity() * delta * 5
 		if controller.is_on_floor():
+			anim_player.play_backwards("Jump")
 			finish_jump = true
 	pass

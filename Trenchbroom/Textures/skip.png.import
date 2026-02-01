@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chy2uu3n65r5g"
-path.s3tc="res://.godot/imported/str_metalflr4.bmp-a0e71dada5aeeb0a77a25116fb2267cb.s3tc.ctex"
+uid="uid://c4podl8yij8c2"
+path="res://.godot/imported/skip.png-468602d18006cb88204c92ad79e3576e.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Trenchbroom/Textures/Quake Palette/str_metalflr4.bmp"
-dest_files=["res://.godot/imported/str_metalflr4.bmp-a0e71dada5aeeb0a77a25116fb2267cb.s3tc.ctex"]
+source_file="res://Trenchbroom/Textures/skip.png"
+dest_files=["res://.godot/imported/skip.png-468602d18006cb88204c92ad79e3576e.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -24,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -38,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

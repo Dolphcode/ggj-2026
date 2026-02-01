@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chy2uu3n65r5g"
-path.s3tc="res://.godot/imported/str_metalflr4.bmp-a0e71dada5aeeb0a77a25116fb2267cb.s3tc.ctex"
+uid="uid://pxerfji2a7g5"
+path.s3tc="res://.godot/imported/librasaurus_spinosaurus.png-4f0a369cb228cb0490e1de646ba398fa.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "1e0c521609e594bc3e597c6f9973b8f6"
+}
 
 [deps]
 
-source_file="res://Trenchbroom/Textures/Quake Palette/str_metalflr4.bmp"
-dest_files=["res://.godot/imported/str_metalflr4.bmp-a0e71dada5aeeb0a77a25116fb2267cb.s3tc.ctex"]
+source_file="res://assets/models/librasaurus_spinosaurus.png"
+dest_files=["res://.godot/imported/librasaurus_spinosaurus.png-4f0a369cb228cb0490e1de646ba398fa.s3tc.ctex"]
 
 [params]
 

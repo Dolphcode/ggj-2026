@@ -3,11 +3,14 @@ extends BaseEnemyState
 @export_category("Transition Config")
 @export var exit_state: BaseEnemyState
 @export var transition_cd: float = 0.2
+@export var anim_player: AnimationPlayer
 
 var curr_transition_cd: float = 0.0
 
 func enter() -> void:
 	curr_transition_cd = transition_cd
+	anim_player.play("Walk")
+	anim_player.get_animation("Walk").loop_mode = Animation.LOOP_LINEAR
 
 
 func exit() -> void:

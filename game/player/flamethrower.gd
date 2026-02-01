@@ -18,7 +18,7 @@ func _process(delta):
 		var ray_direction = player_cam.project_ray_normal(center)
 
 		new_instance.direction = Vector3(ray_direction.x + randf()/2, ray_direction.y + randf()/2, ray_direction.z + randf()/2)
-		get_tree().root.get_node('Node3D').add_child(new_instance)
+		get_tree().root.get_node('Map').add_child(new_instance)
 			
 #func _physics_process(delta):
 	#if get_tree().root.get_node('Node3D').has_node("Projectile"):
