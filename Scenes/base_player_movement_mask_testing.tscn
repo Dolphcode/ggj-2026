@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dlf387r2xf2iq"]
 
 [ext_resource type="Texture2D" uid="uid://csnqgbu8p4uym" path="res://assets/crosshair.svg" id="2_2ekfe"]
-[ext_resource type="PackedScene" uid="uid://cedsxmjuoj1by" path="res://game/player/player_main_flamethrower.tscn" id="3_ilklq"]
+[ext_resource type="PackedScene" uid="uid://bgatntjmfd171" path="res://game/player/player_main_copy.tscn" id="3_ilklq"]
 [ext_resource type="Script" uid="uid://b4u284eg6beo0" path="res://Scenes/debug.gd" id="3_rfqqu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hfa40"]
@@ -62,9 +62,6 @@ mesh = SubResource("PlaneMesh_hfa40")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor (temp)/StaticBody3D" unique_id=704890498]
 shape = SubResource("ConcavePolygonShape3D_c5rq3")
 
-[node name="Player" parent="." unique_id=126289023 instance=ExtResource("3_ilklq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-
 [node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=119316939]
 transform = Transform3D(-0.9186123, -0.34769943, 0.1877666, 0.092686705, -0.6514974, -0.75296754, 0.38413584, -0.6742821, 0.63070077, -12, 2, 7)
 use_collision = true
@@ -113,3 +110,6 @@ layout_mode = 2
 [node name="PlayerStateMachine" type="Node" parent="." unique_id=652553148]
 
 [node name="IdlePlayerState" type="Node" parent="PlayerStateMachine" unique_id=1168631614]
+
+[node name="Player" parent="." unique_id=1291810518 instance=ExtResource("3_ilklq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

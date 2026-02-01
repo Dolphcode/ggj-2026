@@ -1,11 +1,30 @@
-[gd_scene format=3 uid="uid://cedsxmjuoj1by"]
+[gd_scene format=3 uid="uid://bgatntjmfd171"]
 
-[ext_resource type="Script" uid="uid://codwnbkvywc6b" path="res://Scripts/player.gd" id="1_4pw1f"]
-[ext_resource type="Script" uid="uid://ch52jbq64etrc" path="res://game/player/hitscan.gd" id="2_b5mto"]
-[ext_resource type="PackedScene" uid="uid://beso6rnak84f6" path="res://Scenes/mask.tscn" id="3_0kc6n"]
-[ext_resource type="Script" uid="uid://bvfh8twprbjeu" path="res://game/player/health_manager.gd" id="4_00ywk"]
-[ext_resource type="Script" uid="uid://b4u284eg6beo0" path="res://Scenes/debug.gd" id="5_f6y1g"]
-[ext_resource type="Script" uid="uid://bo33hort7o2en" path="res://game/player/flamethrower.gd" id="6_xgihx"]
+[ext_resource type="Script" uid="uid://codwnbkvywc6b" path="res://Scripts/player.gd" id="1_yu8ow"]
+[ext_resource type="Script" uid="uid://ch52jbq64etrc" path="res://game/player/hitscan.gd" id="2_43onc"]
+[ext_resource type="PackedScene" uid="uid://beso6rnak84f6" path="res://Scenes/mask.tscn" id="3_yay24"]
+[ext_resource type="Script" uid="uid://bvfh8twprbjeu" path="res://game/player/health_manager.gd" id="4_ufg1u"]
+[ext_resource type="Script" uid="uid://b4u284eg6beo0" path="res://Scenes/debug.gd" id="5_rwus5"]
+[ext_resource type="Script" uid="uid://voh7wlmwukvx" path="res://Scenes/player_state_machine.gd" id="6_0511c"]
+[ext_resource type="Script" uid="uid://dmspwsgr34mh2" path="res://Scenes/idle_player_state.gd" id="7_mqtlf"]
+[ext_resource type="Script" uid="uid://k3nqu20j7rgj" path="res://game/player/walking_player_state.gd" id="8_pwrvv"]
+[ext_resource type="Script" uid="uid://fon3xsuljw03" path="res://game/player/sliding_player_state.gd" id="9_721l6"]
+[ext_resource type="Script" uid="uid://dh7iygl7pnosl" path="res://game/player/weapons/shotgun/shotgun.gd" id="10_f82fs"]
+[ext_resource type="Script" uid="uid://bo33hort7o2en" path="res://game/player/flamethrower.gd" id="11_knf6q"]
+[ext_resource type="PackedScene" uid="uid://bbjpg54y0atqm" path="res://healing_zone.tscn" id="12_43onc"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_emnvn"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_bq1e6"]
+sky_material = SubResource("ProceduralSkyMaterial_emnvn")
+
+[sub_resource type="Environment" id="Environment_rc3yg"]
+background_mode = 2
+sky = SubResource("Sky_bq1e6")
+tonemap_mode = 2
+glow_enabled = true
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_fbliu"]
 
@@ -35,7 +54,15 @@ MarginContainer/constants/margin_top = 10
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_mk6yg")
 
 [node name="Player" type="CharacterBody3D" unique_id=1291810518]
-script = ExtResource("1_4pw1f")
+script = ExtResource("1_yu8ow")
+JUMP_VELOCITY = 10.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1295362240]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=851305803]
+environment = SubResource("Environment_rc3yg")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1734791064]
 mesh = SubResource("CapsuleMesh_fbliu")
@@ -47,7 +74,7 @@ shape = SubResource("ConvexPolygonShape3D_f7nhd")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6087563, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Neck" unique_id=1144383541]
-script = ExtResource("2_b5mto")
+script = ExtResource("2_43onc")
 
 [node name="WeaponPivot" type="Node3D" parent="Neck" unique_id=962293482]
 
@@ -55,11 +82,11 @@ script = ExtResource("2_b5mto")
 transform = Transform3D(0.09993822, -0.02573967, 0.0023927984, 0, 0.6808615, 0.07324122, -0.003514369, -0.73195976, 0.06804408, 0.3583107, -0.42373013, -0.39958236)
 mesh = SubResource("BoxMesh_ivnbd")
 
-[node name="Mask" parent="." unique_id=2126738232 node_paths=PackedStringArray("player") instance=ExtResource("3_0kc6n")]
+[node name="Mask" parent="." unique_id=2126738232 node_paths=PackedStringArray("player") instance=ExtResource("3_yay24")]
 player = NodePath("..")
 
 [node name="HealthManager" type="Node3D" parent="." unique_id=1142276691]
-script = ExtResource("4_00ywk")
+script = ExtResource("4_ufg1u")
 immunity_time = 0.4
 
 [node name="StandingHitbox" type="Area3D" parent="HealthManager" unique_id=1041679191]
@@ -90,7 +117,7 @@ offset_top = 10.0
 offset_right = 210.0
 offset_bottom = 50.0
 theme = SubResource("Theme_bq1e6")
-script = ExtResource("5_f6y1g")
+script = ExtResource("5_rwus5")
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/UserInterface/DebugPanel" unique_id=659440964]
 layout_mode = 2
@@ -99,8 +126,32 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Flamethrower" type="Node3D" parent="." unique_id=1603300943 node_paths=PackedStringArray("player_cam")]
-script = ExtResource("6_xgihx")
+[node name="PlayerStateMachine" type="Node" parent="." unique_id=1902627902 node_paths=PackedStringArray("CURRENT_STATE")]
+process_mode = 4
+script = ExtResource("6_0511c")
+CURRENT_STATE = NodePath("IdlePlayerState")
+
+[node name="IdlePlayerState" type="Node" parent="PlayerStateMachine" unique_id=881553182]
+script = ExtResource("7_mqtlf")
+
+[node name="WalkingPlayerState" type="Node" parent="PlayerStateMachine" unique_id=1658952921]
+script = ExtResource("8_pwrvv")
+
+[node name="SlidingPlayerState" type="Node" parent="PlayerStateMachine" unique_id=1072508362]
+script = ExtResource("9_721l6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1680644644]
+
+[node name="Shotgun" type="Node3D" parent="." unique_id=1309335887 node_paths=PackedStringArray("player_cam")]
+script = ExtResource("10_f82fs")
 player_cam = NodePath("../Neck/Camera3D")
+spread_factor = 20.0
+
+[node name="Flamethrower" type="Node3D" parent="." unique_id=584384676 node_paths=PackedStringArray("player_cam")]
+process_mode = 4
+script = ExtResource("11_knf6q")
+player_cam = NodePath("../Neck/Camera3D")
+
+[node name="HealingZone" parent="." unique_id=1579785082 instance=ExtResource("12_43onc")]
 
 [connection signal="area_entered" from="HealthManager/StandingHitbox" to="HealthManager" method="_on_standing_hitbox_area_entered"]
