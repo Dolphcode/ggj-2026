@@ -21,8 +21,13 @@ buses/default_bus_layout="uid://d2hobt7qmt0ut"
 
 [autoload]
 
-global="*uid://cc8yyknp2bf4j"
 AudioManager="*uid://dhspjh6prttgh"
+global="*uid://cc8yyknp2bf4j"
+
+[display]
+
+window/size/window_width_override=1152
+window/size/window_height_override=648
 
 [editor_plugins]
 
