@@ -1015,6 +1015,7 @@ base_speed = 300.0
 attack_range_sq = 4.0
 turn_speed = 3.0
 global_cd = 1.2
+max_health = 72.0
 starting_state = NodePath("LightEnemyWalkState")
 mesh = NodePath("librasaurus/Armature/Skeleton3D/Cube")
 anim_player = NodePath("librasaurus/AnimationPlayer")

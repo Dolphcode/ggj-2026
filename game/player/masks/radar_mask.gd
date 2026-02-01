@@ -15,6 +15,8 @@ func Enter():
 	AudioManager.get_node("RadarEquip").play()
 	mask.player.get_node("HealingZone/HealingArea3D").set_deferred("collision_mask", 0x2)
 	mask.player.get_node("HealingZone/healing").play()
+	get_parent().mask_timer.max_value = mask_time
+	get_parent().mask_timer.visible = true
 	cam.current = false
 	radar_cam.current = true
 

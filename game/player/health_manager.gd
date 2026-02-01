@@ -17,7 +17,8 @@ var immunity_active_time: float = 0.0
 var current_health: float
 
 # On Ready
-@onready var hud = get_parent().get_node("HUD")
+@onready var hud_slider = get_parent().get_node("HUD/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/HSlider")
+@onready var hud_text = get_parent().get_node("HUD/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/Label")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -32,7 +33,8 @@ func _process(delta):
 	
 	# Update healthbar
 	var relative_health: float = current_health / max_health
-	hud.get_node("HSlider").value = relative_health
+	hud_slider.value = relative_health
+	hud_text.text = str(roundi(relative_health * 100)) + "%"
 
 
 func hit(damage: float) -> void:
@@ -46,7 +48,7 @@ func hit(damage: float) -> void:
 	
 	immunity_active_time = immunity_time
 	if (current_health <= 0):
-		hud.get_node("HSlider").value = 0
+		hud_slider.value = 0
 		get_node("..").die.emit()
 
 func _on_standing_hitbox_area_entered(area):

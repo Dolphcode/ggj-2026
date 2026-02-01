@@ -416,10 +416,10 @@ _data = {
 }
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_xfwsl"]
-radius = 0.32168517
+radius = 0.60096586
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_cm1ri"]
-radius = 0.4139036
+radius = 0.7824613
 
 [node name="LungingEnemy" type="CharacterBody3D" unique_id=309565408 node_paths=PackedStringArray("starting_state", "mesh", "anim_player")]
 collision_layer = 3

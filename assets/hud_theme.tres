@@ -1,0 +1,33 @@
+[gd_resource type="Theme" format=3 uid="uid://b213f11nq0c86"]
+
+[ext_resource type="FontFile" uid="uid://br8dwv1sp4vju" path="res://assets/fonts/OldEnglishGothicPixelRegular-ow2Bo.ttf" id="1_r08qt"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_r08qt"]
+size = Vector2(0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_3sjra"]
+color = Color(1, 0, 0, 1)
+thickness = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eclun"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_d271l"]
+thickness = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r08qt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3sjra"]
+
+[resource]
+HSlider/icons/grabber_disabled = SubResource("PlaceholderTexture2D_r08qt")
+HSlider/styles/grabber_area = SubResource("StyleBoxLine_3sjra")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxEmpty_eclun")
+HSlider/styles/slider = SubResource("StyleBoxLine_d271l")
+Label/font_sizes/font_size = 88
+Label/fonts/font = ExtResource("1_r08qt")
+MarginContainer/constants/margin_bottom = 5
+MarginContainer/constants/margin_left = 5
+MarginContainer/constants/margin_right = 5
+MarginContainer/constants/margin_top = 5
+Panel/styles/panel = SubResource("StyleBoxEmpty_r08qt")
+PanelContainer/styles/panel = SubResource("StyleBoxEmpty_3sjra")

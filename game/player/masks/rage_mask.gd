@@ -9,6 +9,8 @@ class_name rage_mask
 
 @onready var mask = get_parent().get_parent()
 @onready var cam = mask.player.get_node("Neck/Camera3D")
+@onready var world_environment:WorldEnvironment = mask.player.get_node("../WorldEnvironment")
+@onready var shader:MeshInstance3D = cam.get_node("shader")
 @onready var trauma = 1.0
 @onready var max_offset = Vector3(0.2, 0.2, 0.2)
 @onready var amount = pow(trauma, 2)
@@ -19,9 +21,14 @@ class_name rage_mask
 #Called on equpping rage mask
 func Enter():
 	get_parent().mask_time = mask_time #medium
+	get_parent().mask_timer.max_value = mask_time
+	get_parent().mask_timer.visible = true
 	AudioManager.get_node("RageEquip").play()
+	AudioManager.get_node("Music").pitch_scale = 2.0
 	mask.player.speed_modifier = speed_multiplier #currently increases speed [may remove this]
 	mask.player.get_node("Shotgun").damage *= damage_multiplier
+	world_environment.environment.fog_light_color = Color(0.227, 0.0, 0.016)
+	shader.mesh.surface_get_material(0).set_shader_parameter("gamma", Vector2(0.125, 13.0))
 	#	change camera fov and color
 
 
@@ -31,8 +38,11 @@ func Enter():
 #Called on rage mask timeout/new mask equipped
 func Exit():
 	mask.player.speed_modifier = 1.0
+	AudioManager.get_node("Music").pitch_scale = 1.0
 	mask.player.get_node("Shotgun").damage /= damage_multiplier
 	cam.fov = 75.0
+	world_environment.environment.fog_light_color = Color(0.227, 0.184, 0.016)
+	shader.mesh.surface_get_material(0).set_shader_parameter("gamma", Vector2(0.125, 11.0))
 	
 func Update(delta: float):
 	get_parent().mask_update(delta, self)

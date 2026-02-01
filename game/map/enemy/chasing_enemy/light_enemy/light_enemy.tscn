@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://bek8u6neeuy4l" path="res://game/map/enemy/chasing_enemy/chasing_enemy_prowl_state.gd" id="5_dp154"]
 [ext_resource type="Material" uid="uid://ca84oxeao652q" path="res://assets/shaders/bird_overlay.tres" id="5_ebysx"]
 [ext_resource type="Script" uid="uid://ba3d66ym0uqm7" path="res://game/map/enemy/enemy_hitbox.gd" id="6_2gn6t"]
-[ext_resource type="AudioStream" uid="uid://dd6qunuj7uljs" path="res://assets/crow caw caw.mp3" id="9_sphi0"]
+[ext_resource type="AudioStream" uid="uid://oj5whpdwgu6n" path="res://assets/crow attack.mp3" id="9_sphi0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ei4jv"]
 radius = 0.43847656
@@ -1086,11 +1086,11 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ebysx"]
-radius = 0.32177734
+radius = 0.46875
 height = 2.1137695
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_n8vh6"]
-radius = 0.30313557
+radius = 0.35059327
 
 [node name="LightEnemy" type="CharacterBody3D" unique_id=1151919179 node_paths=PackedStringArray("starting_state", "mesh", "anim_player")]
 collision_layer = 3
@@ -1100,11 +1100,11 @@ script = ExtResource("1_553o2")
 base_speed = 500.0
 attack_range_sq = 4.0
 turn_speed = 3.0
-max_health = 15.0
+max_health = 30.0
 starting_state = NodePath("LightEnemyWalkState")
 mesh = NodePath("bird_enemy/Armature/Skeleton3D/Cube")
 anim_player = NodePath("bird_enemy/AnimationPlayer")
-enemy_death_sound = "GoatDeath"
+enemy_death_sound = "CrowDeath"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=808385287]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2933837, 0.044719696)
@@ -1273,15 +1273,15 @@ speed_scale = 3.0
 [node name="Hitboxes" type="Node3D" parent="." unique_id=284238946]
 
 [node name="Body" type="Area3D" parent="Hitboxes" unique_id=555541132 node_paths=PackedStringArray("controller")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1629426, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1629426, 0.13046932)
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("6_2gn6t")
-damage_modifier = 0.7
+fire_modifier = 2.0
 controller = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Body" unique_id=1158425134]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.08245075, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.08245075, -0.03927684)
 shape = SubResource("CapsuleShape3D_ebysx")
 debug_color = Color(0.9431837, 1.155138e-05, 0.6050125, 0.41960785)
 
@@ -1291,10 +1291,11 @@ collision_layer = 4
 collision_mask = 4
 script = ExtResource("6_2gn6t")
 damage_modifier = 3.0
+fire_modifier = 2.0
 controller = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Head" unique_id=1521479860]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06007719, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06007719, 0.043037057)
 shape = SubResource("SphereShape3D_n8vh6")
 debug_color = Color(0.9431837, 1.155138e-05, 0.6050125, 0.41960785)
 

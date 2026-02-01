@@ -22,6 +22,8 @@ func Enter():
 	old_fov = mask.player.get_node("Neck/Camera3D").fov
 	AudioManager.get_node("IceEquip").play()
 	get_parent().mask_time = mask_time #long
+	get_parent().mask_timer.max_value = mask_time
+	get_parent().mask_timer.visible = true
 	mask.player.get_node("FrozenShotgun").process_mode = PROCESS_MODE_INHERIT
 	mask.player.get_node('Shotgun').process_mode = PROCESS_MODE_DISABLED
 	mask.player.speed_modifier = speed_multiplier

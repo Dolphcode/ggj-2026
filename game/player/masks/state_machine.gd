@@ -3,15 +3,24 @@ class_name MaskHandler
 
 @export var initial_state : State
 
+@export_category("Slots")
+@export var slots: Array[TextureRect]
+@export var mask_rect: TextureRect
+@export var rage_icon: Texture
+@export var fire_icon: Texture
+@export var ice_icon: Texture
+@export var radar_icon: Texture
+@export var blank_icon: Texture
+@export var mask_timer: Slider
+
 var current_state : State
 var mask_time : float
 var gun_type : String
-var mask_queue = ["radar_mask"]
+var mask_queue = ["rage_mask"]
 var states : Dictionary = {}
 
 #UI variables for ease and save on overhead
 @onready var interface:Control = get_node("../../HUD/UserInterface")
-@onready var mask_rect:ColorRect = interface.get_node("MaskRect")
 @onready var mask_label:Label = mask_rect.get_node("MaskLabel")
 @onready var score_label:Label = interface.get_node("ScoreLabel")
 @onready var mask_queue_HUD:VBoxContainer = interface.get_node("MaskQueue")
@@ -24,17 +33,17 @@ func _ready():
 	if initial_state:
 		initial_state.Enter()
 		current_state = initial_state
+	mask_timer.visible = false
 		
 func _process(delta):
 	if current_state:
 		current_state.Update(delta)
-		
-		
+	color_queue()
+
+
 func _physics_process(delta):
 	if current_state:
 		current_state.Physics_Update(delta)
-	color_queue()
-		
 
 func on_child_transition(state, new_state_name):
 	if state != current_state:
@@ -55,35 +64,32 @@ func mask_update(delta: float, mask):
 	#	decreases mask time until it reaches 0
 	if mask_time > 0:
 		mask_time -= delta
+		mask_timer.value = mask_time
 	else:
 		get_parent().player.get_node("MaskPowerDown").play()
+		mask_timer.visible = false
 		on_child_transition(mask, 'no_mask')
 
-func color_rect(x, current_rect):
+func color_rect(x, current_rect: TextureRect):
 	match x:
 		"fire_mask":
-			current_rect.color = 0xff000080
-			current_rect.get_node("MaskLabel").text = "Fire Mask"
+			current_rect.texture = fire_icon
 		"ice_mask":
-			current_rect.color = 0x0000ff80
-			current_rect.get_node("MaskLabel").text = "Ice Mask"
+			current_rect.texture = ice_icon
 		"radar_mask":
-			current_rect.color = 0x00ff0080
-			current_rect.get_node("MaskLabel").text = "Radar Mask"
+			current_rect.texture = radar_icon
 		"rage_mask":
-			current_rect.color = 0x00000080
-			current_rect.get_node("MaskLabel").text = "Rage Mask"
+			current_rect.texture = rage_icon
 		_:
-			current_rect.color = 0x99999980
-			current_rect.get_node("MaskLabel").text = "No Mask"
+			current_rect.texture = blank_icon
 			
 func color_queue():
 	var count = 0
 	for mask in mask_queue:
-		color_rect(mask, mask_queue_HUD.get_node("Mask" + str(count)))
+		color_rect(mask, slots[count])
 		count += 1
 	while(count < 3):
-		color_rect("no_mask", mask_queue_HUD.get_node("Mask" + str(count)))
+		color_rect("no_mask", slots[count])
 		count += 1
 
 func is_queue_full():

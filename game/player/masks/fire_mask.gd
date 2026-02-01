@@ -22,7 +22,8 @@ var old_fov: float = 0.0
 func Enter():
 	double_barrel_model.visible = false
 	flamethrower_model.visible = true
-	
+	get_parent().mask_timer.max_value = mask_time
+	get_parent().mask_timer.visible = true
 	get_parent().mask_time = mask_time #short
 	AudioManager.get_node("FireEquip").play()
 	mask.player.get_node("Flamethrower").process_mode = PROCESS_MODE_INHERIT
