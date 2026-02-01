@@ -22,11 +22,7 @@ func Update(delta: float):
 	if Input.is_action_just_pressed('equip_mask'):
 		var mask_queue = get_parent().mask_queue
 		if mask_queue:
-			print('equip_mask')
-			print(mask_queue)
 			var mask_to_equip = mask_queue.pop_front() 
-			print(mask_queue)
-			print(mask_to_equip)
 			Transitioned.emit(self, mask_to_equip)
 			#previous_state = mask_to_equip
 		
