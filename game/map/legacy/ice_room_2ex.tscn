@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://o08wnubtl0ww"]
+
+[ext_resource type="PackedScene" uid="uid://d13f435cvlvrt" path="res://game/map/legacy/rooms/room_2_exit.tscn" id="1_i8gsm"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7vv8q"]
+top_radius = 3.0
+bottom_radius = 3.0
+height = 15.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_uowdt"]
+height = 15.0
+radius = 3.0
+
+[node name="Room2Exit" unique_id=728229828 instance=ExtResource("1_i8gsm")]
+
+[node name="floor" parent="." index="0" unique_id=157937396]
+collision_layer = 17
+
+[node name="Pillar" type="StaticBody3D" parent="." index="6" unique_id=528686214]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.555583, 2.5, -11.815567)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar" index="0" unique_id=1424171500]
+mesh = SubResource("CylinderMesh_7vv8q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pillar" index="1" unique_id=359230845]
+shape = SubResource("CylinderShape3D_uowdt")
+
+[node name="Pillar2" type="StaticBody3D" parent="." index="7" unique_id=751047665]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.960118, 2.5, -0.7054138)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar2" index="0" unique_id=611892858]
+mesh = SubResource("CylinderMesh_7vv8q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pillar2" index="1" unique_id=644158191]
+shape = SubResource("CylinderShape3D_uowdt")
+
+[node name="Pillar3" type="StaticBody3D" parent="." index="8" unique_id=954001350]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0885305, 2.5, 10.725569)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar3" index="0" unique_id=319652184]
+mesh = SubResource("CylinderMesh_7vv8q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pillar3" index="1" unique_id=980307758]
+shape = SubResource("CylinderShape3D_uowdt")
+
+[node name="Pillar4" type="StaticBody3D" parent="." index="9" unique_id=1338672244]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.285568, 2.5, 6.2381287)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar4" index="0" unique_id=249074150]
+mesh = SubResource("CylinderMesh_7vv8q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pillar4" index="1" unique_id=2089230609]
+shape = SubResource("CylinderShape3D_uowdt")
+
+[node name="Pillar5" type="StaticBody3D" parent="." index="10" unique_id=97218306]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.249509, 2.5, -18.476635)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar5" index="0" unique_id=1701557566]
+mesh = SubResource("CylinderMesh_7vv8q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pillar5" index="1" unique_id=1969543171]
+shape = SubResource("CylinderShape3D_uowdt")
+
+[node name="ESpawn1" type="Marker3D" parent="." index="11" unique_id=1664567035 groups=["spawns"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 3, 12.476)
+
+[node name="ESpawn2" type="Marker3D" parent="." index="12" unique_id=363677409 groups=["spawns"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.102871, 3, -4.7155924)
+
+[node name="ESpawn3" type="Marker3D" parent="." index="13" unique_id=511150998 groups=["spawns"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.308575, 3, 12.476)
+
+[node name="ESpawn4" type="Marker3D" parent="." index="14" unique_id=303562669 groups=["spawns"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.819593, 3, -10.770433)
+
+[node name="SpawnPoint" type="Marker3D" parent="." index="15" unique_id=963556821 groups=["mask_spawns"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1.5, -6.6)

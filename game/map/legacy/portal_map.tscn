@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://bduqyb2cu8tym"]
+
+[ext_resource type="PackedScene" uid="uid://bvx8083nj5so8" path="res://game/map/legacy/rooms/room.tscn" id="1_ct327"]
+[ext_resource type="PackedScene" uid="uid://b3r7nw6l2ubgu" path="res://game/map/legacy/hallways/hallway_plus.tscn" id="2_mwqmi"]
+[ext_resource type="PackedScene" uid="uid://bajr3tvnbxdtk" path="res://game/map/legacy/hallways/hallway_i.tscn" id="3_yfba8"]
+
+[node name="PortalMap" type="Node3D" unique_id=1338393495]
+
+[node name="FireRoom" parent="." unique_id=728229828 instance=ExtResource("1_ct327")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65, 0, -65)
+
+[node name="IceRoom" parent="." unique_id=960299190 instance=ExtResource("1_ct327")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65, 0, 65)
+
+[node name="HealRoom" parent="." unique_id=1212552910 instance=ExtResource("1_ct327")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65, 0, 65)
+
+[node name="RageRoom" parent="." unique_id=1021195679 instance=ExtResource("1_ct327")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65, 0, -65)
+
+[node name="CenterRoom" parent="." unique_id=1390831304 instance=ExtResource("1_ct327")]
+
+[node name="HallwayPlusCFI" parent="." unique_id=573801181 instance=ExtResource("2_mwqmi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65, 0, 0)
+
+[node name="HallwayPlusCHR" parent="." unique_id=553439785 instance=ExtResource("2_mwqmi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65, 0, 0)
+
+[node name="HallwayPlusCIH" parent="." unique_id=621563964 instance=ExtResource("2_mwqmi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 65)
+
+[node name="HallwayPlusCRF" parent="." unique_id=1983099562 instance=ExtResource("2_mwqmi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -65)
+
+[node name="HallwayIIF" parent="." unique_id=1079177114 instance=ExtResource("3_yfba8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65, 0, 130)
+
+[node name="HallwayIFI" parent="." unique_id=520562816 instance=ExtResource("3_yfba8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65, 0, -130)
+
+[node name="HallwayIHR" parent="." unique_id=107754602 instance=ExtResource("3_yfba8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65, 0, 130)
+
+[node name="HallwayIRH" parent="." unique_id=1493322348 instance=ExtResource("3_yfba8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65, 0, -130)
+
+[node name="HallwayIIH" parent="." unique_id=1358921076 instance=ExtResource("3_yfba8")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 130, 0, 65)
+
+[node name="HallwayIFR" parent="." unique_id=444599352 instance=ExtResource("3_yfba8")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 130, 0, -65)
+
+[node name="HallwayIHI" parent="." unique_id=284559035 instance=ExtResource("3_yfba8")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -130, 0, 65)
+
+[node name="HallwayIRF" parent="." unique_id=1330179976 instance=ExtResource("3_yfba8")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -130, 0, -65)

@@ -1,0 +1,7 @@
+[gd_resource type="CylinderMesh" format=3 uid="uid://dihxwvlbc15a8"]
+
+[ext_resource type="Material" uid="uid://dmqvwcfdolyjm" path="res://game/map/enemy/chasing_enemy/light_enemy/light_enemy_test.tres" id="1_m5dif"]
+
+[resource]
+material = ExtResource("1_m5dif")
+height = 1.88
