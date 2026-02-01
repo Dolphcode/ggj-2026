@@ -89,5 +89,5 @@ func _physics_process(delta: float) -> void:
 		print("attack")
 		
 	global.debug.add_property("Velocity", velocity, 2)
-
+	
 	move_and_slide()
