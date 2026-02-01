@@ -44,7 +44,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("slide"):
 		speed_modifier = 0.0
-		velocity += (neck.transform.basis * Vector3.FORWARD).normalized() * SLIDE_BOOST
+		velocity = (neck.transform.basis * Vector3.FORWARD).normalized() * SLIDE_BOOST
 		DECELERATION = DECELERATION_SLIDE
 		
 		slide_transition = get_tree().create_tween()

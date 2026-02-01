@@ -77,6 +77,7 @@ environment = SubResource("Environment_uqlun")
 transform = Transform3D(0.9311704, 0.30908042, 0.19336747, -0.36458427, 0.78941023, 0.49387228, 0, -0.530378, 0.8477613, 0, 0, 0)
 
 [node name="Player" parent="." unique_id=1291810518 instance=ExtResource("8_trc63")]
+SLIDE_BOOST = 50.0
 
 [node name="HeavyEnemy" parent="." unique_id=582232653 node_paths=PackedStringArray("target") instance=ExtResource("7_c8efk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.361284, 2.5824199, -1.590138)
