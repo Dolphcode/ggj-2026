@@ -79,12 +79,16 @@ func _physics_process(delta: float) -> void:
 	
 	# Direction is based on the neck
 	var direction = (neck.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction and not sliding:
+	if direction.length_squared() != 0 and not sliding:
 		velocity.x = lerp(velocity.x, direction.x * SPEED * speed_modifier, ACCELERATION)
 		velocity.z = lerp(velocity.z, direction.z * SPEED * speed_modifier, ACCELERATION)
 	else:
+		print("decelerating")
+		
 		velocity.x = move_toward(velocity.x, 0, DECELERATION)
 		velocity.z = move_toward(velocity.z, 0, DECELERATION)
+		print(velocity)
+		print(DECELERATION)
 		
 	if Input.is_action_just_pressed("attack"): 
 		print("attack")
