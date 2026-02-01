@@ -20,9 +20,6 @@
 [ext_resource type="AudioStream" uid="uid://u5w0cbkrnsgs" path="res://assets/footsteps3.0.mp3" id="17_s2aeh"]
 [ext_resource type="AudioStream" uid="uid://dkjtnrvf3ddwc" path="res://assets/death player 2.mp3" id="18_re72c"]
 [ext_resource type="AudioStream" uid="uid://cam8ka11i81ii" path="res://assets/player death 1.mp3" id="19_8fwjf"]
-[ext_resource type="AudioStream" uid="uid://bbs1sv4y4hlpb" path="res://assets/player actual death 1.mp3" id="21_6nmbf"]
-[ext_resource type="AudioStream" uid="uid://baoenmpsq5you" path="res://assets/player actual death 2.mp3" id="22_r1j4a"]
-[ext_resource type="AudioStream" uid="uid://dsqh0qyjgr3y0" path="res://assets/player actual death 3.mp3" id="23_4c06t"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_fbliu"]
 
@@ -374,15 +371,6 @@ stream = ExtResource("19_8fwjf")
 [node name="Footsteps" type="AudioStreamPlayer" parent="." unique_id=753859103]
 stream = ExtResource("17_s2aeh")
 volume_db = -15.0
-
-[node name="PlayerDeath" type="AudioStreamPlayer" parent="." unique_id=1682541518]
-stream = ExtResource("21_6nmbf")
-
-[node name="PlayerDeath2" type="AudioStreamPlayer" parent="." unique_id=1662625032]
-stream = ExtResource("22_r1j4a")
-
-[node name="PlayerDeath3" type="AudioStreamPlayer" parent="." unique_id=2010832949]
-stream = ExtResource("23_4c06t")
 
 [connection signal="area_entered" from="HealthManager/StandingHitbox" to="HealthManager" method="_on_standing_hitbox_area_entered"]
 [connection signal="button_up" from="HUD/UserInterface/EndScreen/RetryButton" to="." method="_on_retry_button_button_up"]

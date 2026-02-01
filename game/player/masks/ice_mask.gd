@@ -15,7 +15,7 @@ func Enter():
 	old_decel_default = mask.player.DECELERATION_DEFAULT
 	old_decel_slide = mask.player.DECELERATION_SLIDE
 	old_fov = mask.player.get_node("Neck/Camera3D").fov
-	
+	AudioManager.get_node("IceEquip").play()
 	get_parent().mask_time = mask_time #long
 	mask.player.get_node("FrozenShotgun").process_mode = PROCESS_MODE_INHERIT
 	mask.player.get_node('Shotgun').process_mode = PROCESS_MODE_DISABLED
