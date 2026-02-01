@@ -40,7 +40,7 @@ func hit():
 		return
 	print("I was hit")
 		
-	current_health -= 10
+	current_health = clampf(current_health - 10, 0.0, max_health)
 	immunity_active_time = immunity_time
 	if (current_health <= 0):
 		hud.get_node("HSlider").value = 0

@@ -8,6 +8,8 @@ extends Node3D
 @export var amount: int = 5
 @export var damage: float = 2.0
 
+@onready var health_manager: HealthManager = get_parent().get_node("HealthManager")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -31,9 +33,14 @@ func _process(delta):
 			if not intersection.is_empty():
 				print(intersection.collider.name)
 				var hitbox: Node3D = intersection.collider
-				if hitbox.has_method("damage"):
+				if hitbox is EnemyHitbox:
+					# Apply damage modifier to projectile
+					var modifier = lerp(health_manager.damage_modifier_min, 
+					health_manager.damage_modifier_max, 
+					1.0 - health_manager.current_health / health_manager.max_health)	
+					
 					_spawn_impact_marker(intersection.position, hitbox)
-					hitbox.damage(damage, false, false)
+					hitbox.damage(damage * modifier, false, false)
 
 
 func _spawn_impact_marker(position: Vector3, new_parent: Node3D) -> void:

@@ -30,7 +30,7 @@ func _process(delta):
 		# Apply damage modifier to projectile
 		var modifier = lerp(health_manager.damage_modifier_min, 
 			health_manager.damage_modifier_max, 
-			health_manager.current_health / health_manager.max_health)
+			1.0 - health_manager.current_health / health_manager.max_health)
 		new_instance.projectile_damage *= modifier
 		
 		# Add to the scene
