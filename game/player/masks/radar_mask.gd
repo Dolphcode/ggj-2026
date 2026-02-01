@@ -7,7 +7,7 @@ class_name radar_mask
 
 
 @export var mask_time = 20
-@export var healing = .1
+@export var healing = .15
 
 #Called on equpping radar_mask mask
 func Enter():

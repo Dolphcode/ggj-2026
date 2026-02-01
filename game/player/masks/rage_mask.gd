@@ -18,7 +18,7 @@ class_name rage_mask
 
 @export var mask_time = 20
 @export var speed_multiplier = 2.0
-@export var damage_multiplier = 3.0
+@export var damage_multiplier = 2.0
 #Called on equpping rage mask
 func Enter():
 	get_parent().mask_time = mask_time #medium
@@ -26,6 +26,7 @@ func Enter():
 	AudioManager.get_node("Music").pitch_scale = 2.0
 	mask.player.speed_modifier = speed_multiplier #currently increases speed [may remove this]
 	mask.player.get_node("Shotgun").damage *= damage_multiplier
+	mask.player.get_node("Shotgun").reload_cd /= 2.0
 	world_environment.environment.fog_light_color = Color(0.227, 0.0, 0.016)
 	shader_material.set_shader_parameter("gamma", Vector2(0.125, 13.0))
 	shader_material.set_shader_parameter("pixel_size", 4)
@@ -38,6 +39,7 @@ func Enter():
 #Called on rage mask timeout/new mask equipped
 func Exit():
 	mask.player.speed_modifier = 1.0
+	mask.player.get_node("Shotgun").reload_cd *= 2.0
 	AudioManager.get_node("Music").pitch_scale = 1.0
 	mask.player.get_node("Shotgun").damage /= damage_multiplier
 	cam.fov = 75.0

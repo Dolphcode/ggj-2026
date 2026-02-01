@@ -6,6 +6,7 @@
 
 [node name="HealingZone" type="Node3D" unique_id=1579785082]
 script = ExtResource("1_jjaru")
+healing = 0.15
 
 [node name="Area3D" type="Area3D" parent="." unique_id=108100031]
 
