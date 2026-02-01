@@ -1,6 +1,6 @@
 extends Node3D
 
-var projectile = preload('res://projectile.tscn')
+var projectile = preload('res://game/player/weapons/flamethrower/projectile.tscn')
 @export var facing_obj : Node3D
 @export var fire_point: Node3D
 

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bypotfmi0jeow"]
 
-[ext_resource type="Script" uid="uid://e76ajmuuty2i" path="res://projectile.gd" id="1_a85iw"]
+[ext_resource type="Script" uid="uid://e76ajmuuty2i" path="res://game/player/weapons/flamethrower/projectile.gd" id="1_a85iw"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_akgne"]
 
@@ -19,3 +19,5 @@ shape = SubResource("SphereShape3D_akgne")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1172718419]
 mesh = SubResource("SphereMesh_akgne")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

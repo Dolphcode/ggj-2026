@@ -1055,6 +1055,7 @@ collision_layer = 4
 collision_mask = 4
 script = ExtResource("6_npjtq")
 damage_modifier = 0.7
+fire_modifier = 0.0
 controller = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Body" unique_id=1706417004]
@@ -1068,6 +1069,7 @@ collision_layer = 4
 collision_mask = 4
 script = ExtResource("6_npjtq")
 damage_modifier = 3.0
+fire_modifier = 0.05
 controller = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Head" unique_id=873130356]

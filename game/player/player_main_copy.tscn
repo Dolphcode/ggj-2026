@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://k3nqu20j7rgj" path="res://game/player/walking_player_state.gd" id="8_pwrvv"]
 [ext_resource type="Script" uid="uid://fon3xsuljw03" path="res://game/player/sliding_player_state.gd" id="9_721l6"]
 [ext_resource type="Script" uid="uid://dh7iygl7pnosl" path="res://game/player/weapons/shotgun/shotgun.gd" id="10_f82fs"]
-[ext_resource type="Script" uid="uid://bo33hort7o2en" path="res://game/player/flamethrower.gd" id="11_knf6q"]
+[ext_resource type="Script" uid="uid://bo33hort7o2en" path="res://game/player/weapons/flamethrower/flamethrower.gd" id="11_knf6q"]
 [ext_resource type="PackedScene" uid="uid://bbjpg54y0atqm" path="res://healing_zone.tscn" id="12_43onc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_emnvn"]
