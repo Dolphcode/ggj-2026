@@ -36,6 +36,7 @@ var score_modifier = 100
 var paused = false
 @onready var ui:CanvasLayer = %Player.get_node("HUD")
 @onready var end_screen:Control = ui.get_node("UserInterface/EndScreen")
+@onready var end_box:VBoxContainer = end_screen.get_node("VBoxContainer")
 
 #enum MaskType {FIRE, ICE, RADAR, RAGE}
 #enum EnemyType {LIGHT, HEAVY, LUNGE, DASH, FLYLUNGE, FLYSNIPE}
@@ -57,13 +58,13 @@ func _process(delta: float) -> void:
 		get_tree().paused = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		end_screen.visible = true
-		end_screen.get_node("LoseLabel").visible = false
-		end_screen.get_node("FinalLabel").text = "Current Score: " + str(score)
+		end_box.get_node("LoseLabel").visible = false
+		end_box.get_node("FinalLabel").text = "Current Score: " + str(score)
 	elif Input.is_action_just_pressed("pause") and paused:
 		paused = false
 		get_tree().paused = false
 		end_screen.visible = false
-		end_screen.get_node("LoseLabel").visible = true
+		end_box.get_node("LoseLabel").visible = true
 
 func _on_enemy_spawn_timer_timeout() -> void:
 	if (enemy_cap < get_tree().get_nodes_in_group("enemies").size()):
@@ -126,7 +127,7 @@ func on_player_death():
 	AudioManager.get_node(death_sounds.pick_random()).play()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	end_screen.visible = true
-	end_screen.get_node("VBoxContainer/FinalLabel").text = "Final Score: " + str(score)
+	end_box.get_node("FinalLabel").text = "Final Score: " + str(score)
 
 
 func start_game() -> void:
