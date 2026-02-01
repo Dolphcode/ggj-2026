@@ -76,6 +76,9 @@ script = ExtResource("2_440e6")
 transform = Transform3D(0.099938214, -0.025739664, 0.002392798, -0.0016301495, 0.26366207, 0.096447736, -0.0031134225, -0.96427155, 0.026307954, 0, -0.424, -0.4)
 mesh = SubResource("BoxMesh_ivnbd")
 
+[node name="ShotgunFirePoint" type="Marker3D" parent="Neck/Camera3D/MeshInstance3D" unique_id=685438912]
+transform = Transform3D(1, 0, 9.313226e-10, -4.656613e-10, 0.99999976, 3.7252903e-09, 9.313226e-10, -4.7683716e-07, 1, 0.13404113, 0.47765797, -0.46016204)
+
 [node name="WeaponPivot" type="Node3D" parent="Neck" unique_id=962293482]
 
 [node name="Mask" parent="." unique_id=2126738232 node_paths=PackedStringArray("player") instance=ExtResource("2_swd4e")]
@@ -211,10 +214,11 @@ script = ExtResource("10_w4oxq")
 player_cam = NodePath("../Neck/Camera3D")
 spread_factor = 20.0
 
-[node name="Flamethrower" type="Node3D" parent="." unique_id=584384676 node_paths=PackedStringArray("player_cam")]
+[node name="Flamethrower" type="Node3D" parent="." unique_id=584384676 node_paths=PackedStringArray("facing_obj", "fire_point")]
 process_mode = 4
 script = ExtResource("11_xc0o6")
-player_cam = NodePath("../Neck/Camera3D")
+facing_obj = NodePath("../Neck/Camera3D")
+fire_point = NodePath("../Neck/Camera3D/MeshInstance3D/ShotgunFirePoint")
 
 [node name="burning" type="AudioStreamPlayer3D" parent="Flamethrower" unique_id=1570720102]
 stream = ExtResource("12_8suo6")
