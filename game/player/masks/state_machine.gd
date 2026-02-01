@@ -6,8 +6,12 @@ class_name MaskHandler
 var current_state : State
 var mask_time : float
 var gun_type : String
+<<<<<<< HEAD
 var mask_queue = ["radar_mask"]
 #var mask_queue = []
+=======
+var mask_queue = ['rage_mask']
+>>>>>>> 9ba33fab0131a28f5aab2d8732d6cf6c48ab9a8f
 var states : Dictionary = {}
 
 #UI variables for ease and save on overhead
@@ -89,3 +93,7 @@ func color_queue():
 
 func is_queue_full():
 	return len(mask_queue) >= 3
+
+
+func _on_player_die() -> void:
+	on_child_transition(current_state, "no_mask")

@@ -6,6 +6,4 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_mq7b5")
-shader_parameter/is_healing = false
 shader_parameter/Skin = ExtResource("2_rp2oa")
-shader_parameter/is_frozen = false

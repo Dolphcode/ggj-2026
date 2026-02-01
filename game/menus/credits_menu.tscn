@@ -13,9 +13,12 @@ script = ExtResource("1_rqd6s")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1268517375]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 14
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.5
+offset_top = -172.0
+offset_bottom = 172.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -29,9 +32,9 @@ Audio Done By:
 rax you got allat
 Voice Acting Done By:
 jds472 - wizard
-CrusaderDolphinus - goat
-raxisgreat - stegosaurus 
-riikyo - bird
+CrusaderDolphinus - goat death
+raxisgreat - frog death
+riikyo - bird death
 (The Wizard's name is Jarmew)"
 horizontal_alignment = 1
 

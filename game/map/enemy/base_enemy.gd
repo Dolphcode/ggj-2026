@@ -17,6 +17,8 @@ class_name BaseEnemy
 @export var mesh: MeshInstance3D
 @export var anim_player: AnimationPlayer
 
+@export var enemy_death_sound: String
+
 var is_frozen: bool = false
 var frozen_time_left: float = 0.0
 
@@ -111,6 +113,8 @@ func damage(amount: float, is_freeze: bool) -> void:
 
 	if current_health <= 0:
 		if not dead:
+			AudioManager.get_node(enemy_death_sound).global_position = global_position
+			AudioManager.get_node(enemy_death_sound).play()
 			dead = true
 			die.emit()
 			queue_free()
