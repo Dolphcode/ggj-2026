@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://b4u284eg6beo0" path="res://singleton/debug.gd" id="5_emnvn"]
 [ext_resource type="PackedScene" uid="uid://cxg81j7bnsoyg" path="res://assets/models/player/flamethrower.glb" id="5_r1j4a"]
 [ext_resource type="Texture2D" uid="uid://dbbefii52tu4r" path="res://assets/textures/rage_mask_icon.png" id="7_nfehw"]
-[ext_resource type="AudioStream" uid="uid://fpfif27mcbwk" path="res://assets/flamethower.mp3" id="8_ib0wo"]
+[ext_resource type="AudioStream" uid="uid://fpfif27mcbwk" path="res://assets/audio/flamethower.mp3" id="8_ib0wo"]
 [ext_resource type="Theme" uid="uid://b213f11nq0c86" path="res://assets/hud_theme.tres" id="9_r1j4a"]
 [ext_resource type="Texture2D" uid="uid://8a650j155vl0" path="res://assets/textures/ice_mask_icon.png" id="10_g8fnv"]
 [ext_resource type="Texture2D" uid="uid://d3h0ybwbwncje" path="res://assets/textures/radar_mask_icon.png" id="10_qroyc"]
@@ -19,17 +19,17 @@
 [ext_resource type="Script" uid="uid://bo33hort7o2en" path="res://game/player/weapons/flamethrower/flamethrower.gd" id="11_xc0o6"]
 [ext_resource type="AudioStream" uid="uid://cpa2o67uckn6j" path="res://assets/audio/burning effect (on fire, fire mask).mp3" id="12_8suo6"]
 [ext_resource type="PackedScene" uid="uid://bbjpg54y0atqm" path="res://game/player/healing_zone.tscn" id="12_xc0o6"]
-[ext_resource type="AudioStream" uid="uid://b6ftpj8xcmwdw" path="res://assets/healing (radar mask).mp3" id="14_1lye5"]
-[ext_resource type="AudioStream" uid="uid://cpxpe88g678f" path="res://assets/shotgun reload.mp3" id="15_6vp58"]
-[ext_resource type="AudioStream" uid="uid://blfefr0pvojq6" path="res://assets/mask pickup.mp3" id="15_q6l8d"]
-[ext_resource type="Texture2D" uid="uid://csnqgbu8p4uym" path="res://assets/crosshair.svg" id="15_qfcqs"]
-[ext_resource type="AudioStream" uid="uid://dcowqmx22ewfw" path="res://assets/mask power down.mp3" id="16_6vp58"]
-[ext_resource type="AudioStream" uid="uid://cv2trrtx5ff2y" path="res://assets/shotgun unload (shooting).mp3" id="16_aye87"]
-[ext_resource type="AudioStream" uid="uid://cocvb6vw6h8rb" path="res://assets/jump whoosh (actual).mp3" id="16_s2aeh"]
-[ext_resource type="AudioStream" uid="uid://skjo2u0syfjg" path="res://assets/death player 3.mp3" id="17_agfdf"]
-[ext_resource type="AudioStream" uid="uid://u5w0cbkrnsgs" path="res://assets/footsteps3.0.mp3" id="17_s2aeh"]
-[ext_resource type="AudioStream" uid="uid://dkjtnrvf3ddwc" path="res://assets/death player 2.mp3" id="18_re72c"]
-[ext_resource type="AudioStream" uid="uid://cam8ka11i81ii" path="res://assets/player death 1.mp3" id="19_8fwjf"]
+[ext_resource type="AudioStream" uid="uid://b6ftpj8xcmwdw" path="res://assets/audio/healing (radar mask).mp3" id="14_1lye5"]
+[ext_resource type="AudioStream" uid="uid://cpxpe88g678f" path="res://assets/audio/shotgun reload.mp3" id="15_6vp58"]
+[ext_resource type="AudioStream" uid="uid://blfefr0pvojq6" path="res://assets/audio/mask pickup.mp3" id="15_q6l8d"]
+[ext_resource type="Texture2D" uid="uid://cstardotvhfoo" path="res://assets/crosshair.svg" id="15_qfcqs"]
+[ext_resource type="AudioStream" uid="uid://dcowqmx22ewfw" path="res://assets/audio/mask power down.mp3" id="16_6vp58"]
+[ext_resource type="AudioStream" uid="uid://cv2trrtx5ff2y" path="res://assets/audio/shotgun unload (shooting).mp3" id="16_aye87"]
+[ext_resource type="AudioStream" uid="uid://cocvb6vw6h8rb" path="res://assets/audio/jump whoosh (actual).mp3" id="16_s2aeh"]
+[ext_resource type="AudioStream" uid="uid://skjo2u0syfjg" path="res://assets/audio/death player 3.mp3" id="17_agfdf"]
+[ext_resource type="AudioStream" uid="uid://u5w0cbkrnsgs" path="res://assets/audio/footsteps3.0.mp3" id="17_s2aeh"]
+[ext_resource type="AudioStream" uid="uid://dkjtnrvf3ddwc" path="res://assets/audio/death player 2.mp3" id="18_re72c"]
+[ext_resource type="AudioStream" uid="uid://cam8ka11i81ii" path="res://assets/audio/player death 1.mp3" id="19_8fwjf"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1lye5"]
 height = 3.25
@@ -562,6 +562,23 @@ disabled = true
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1013997634]
 layer = -1
 
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD" unique_id=2103591185]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme = ExtResource("9_r1j4a")
+
+[node name="ScoreLabel" type="Label" parent="HUD/VBoxContainer" unique_id=1753284901]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Score: 0
+(you trash lol)"
+horizontal_alignment = 1
+
 [node name="UserInterface" type="Control" parent="HUD" unique_id=179065454]
 layout_mode = 3
 anchors_preset = 0
@@ -583,15 +600,6 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="HUD/UserInterface/DebugPanel/MarginContainer" unique_id=348997293]
 unique_name_in_owner = true
 layout_mode = 2
-
-[node name="ScoreLabel" type="Label" parent="HUD/UserInterface" unique_id=1753284901]
-layout_mode = 0
-offset_left = 560.0
-offset_top = 10.0
-offset_right = 600.0
-offset_bottom = 33.0
-text = "Score: 0
-(you trash lol)"
 
 [node name="EndScreen" type="Control" parent="HUD/UserInterface" unique_id=1403583691]
 anchors_preset = 0

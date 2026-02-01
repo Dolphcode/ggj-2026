@@ -27,7 +27,7 @@ material = SubResource("ShaderMaterial_3ce54")
 flip_faces = true
 size = Vector2(2, 2)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_pp1d7"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_3ce54"]
 viewport_path = NodePath("Neck/SubViewport")
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_c1210"]
@@ -1169,7 +1169,7 @@ offset_right = 0.0
 offset_bottom = 0.0
 
 [node name="TextureRect" parent="Player/HUD/PanelContainer/HBoxContainer/PanelContainer/VBoxContainer/Margins" parent_id_path=PackedInt32Array(1291810518, 1466631800) index="0" unique_id=1594427984]
-texture = SubResource("ViewportTexture_pp1d7")
+texture = SubResource("ViewportTexture_3ce54")
 
 [node name="TextureRect" parent="Player/HUD" index="2" unique_id=594226744]
 texture = null
