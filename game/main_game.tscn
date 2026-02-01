@@ -1157,7 +1157,6 @@ light_energy = 14.0
 spot_range = 29.663689
 spot_angle = 73.155
 
-
 [node name="HealthManager" parent="Player" index="6" unique_id=1142276691]
 max_health = null
 damage_modifier_min = null
