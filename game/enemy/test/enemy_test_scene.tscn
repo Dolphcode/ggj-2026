@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://c0n5bf5u056ob"]
 
-[ext_resource type="PackedScene" uid="uid://bhn2c52hsqllt" path="res://game/enemy/chasing_enemy/light_enemy/light_enemy.tscn" id="1_gsdq8"]
-[ext_resource type="Script" uid="uid://b4tr4nobltx4d" path="res://game/enemy/base_enemy.gd" id="1_wqye2"]
+[ext_resource type="PackedScene" uid="uid://bhn2c52hsqllt" path="res://game/map/enemy/chasing_enemy/light_enemy/light_enemy.tscn" id="1_gsdq8"]
+[ext_resource type="Script" uid="uid://b4tr4nobltx4d" path="res://game/map/enemy/base_enemy.gd" id="1_wqye2"]
 [ext_resource type="PackedScene" uid="uid://dvbdmcuj60ayg" path="res://game/player/player_main.tscn" id="2_3fo60"]
-[ext_resource type="PackedScene" uid="uid://b1e0v0qeay4rd" path="res://game/enemy/chasing_enemy/heavy_enemy/heavy_enemy.tscn" id="3_3fo60"]
-[ext_resource type="AudioStream" uid="uid://dxprrrfu1ef2d" path="res://assets/damage-40114.mp3" id="3_igbfk"]
+[ext_resource type="PackedScene" uid="uid://b1e0v0qeay4rd" path="res://game/map/enemy/chasing_enemy/heavy_enemy/heavy_enemy.tscn" id="3_3fo60"]
+[ext_resource type="AudioStream" uid="uid://dxprrrfu1ef2d" path="res://assets/audio/damage-40114.mp3" id="3_igbfk"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_wqye2"]
 vertices = PackedVector3Array(-49, 0.7974999, 49, -3.5, 0.7974999, 21.5, -3.5, 0.7974999, 19.5, -3.5, 0.7974999, 13.5, 22.75, 0.7974999, 13, 22.75, 0.7974999, 20, 49, 0.7974999, 49, 3.5, 0.7974999, 11.5, 3.5, 0.7974999, 13.25, 15.75, 0.7974999, 13.25, 15.75, 0.7974999, 11.5, 22.5, 0.7974999, 11.25, 49, 0.7974999, -49, -49, 0.7974999, -49, -1.75, 0.7974999, 11.25, 1.75, 0.7974999, 11.25, -3.5, 0.7974999, 11.5, -2.5, 4.2974997, 12.25, -2.5, 4.2974997, 20.75, 2.5, 4.2974997, 20.75, 2.5, 4.2974997, 12.25, 16.75, 4.2974997, 12.25, 16.75, 4.2974997, 20.75, 21.75, 4.2974997, 20.75, 21.75, 4.2974997, 12.25, -2.25, 0.7974999, 12.5, -2.25, 0.7974999, 20.5, 2.25, 0.7974999, 20.5, 2.25, 0.7974999, 12.5, 17, 0.7974999, 12.5, 17, 0.7974999, 20.5, 21.5, 0.7974999, 20.5, 21.5, 0.7974999, 12.5, 17.5, 0.7974999, 11.25, 3.5, 0.7974999, 19.75, 15.75, 0.7974999, 19.75, 15.75, 0.7974999, 21.5, 3.5, 0.7974999, 21.5, 17.5, 0.7974999, 21.75, 1.75, 0.7974999, 21.75, -1.75, 0.7974999, 21.75, 22.5, 0.7974999, 21.75, 21, 0.7974999, 21.75)
