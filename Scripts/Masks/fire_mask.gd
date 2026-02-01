@@ -9,14 +9,14 @@ class_name fire_mask
 @onready var mask = get_parent().get_parent()
 @export var DOT = 0.1
 @export var new_fov = 45.0
-@export var speed_modifier = 0.1
+@export var speed_multiplier = 0.1
 @export var mask_time = 10
 #Called on equpping fire mask
 func Enter():
 	get_parent().mask_time = mask_time #short
 	mask.player.get_node("Flamethrower").process_mode = PROCESS_MODE_INHERIT
 	mask.player.get_node('Shotgun').process_mode = PROCESS_MODE_DISABLED
-	mask.player.speed_modifier = speed_modifier #10% speed
+	mask.player.speed_modifier = speed_multiplier #10% speed
 	mask.player.get_node("Neck/Camera3D").fov = new_fov
 #Called on fire mask timeout/new mask equipped
 func Exit():

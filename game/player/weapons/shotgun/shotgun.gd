@@ -6,6 +6,7 @@ extends Node3D
 @export var ray_range = 10
 @export var spread_factor: float = 5.0
 @export var amount: int = 5
+@export var damage: float = 2.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -32,7 +33,7 @@ func _process(delta):
 				var hitbox: Node3D = intersection.collider
 				if hitbox.has_method("damage"):
 					_spawn_impact_marker(intersection.position, hitbox)
-					hitbox.damage(2, false, false)
+					hitbox.damage(damage, false, false)
 
 
 func _spawn_impact_marker(position: Vector3, new_parent: Node3D) -> void:

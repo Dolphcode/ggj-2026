@@ -12,12 +12,15 @@ class_name rage_mask
 @onready var trauma = 1.0
 @onready var max_offset = Vector3(0.2, 0.2, 0.2)
 @onready var amount = pow(trauma, 2)
+
 @export var mask_time = 20
-@export var speed_modifier = 2.0
+@export var speed_multiplier = 2.0
+@export var damage_multiplier = 3.0
 #Called on equpping rage mask
 func Enter():
 	get_parent().mask_time = mask_time #medium
-	mask.player.speed_modifier = speed_modifier #currently increases speed [may remove this]
+	mask.player.speed_modifier = speed_multiplier #currently increases speed [may remove this]
+	mask.player.get_node("Shotgun").damage *= damage_multiplier
 	#	change camera fov and color
 
 
@@ -27,6 +30,7 @@ func Enter():
 #Called on rage mask timeout/new mask equipped
 func Exit():
 	mask.player.speed_modifier = 1.0
+	mask.player.get_node("Shotgun").damage /= damage_multiplier
 	cam.fov = 75.0
 	
 func Update(delta: float):
