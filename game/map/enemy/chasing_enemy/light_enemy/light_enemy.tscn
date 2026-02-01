@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://bhn2c52hsqllt"]
 
 [ext_resource type="Script" uid="uid://b4tr4nobltx4d" path="res://game/map/enemy/base_enemy.gd" id="1_553o2"]
+[ext_resource type="Script" uid="uid://b4rapb5b73pjv" path="res://game/map/enemy/enemy_hurtbox.gd" id="3_wibvp"]
 [ext_resource type="Script" uid="uid://boeclsab002kg" path="res://game/map/enemy/chasing_enemy/chasing_enemy_walk_state.gd" id="3_ykew5"]
 [ext_resource type="Script" uid="uid://bm2pqsldojg01" path="res://game/map/enemy/chasing_enemy/chasing_enemy_attack_state.gd" id="4_8c2jf"]
 [ext_resource type="Texture2D" uid="uid://dp4iexgt0fj4q" path="res://assets/models/bird_enemy_bird.png" id="5_bqmi1"]
@@ -1117,6 +1118,8 @@ anim_player = NodePath("../bird_enemy/AnimationPlayer")
 
 [node name="MeleeHurtbox" type="Area3D" parent="." unique_id=223013557]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4958988, -0.14133406)
+script = ExtResource("3_wibvp")
+base_damage = 6.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeleeHurtbox" unique_id=1652190868]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.36328125)

@@ -89,6 +89,9 @@ player = NodePath("..")
 [node name="HealthManager" type="Node3D" parent="." unique_id=1142276691]
 script = ExtResource("4_440e6")
 immunity_time = 0.4
+max_health = null
+damage_modifier_min = null
+damage_modifier_max = null
 
 [node name="StandingHitbox" type="Area3D" parent="HealthManager" unique_id=1041679191]
 

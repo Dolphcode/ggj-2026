@@ -35,7 +35,7 @@ func _process(delta):
 	hud.get_node("HSlider").value = relative_health
 
 
-func hit():
+func hit(damage: float) -> void:
 	if immunity_active_time >= 0.0:
 		return
 	print("I was hit")
@@ -47,5 +47,5 @@ func hit():
 		get_node("..").die.emit()
 
 func _on_standing_hitbox_area_entered(area):
-	print("test")
-	hit()
+	if area is EnemyHurtbox:
+		hit(area.get_damage())

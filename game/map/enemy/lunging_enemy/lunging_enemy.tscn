@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://mysqranrbj22"]
 
 [ext_resource type="Script" uid="uid://b4tr4nobltx4d" path="res://game/map/enemy/base_enemy.gd" id="1_y3a02"]
+[ext_resource type="Script" uid="uid://b4rapb5b73pjv" path="res://game/map/enemy/enemy_hurtbox.gd" id="2_jg7pv"]
 [ext_resource type="Script" uid="uid://d4im4mhpdvwon" path="res://game/map/enemy/lunging_enemy/lunging_enemy_walk_state.gd" id="3_xfwsl"]
 [ext_resource type="Script" uid="uid://sdbqpirlt7sc" path="res://game/map/enemy/lunging_enemy/lunging_enemy_prowl_state.gd" id="4_cm1ri"]
 [ext_resource type="Script" uid="uid://b7e2xk1lxqhd0" path="res://game/map/enemy/lunging_enemy/lunging_enemy_attack_state.gd" id="5_v7jqj"]
@@ -440,6 +441,8 @@ shape = SubResource("BoxShape3D_hsw54")
 
 [node name="MeleeHurtbox" type="Area3D" parent="." unique_id=1349355844]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43771797, 0.11788368)
+script = ExtResource("2_jg7pv")
+base_damage = 15.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeleeHurtbox" unique_id=1496426339]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18692017, -0.17773438)

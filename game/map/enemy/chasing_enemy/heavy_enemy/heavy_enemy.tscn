@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://b1e0v0qeay4rd"]
 
 [ext_resource type="Script" uid="uid://b4tr4nobltx4d" path="res://game/map/enemy/base_enemy.gd" id="1_w1sw4"]
+[ext_resource type="Script" uid="uid://b4rapb5b73pjv" path="res://game/map/enemy/enemy_hurtbox.gd" id="3_ur0fr"]
 [ext_resource type="Script" uid="uid://boeclsab002kg" path="res://game/map/enemy/chasing_enemy/chasing_enemy_walk_state.gd" id="3_y5uiq"]
 [ext_resource type="Script" uid="uid://bm2pqsldojg01" path="res://game/map/enemy/chasing_enemy/chasing_enemy_attack_state.gd" id="4_pj7bv"]
 [ext_resource type="Script" uid="uid://bek8u6neeuy4l" path="res://game/map/enemy/chasing_enemy/chasing_enemy_prowl_state.gd" id="5_fes66"]
@@ -1031,6 +1032,7 @@ anim_player = NodePath("../librasaurus/AnimationPlayer")
 
 [node name="MeleeHurtbox" type="Area3D" parent="." unique_id=1110582311]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0960028)
+script = ExtResource("3_ur0fr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeleeHurtbox" unique_id=868935155]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4442596, 0.047576904)
