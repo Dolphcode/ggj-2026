@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 global="*uid://cc8yyknp2bf4j"
 
+[global_group]
+
+mask_spawns=""
+
 [input]
 
 forward={

@@ -15,6 +15,7 @@ class_name Player
 @onready var neck := $Neck
 @onready var camera := $Neck/Camera3D
 
+var current_room:Node3D
 var speed_modifier := 1.0
 var player_velocity
 var sliding: bool = false
@@ -91,3 +92,10 @@ func _physics_process(delta: float) -> void:
 	global.debug.add_property("Velocity", velocity, 2)
 
 	move_and_slide()
+	
+	var space_state = get_world_3d().direct_space_state
+	var query = PhysicsRayQueryParameters3D.create(global_position, Vector3(global_position.x, global_position.y-10, global_position.z),
+		16, [self])
+	query.collide_with_bodies = true
+	var result = space_state.intersect_ray(query)
+	current_room = result.collider.get_parent()
