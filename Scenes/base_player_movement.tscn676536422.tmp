@@ -113,5 +113,3 @@ layout_mode = 2
 [node name="PlayerStateMachine" type="Node" parent="." unique_id=652553148]
 
 [node name="IdlePlayerState" type="Node" parent="PlayerStateMachine" unique_id=1168631614]
-
-[editable path="Player"]

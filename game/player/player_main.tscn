@@ -124,6 +124,7 @@ unique_name_in_owner = true
 layout_mode = 2
 
 [node name="PlayerStateMachine" type="Node" parent="." unique_id=1902627902 node_paths=PackedStringArray("CURRENT_STATE")]
+process_mode = 4
 script = ExtResource("6_bq1e6")
 CURRENT_STATE = NodePath("IdlePlayerState")
 
