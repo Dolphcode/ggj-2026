@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://oj5whpdwgu6n"
+path="res://.godot/imported/crow attack.mp3-bd3f94ed53cf1f7d4fe521219dcea71f.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/crow attack.mp3"
+dest_files=["res://.godot/imported/crow attack.mp3-bd3f94ed53cf1f7d4fe521219dcea71f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

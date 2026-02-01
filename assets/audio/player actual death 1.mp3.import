@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bbs1sv4y4hlpb"
+path="res://.godot/imported/player actual death 1.mp3-34f97a0823dcc5282b789e026a350f00.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/player actual death 1.mp3"
+dest_files=["res://.godot/imported/player actual death 1.mp3-34f97a0823dcc5282b789e026a350f00.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

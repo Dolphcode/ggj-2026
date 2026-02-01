@@ -1136,7 +1136,7 @@ size = Vector3(50, 1, 50)
 ambient_light_color = Color(0.99215686, 0.9254902, 0.69411767, 1)
 ambient_light_energy = 0.02
 fog_enabled = true
-fog_light_color = Color(0.22679934, 0.18376979, 0.016517993, 1)
+fog_light_color = Color(0.22745098, 0.18431373, 0.015686275, 1)
 fog_density = 0.05
 
 [node name="TrenchbroomMap" type="Node3D" unique_id=1578550726]
@@ -1156,6 +1156,7 @@ light_color = Color(0.99215686, 0.9254902, 0.69411767, 1)
 light_energy = 14.0
 spot_range = 29.663689
 spot_angle = 73.155
+
 [node name="HealthManager" parent="Player" index="6" unique_id=1142276691]
 max_health = null
 damage_modifier_min = null
@@ -1168,8 +1169,11 @@ process_mode = 3
 offset_right = 0.0
 offset_bottom = 0.0
 
-[node name="AudioSlide" parent="Player" index="15" unique_id=556898593]
-volume_db = -5.0
+[node name="Shoot" parent="Player" index="15" unique_id=360649000]
+volume_db = -23.0
+
+[node name="Reload" parent="Player" index="16" unique_id=882841368]
+volume_db = -23.0
 
 [node name="WorldMesh" type="NavigationRegion3D" parent="." unique_id=1019665203]
 navigation_mesh = SubResource("NavigationMesh_c1210")

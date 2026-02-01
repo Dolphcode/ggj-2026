@@ -18,6 +18,7 @@ initial_state = NodePath("no_mask")
 
 [node name="fire_mask" type="Node" parent="State Machine" unique_id=139503172]
 script = ExtResource("2_qd5pu")
+DOT = 0.02
 metadata/_custom_type_script = "uid://0fomi5vf51ff"
 
 [node name="ice_mask" type="Node" parent="State Machine" unique_id=926258323]

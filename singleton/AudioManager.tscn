@@ -3,14 +3,18 @@
 [ext_resource type="Script" uid="uid://b2ne1ojfnvepx" path="res://singleton/audio_manager.gd" id="1_m6ohh"]
 [ext_resource type="AudioStream" uid="uid://ccvvsonb5ik7i" path="res://assets/Wizard Shotgun Background Music.mp3" id="1_xv1y8"]
 [ext_resource type="AudioStream" uid="uid://cj4w7whsrdptx" path="res://assets/goat death.mp3" id="3_tqu67"]
-[ext_resource type="AudioStream" uid="uid://lmb706cf30kt" path="res://assets/frog death.mp3" id="4_tqu67"]
+[ext_resource type="AudioStream" uid="uid://bvud01dq5btmh" path="res://assets/frog death v2.mp3" id="4_ew2jo"]
 [ext_resource type="AudioStream" uid="uid://bbs1sv4y4hlpb" path="res://assets/player actual death 1.mp3" id="5_62yln"]
+[ext_resource type="AudioStream" uid="uid://cynpsf6ap4e72" path="res://assets/crow death.mp3" id="5_obhnc"]
 [ext_resource type="AudioStream" uid="uid://baoenmpsq5you" path="res://assets/player actual death 2.mp3" id="6_wshm8"]
 [ext_resource type="AudioStream" uid="uid://dsqh0qyjgr3y0" path="res://assets/player actual death 3.mp3" id="7_r6ysb"]
 [ext_resource type="AudioStream" uid="uid://bsqexxr7euipu" path="res://assets/radar mask.mp3" id="8_wshm8"]
 [ext_resource type="AudioStream" uid="uid://4666mas3gd0w" path="res://assets/fire mask.mp3" id="9_r6ysb"]
 [ext_resource type="AudioStream" uid="uid://bql0hxo2qjdk3" path="res://assets/ice mask.mp3" id="10_habyq"]
 [ext_resource type="AudioStream" uid="uid://bgpefhjp4s6jd" path="res://assets/rage mask.mp3" id="11_w82uh"]
+[ext_resource type="AudioStream" uid="uid://daskshyto2x7d" path="res://assets/button click.mp3" id="12_llhet"]
+[ext_resource type="AudioStream" uid="uid://d0di76iip2dql" path="res://assets/slide whoosh (v2).mp3" id="14_ew2jo"]
+[ext_resource type="AudioStream" uid="uid://bfqpc5h1qocu" path="res://assets/joey narrator story.mp3" id="15_3q4xm"]
 
 [node name="AudioManager" type="Node" unique_id=267221631]
 script = ExtResource("1_m6ohh")
@@ -23,9 +27,15 @@ parameters/looping = true
 
 [node name="GoatDeath" type="AudioStreamPlayer3D" parent="." unique_id=1858139876]
 stream = ExtResource("3_tqu67")
+volume_db = 2.0
 
 [node name="FrogDeath" type="AudioStreamPlayer3D" parent="." unique_id=379635721]
-stream = ExtResource("4_tqu67")
+stream = ExtResource("4_ew2jo")
+volume_db = 60.0
+
+[node name="CrowDeath" type="AudioStreamPlayer3D" parent="." unique_id=342209406]
+stream = ExtResource("5_obhnc")
+volume_db = 7.0
 
 [node name="PlayerDeath" type="AudioStreamPlayer" parent="." unique_id=533136201]
 stream = ExtResource("5_62yln")
@@ -47,4 +57,14 @@ stream = ExtResource("10_habyq")
 
 [node name="RageEquip" type="AudioStreamPlayer" parent="." unique_id=966441205]
 stream = ExtResource("11_w82uh")
-volume_db = 10.0
+volume_db = 6.0
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="." unique_id=2003099431]
+stream = ExtResource("12_llhet")
+
+[node name="AudioSlide" type="AudioStreamPlayer" parent="." unique_id=1609951251]
+stream = ExtResource("14_ew2jo")
+volume_db = -20.0
+
+[node name="Narrator" type="AudioStreamPlayer" parent="." unique_id=1667814662]
+stream = ExtResource("15_3q4xm")
