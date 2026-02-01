@@ -29,6 +29,8 @@ extends Node
 @onready var rooms = [top_left, top_right, bottom_left, bottom_right, center]
 @onready var enemies = [light_enemy, heavy_enemy, lunge_enemy, dash_enemy, flylunge_enemy, flysnipe_enemy]
 @onready var masks = [fire_mask_obj, ice_mask_obj, radar_mask_obj, rage_mask_obj]
+@onready var mask_state = %Player.get_node("Mask/State Machine")
+
 
 enum MaskType {FIRE, ICE, RADAR, RAGE}
 enum EnemyType {LIGHT, HEAVY, LUNGE, DASH, FLYLUNGE, FLYSNIPE}
@@ -39,6 +41,7 @@ func _ready() -> void:
 	%MaskSpawnTimer.wait_time = mask_spawn_time
 	%EnemySpawnTimer.wait_time = enemy_spawn_time
 	randomize()
+	print(mask_state)
 	pass # Replace with function body.
 
 
@@ -79,10 +82,10 @@ func spawn_masks():
 	mask_spawns.shuffle()
 	var new_mask
 	for spawn in mask_spawns:
-		pass
-		#new_mask = masks[count].instantiate()
-		#new_mask.position = spawn.global_position
-		#print("spawned ", masks[count], " at ", spawn.get_parent().name)
-		#call_deferred("add_child", new_mask)
-		#count += count
+		new_mask = masks[count].instantiate()
+		new_mask.position = spawn.global_position
+		#print("spawned ", new_mask.type, " at ", spawn.get_parent().name)
+		new_mask.mask_pick_up.connect(mask_state._on_mask_pick_up)
+		call_deferred("add_child", new_mask)
+		count += 1
 	pass
