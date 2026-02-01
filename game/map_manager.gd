@@ -46,13 +46,20 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_enemy_spawn_timer_timeout() -> void:
-	var current_room = rooms.pick_random()
-	while (global.player.current_room == current_room):
+	var current_room: Node3D = rooms.pick_random()
+	while (%Player.current_room == current_room):
 		current_room = rooms.pick_random()
 		print(current_room)
-	var spawn_pos = current_room.get_tree().get_nodes_in_group("spawns").pick_random().global_position
-	var new_enemy = enemies.pick_random().instantiate()
+	
+	var children_in_group = []
+	for node in get_tree().get_nodes_in_group("spawns"):
+		if node.get_parent() == current_room:
+			children_in_group.append(node)
+	
+	var spawn_pos = children_in_group.pick_random().global_position
+	var new_enemy: BaseEnemy = enemies.pick_random().instantiate()
 	new_enemy.position = spawn_pos
+	new_enemy.target = %Player
 	print("spawned enemy ", new_enemy.name, " at ", spawn_pos)
 	call_deferred("add_child", new_enemy)
 	pass # Replace with function body.
@@ -67,9 +74,10 @@ func spawn_masks():
 	mask_spawns.shuffle()
 	var new_mask
 	for spawn in mask_spawns:
-		new_mask = masks[count].instantiate()
-		new_mask.position = spawn.global_position
-		print("spawned ", masks[count], " at ", spawn.get_parent().name)
-		call_deferred("add_child", new_mask)
-		count += count
+		pass
+		#new_mask = masks[count].instantiate()
+		#new_mask.position = spawn.global_position
+		#print("spawned ", masks[count], " at ", spawn.get_parent().name)
+		#call_deferred("add_child", new_mask)
+		#count += count
 	pass

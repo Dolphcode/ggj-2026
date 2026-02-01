@@ -28,7 +28,7 @@ radius = 0.75
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 script = ExtResource("1_w1sw4")
-base_speed = 3.0
+base_speed = 300.0
 attack_range_sq = 4.0
 turn_speed = 3.0
 global_cd = 1.2
@@ -64,7 +64,6 @@ disabled = true
 [node name="LightEnemyAttackState" type="Node" parent="." unique_id=1864235637 node_paths=PackedStringArray("exit_state", "melee_hurtbox")]
 script = ExtResource("4_pj7bv")
 exit_state = NodePath("../LightEnemyProwlState")
-transition_cd = 0.1
 melee_hurtbox = NodePath("../MeleeHurtbox")
 
 [node name="LightEnemyProwlState" type="Node" parent="." unique_id=138251661 node_paths=PackedStringArray("exit_state", "attack_state")]

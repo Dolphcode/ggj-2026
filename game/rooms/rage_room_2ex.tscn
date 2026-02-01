@@ -47,14 +47,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 1, -22.5)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SpawnPoint" index="0" unique_id=1365458244]
 shape = SubResource("SphereShape3D_hngby")
 
-[node name="ESpawn1" type="Marker3D" parent="." index="9" unique_id=508322862]
+[node name="ESpawn1" type="Marker3D" parent="." index="9" unique_id=508322862 groups=["spawns"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9362192, 3, 7.6180096)
 
-[node name="ESpawn2" type="Marker3D" parent="." index="10" unique_id=590529488]
+[node name="ESpawn2" type="Marker3D" parent="." index="10" unique_id=590529488 groups=["spawns"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.498642, 3, -2.3517952)
 
-[node name="ESpawn3" type="Marker3D" parent="." index="11" unique_id=830689851]
+[node name="ESpawn3" type="Marker3D" parent="." index="11" unique_id=830689851 groups=["spawns"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.952333, 3, 12.476)
 
-[node name="ESpawn4" type="Marker3D" parent="." index="12" unique_id=2124017011]
+[node name="ESpawn4" type="Marker3D" parent="." index="12" unique_id=2124017011 groups=["spawns"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.190121, 3, -21.526358)

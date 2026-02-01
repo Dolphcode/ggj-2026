@@ -98,4 +98,5 @@ func _physics_process(delta: float) -> void:
 		16, [self])
 	query.collide_with_bodies = true
 	var result = space_state.intersect_ray(query)
-	current_room = result.collider.get_parent()
+	if result:
+		current_room = result.collider.get_parent()
