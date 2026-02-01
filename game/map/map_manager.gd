@@ -101,6 +101,8 @@ func on_enemy_death():
 	
 func on_player_death():
 	get_tree().paused = true
+	var death_sounds = ['TakingDamage', 'TakingDamage2', 'TakingDamage3']
+	%Player.get_node(death_sounds.pick_random()).play()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	end_screen.visible = true
 	end_screen.get_node("FinalLabel").text = "Final Score: " + str(score)

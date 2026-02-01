@@ -433,6 +433,7 @@ max_health = 10.0
 starting_state = NodePath("Walking")
 mesh = NodePath("frog_enemy/Body/Skeleton3D/Cube")
 anim_player = NodePath("frog_enemy/AnimationPlayer")
+enemy_death_sound = "FrogDeath"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=571733528]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46096802, 0.021972656)
