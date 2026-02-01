@@ -22,6 +22,7 @@ global="*uid://cc8yyknp2bf4j"
 [global_group]
 
 mask_spawns=""
+mask_objs=""
 
 [input]
 

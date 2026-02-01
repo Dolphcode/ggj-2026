@@ -31,17 +31,20 @@ extends Node
 @onready var masks = [fire_mask_obj, ice_mask_obj, radar_mask_obj, rage_mask_obj]
 @onready var mask_state = %Player.get_node("Mask/State Machine")
 
+var score = 0
+@onready var ui:Control = %Player.get_node("HUD/UserInterface")
+@onready var end_screen:Control = ui.get_node("EndScreen")
 
-enum MaskType {FIRE, ICE, RADAR, RAGE}
-enum EnemyType {LIGHT, HEAVY, LUNGE, DASH, FLYLUNGE, FLYSNIPE}
-enum RoomType{TOPLEFT, TOPRIGHT, BOTTOMLEFT, BOTTOMRIGHT, CENTER}
+#enum MaskType {FIRE, ICE, RADAR, RAGE}
+#enum EnemyType {LIGHT, HEAVY, LUNGE, DASH, FLYLUNGE, FLYSNIPE}
+#enum RoomType{TOPLEFT, TOPRIGHT, BOTTOMLEFT, BOTTOMRIGHT, CENTER}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	%MaskSpawnTimer.wait_time = mask_spawn_time
 	%EnemySpawnTimer.wait_time = enemy_spawn_time
+	end_screen.visible = false
 	randomize()
-	print(mask_state)
 	pass # Replace with function body.
 
 
@@ -51,7 +54,7 @@ func _process(delta: float) -> void:
 
 func _on_enemy_spawn_timer_timeout() -> void:
 	if (enemy_cap < get_tree().get_nodes_in_group("enemies").size()):
-		print("capped")
+		#print("capped")
 		return
 	var current_room: Node3D = rooms.pick_random()
 	while (%Player.current_room == current_room):
@@ -68,7 +71,8 @@ func _on_enemy_spawn_timer_timeout() -> void:
 	new_enemy.position = spawn_pos
 	new_enemy.target = %Player
 	new_enemy.add_to_group("enemies")
-	print("spawned enemy ", new_enemy.name, " at ", spawn_pos)
+	new_enemy.die.connect(on_enemy_death)
+	#print("spawned enemy ", new_enemy.name, " at ", spawn_pos)
 	call_deferred("add_child", new_enemy)
 	pass # Replace with function body.
 
@@ -77,6 +81,9 @@ func _on_mask_spawn_timer_timeout() -> void:
 	pass # Replace with function body.
 	
 func spawn_masks():
+	var old_masks = get_tree().get_nodes_in_group("mask_objs")
+	for mask in old_masks:
+		mask.queue_free()
 	var count = 0
 	var mask_spawns = get_tree().get_nodes_in_group("mask_spawns")
 	mask_spawns.shuffle()
@@ -89,3 +96,19 @@ func spawn_masks():
 		call_deferred("add_child", new_mask)
 		count += 1
 	pass
+	
+func on_enemy_death():
+	score += 1
+	ui.get_node("ScoreLabel").text = "Score: " + str(score)
+	
+func on_player_death():
+	get_tree().paused = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	end_screen.visible = true
+	end_screen.get_node("FinalLabel").text = "Final Score: " + str(score)
+
+
+func start_game() -> void:
+	get_tree().paused = false
+	get_tree().reload_current_scene()
+	#end_screen.visible = false

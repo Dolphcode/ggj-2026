@@ -21,6 +21,9 @@ var player_velocity
 var sliding: bool = false
 var slide_transition: Tween = null
 
+signal die
+signal start
+
 @onready var slide_check = $SlideCheck
 
 func _ready():
@@ -101,3 +104,11 @@ func _physics_process(delta: float) -> void:
 	var result = space_state.intersect_ray(query)
 	if result:
 		current_room = result.collider.get_parent()
+
+
+func _on_retry_button_button_up() -> void:
+	start.emit()
+
+
+func _on_menu_button_button_up() -> void:
+	get_tree().change_scene_to_file("res://game/menus/main_menu.tscn")

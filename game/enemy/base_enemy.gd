@@ -17,11 +17,15 @@ class_name BaseEnemy
 # ONREADY
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
 
+# SIGNAL
+signal die()
+
 # STATE
 var current_state: BaseEnemyState
 var transition_state: BaseEnemyState
 var global_cd_timer: float = 0.0
 var current_health: float = 0.0
+var dead = false
 
 func _ready():
 	current_health = max_health
@@ -57,4 +61,7 @@ func damage(amount: float) -> void:
 	current_health = clampf(current_health - amount, 0.0, max_health)
 	
 	if current_health <= 0:
-		queue_free()
+		if not dead:
+			dead = true
+			die.emit()
+			queue_free()

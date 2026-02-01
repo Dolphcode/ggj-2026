@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bmafxpbeusmsr"]
+
+[ext_resource type="Script" uid="uid://clshekemvs3dg" path="res://game/menus/story_menu.gd" id="1_k7kph"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xvspi"]
+
+[node name="StoryMenu" type="Control" unique_id=1704170012]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k7kph")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=492252685]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1300970503]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+text = "There once was a wizard with great power. The wizard loved to flaunt power and turn other wizards into animals. One day, the wizard drew the attention of the Grand Witch. The Grand Witch had enough of the wizard's shenanigans and stole the wizard's magic. Ultimately, the wizard was sentenced to an eternity fighting all of those he turned to animals before and only picking up fractions of his power before, with dastardly drawbacks. Fortunately, the wizard never left home with his trusty double barrel shotgun, and he got ready to take every animal head on."
+label_settings = SubResource("LabelSettings_xvspi")
+autowrap_mode = 2
+
+[node name="BackButton" type="Button" parent="VBoxContainer" unique_id=679435561]
+layout_mode = 2
+text = "Back"
+
+[connection signal="button_up" from="VBoxContainer/BackButton" to="." method="_on_back_button_button_up"]
