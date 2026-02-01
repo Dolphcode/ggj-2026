@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://skjo2u0syfjg"
+path="res://.godot/imported/death player 3.mp3-3276e5dbc599c8a8b6cab20cfe89a03a.mp3str"
+
+[deps]
+
+source_file="res://assets/death player 3.mp3"
+dest_files=["res://.godot/imported/death player 3.mp3-3276e5dbc599c8a8b6cab20cfe89a03a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

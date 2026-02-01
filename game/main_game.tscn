@@ -1141,6 +1141,9 @@ process_mode = 3
 offset_right = 0.0
 offset_bottom = 0.0
 
+[node name="AudioSlide" parent="Player" index="15" unique_id=556898593]
+volume_db = -5.0
+
 [node name="WorldMesh" type="NavigationRegion3D" parent="." unique_id=1019665203]
 navigation_mesh = SubResource("NavigationMesh_c1210")
 

@@ -15,8 +15,8 @@ extends Node3D
 @export var fire_point: Node3D
 
 @onready var health_manager: HealthManager = get_parent().get_node("HealthManager")
-@onready var shoot_sfx: AudioStreamPlayer3D = get_parent().get_node("Shoot")
-@onready var reload_sfx: AudioStreamPlayer3D = get_parent().get_node("Reload")
+@onready var shoot_sfx: AudioStreamPlayer = get_parent().get_node("Shoot")
+@onready var reload_sfx: AudioStreamPlayer = get_parent().get_node("Reload")
 
 var reload_time: float = 0.0
 

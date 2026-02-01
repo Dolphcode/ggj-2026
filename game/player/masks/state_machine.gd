@@ -6,8 +6,7 @@ class_name MaskHandler
 var current_state : State
 var mask_time : float
 var gun_type : String
-var mask_queue = ["fire_mask"]
-#var mask_queue = []
+var mask_queue = ['rage_mask']
 var states : Dictionary = {}
 
 #UI variables for ease and save on overhead

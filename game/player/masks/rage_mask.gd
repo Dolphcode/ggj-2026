@@ -19,6 +19,7 @@ class_name rage_mask
 #Called on equpping rage mask
 func Enter():
 	get_parent().mask_time = mask_time #medium
+	AudioManager.get_node("RageEquip").play()
 	mask.player.speed_modifier = speed_multiplier #currently increases speed [may remove this]
 	mask.player.get_node("Shotgun").damage *= damage_multiplier
 	#	change camera fov and color

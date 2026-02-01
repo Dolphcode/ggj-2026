@@ -18,6 +18,7 @@ var old_fov: float = 0.0
 #Called on equpping fire mask
 func Enter():
 	get_parent().mask_time = mask_time #short
+	AudioManager.get_node("FireEquip").play()
 	mask.player.get_node("Flamethrower").process_mode = PROCESS_MODE_INHERIT
 	mask.player.get_node("Flamethrower/burning").play()
 	mask.player.get_node('Shotgun').process_mode = PROCESS_MODE_DISABLED
