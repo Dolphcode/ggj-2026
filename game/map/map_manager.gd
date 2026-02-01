@@ -118,7 +118,7 @@ func spawn_masks():
 	
 func on_enemy_death():
 	score += 1 * score_modifier
-	ui.get_node("ScoreLabel").text = "Score: " + str(score)
+	ui.get_node("VBoxContainer/ScoreLabel").text = "Score: " + str(score)
 	
 func on_player_death():
 	get_tree().paused = true
