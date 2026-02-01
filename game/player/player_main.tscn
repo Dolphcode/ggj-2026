@@ -142,6 +142,22 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 
+[node name="ActiveMask" type="Label" parent="HUD/UserInterface" unique_id=1960159774]
+layout_mode = 0
+offset_left = 870.0
+offset_top = 20.0
+offset_right = 967.0
+offset_bottom = 43.0
+text = "Active Mask:"
+
+[node name="QueueMask" type="Label" parent="HUD/UserInterface" unique_id=908307151]
+layout_mode = 0
+offset_left = 845.0
+offset_top = 75.0
+offset_right = 970.0
+offset_bottom = 98.0
+text = "Masks in queue:"
+
 [node name="MaskRect" type="ColorRect" parent="HUD/UserInterface" unique_id=60251436]
 unique_name_in_owner = true
 layout_mode = 0
@@ -209,6 +225,65 @@ offset_top = 400.0
 offset_right = 653.0
 offset_bottom = 431.0
 text = "Main Menu"
+
+[node name="MaskQueue" type="VBoxContainer" parent="HUD/UserInterface" unique_id=598856503]
+layout_mode = 0
+offset_left = 975.0
+offset_top = 69.0
+offset_right = 1126.0
+offset_bottom = 217.0
+theme_override_constants/separation = 15
+
+[node name="Mask0" type="ColorRect" parent="HUD/UserInterface/MaskQueue" unique_id=212975437]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.6, 0.6, 0.6, 0.5019608)
+
+[node name="MaskLabel" type="Label" parent="HUD/UserInterface/MaskQueue/Mask0" unique_id=788163890]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "No Mask"
+label_settings = SubResource("LabelSettings_xc0o6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Mask1" type="ColorRect" parent="HUD/UserInterface/MaskQueue" unique_id=1012654569]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.6, 0.6, 0.6, 0.5019608)
+
+[node name="MaskLabel" type="Label" parent="HUD/UserInterface/MaskQueue/Mask1" unique_id=524064938]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "No Mask"
+label_settings = SubResource("LabelSettings_xc0o6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Mask2" type="ColorRect" parent="HUD/UserInterface/MaskQueue" unique_id=1469339621]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.6, 0.6, 0.6, 0.5019608)
+
+[node name="MaskLabel" type="Label" parent="HUD/UserInterface/MaskQueue/Mask2" unique_id=1275506297]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "No Mask"
+label_settings = SubResource("LabelSettings_xc0o6")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1680644644]
 

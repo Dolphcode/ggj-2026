@@ -22,16 +22,17 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=523527262]
 layout_mode = 2
 text = "Programming Done By:
-CrusaderDolphinus, riikyo, Raxisgreat, jds472
+CrusaderDolphinus, riikyo, raxisgreat, jds472
 Artwork Done By:
 CrusaderDolphinus, riikyo
 Audio Done By:
 rax you got allat
 Voice Acting Done By:
 jds472 - wizard
-CrusaderDolphinus - frog
-Raxisgreat - stegosaurus 
-riikyo - bird"
+CrusaderDolphinus - goat
+raxisgreat - stegosaurus 
+riikyo - bird
+(The Wizard's name is Jarmew)"
 horizontal_alignment = 1
 
 [node name="BackButton" type="Button" parent="VBoxContainer" unique_id=1978899525]
