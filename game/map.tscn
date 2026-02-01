@@ -64,7 +64,7 @@ shape = SubResource("BoxShape3D_j1cge")
 [node name="MapManager" type="Node" parent="." unique_id=1605410741 node_paths=PackedStringArray("top_left", "top_right", "bottom_left", "bottom_right", "center")]
 unique_name_in_owner = true
 script = ExtResource("7_j1cge")
-enemy_spawn_time = 0.2
+enemy_spawn_time = 0.5
 light_enemy = ExtResource("8_bxo5i")
 heavy_enemy = ExtResource("9_ii8xf")
 lunge_enemy = ExtResource("10_qpf7e")
@@ -79,7 +79,6 @@ center = NodePath("../NavigationRegion3D/CenterRoom")
 
 [node name="EnemySpawnTimer" type="Timer" parent="." unique_id=1862076091]
 unique_name_in_owner = true
-autostart = true
 
 [node name="MaskSpawnTimer" type="Timer" parent="." unique_id=1338159385]
 unique_name_in_owner = true

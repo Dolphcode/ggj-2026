@@ -1,6 +1,7 @@
 extends Node
 
 @export var difficulty_factor = 1.0
+@export var enemy_cap = 50
 @export var enemy_spawn_time = 15.0
 @export var mask_spawn_time = 15.0
 
@@ -46,6 +47,9 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_enemy_spawn_timer_timeout() -> void:
+	if (enemy_cap < get_tree().get_nodes_in_group("enemies").size()):
+		print("capped")
+		return
 	var current_room: Node3D = rooms.pick_random()
 	while (%Player.current_room == current_room):
 		current_room = rooms.pick_random()
@@ -60,6 +64,7 @@ func _on_enemy_spawn_timer_timeout() -> void:
 	var new_enemy: BaseEnemy = enemies.pick_random().instantiate()
 	new_enemy.position = spawn_pos
 	new_enemy.target = %Player
+	new_enemy.add_to_group("enemies")
 	print("spawned enemy ", new_enemy.name, " at ", spawn_pos)
 	call_deferred("add_child", new_enemy)
 	pass # Replace with function body.
