@@ -1219,7 +1219,6 @@ points = PackedVector3Array(0, 0.5, 44, 0, 0, 44, -44, 0.5, 44, -44, 0, 44, 0, 0
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1681073335]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06877518, -0.058891296, -0.11305237)
-visible = false
 navigation_mesh = SubResource("NavigationMesh_y2akx")
 
 [node name="CenterRoom" parent="NavigationRegion3D" unique_id=728229828 instance=ExtResource("1_vlxx3")]
