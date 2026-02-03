@@ -1235,9 +1235,18 @@ render_target_update_mode = 4
 transform = Transform3D(0.6347093, -0.22211331, -0.74014175, 0, 0.9578012, -0.2874319, 0.772751, 0.1824357, 0.6079253, -92.29407, 26.408508, 92.42693)
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1933387379]
-layout_mode = 0
-offset_right = 1151.0
-offset_bottom = 643.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -575.5
+offset_top = -321.5
+offset_right = 575.5
+offset_bottom = 321.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
