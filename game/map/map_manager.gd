@@ -35,7 +35,7 @@ var score = 0
 var score_modifier = 100
 var paused = false
 @onready var ui:CanvasLayer = %Player.get_node("HUD")
-@onready var end_screen:Control = ui.get_node("UserInterface/EndScreen")
+@onready var end_screen:Control = ui.get_node("EndScreen")
 @onready var end_box:VBoxContainer = end_screen.get_node("VBoxContainer")
 
 #enum MaskType {FIRE, ICE, RADAR, RAGE}

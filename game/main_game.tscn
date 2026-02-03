@@ -1164,22 +1164,16 @@ spot_angle = 73.155
 [node name="HUD" parent="Player" index="6" unique_id=1013997634]
 process_mode = 3
 
-[node name="UserInterface" parent="Player/HUD" index="1" unique_id=179065454]
+[node name="EndScreen" parent="Player/HUD" index="0" unique_id=1403583691]
+z_index = 9
+offset_left = -575.5
+offset_top = -323.0
+offset_right = 575.5
+offset_bottom = 323.0
+
+[node name="UserInterface" parent="Player/HUD" index="2" unique_id=179065454]
 offset_right = 0.0
 offset_bottom = 0.0
-
-[node name="EndScreen" parent="Player/HUD/UserInterface" index="1" unique_id=1403583691]
-offset_right = 1151.0
-offset_bottom = 646.0
-
-[node name="VBoxContainer" parent="Player/HUD/UserInterface/EndScreen" index="0" unique_id=773284968]
-offset_left = -287.0
-offset_top = -160.5
-offset_right = 250.0
-offset_bottom = 124.5
-
-[node name="TextureRect" parent="Player/HUD/PanelContainer/HBoxContainer/PanelContainer/VBoxContainer/Margins" parent_id_path=PackedInt32Array(1291810518, 1466631800) index="0" unique_id=1594427984]
-texture = SubResource("ViewportTexture_3ce54")
 
 [node name="TextureRect2" type="TextureRect" parent="Player/HUD" index="3" unique_id=1554543919]
 anchors_preset = 8
@@ -1195,7 +1189,73 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_3ce54")
 
-[node name="TextureRect" parent="Player/HUD" index="4" unique_id=594226744]
+[node name="PanelContainer" parent="Player/HUD" index="4" unique_id=1290615019]
+mouse_force_pass_scroll_events = false
+
+[node name="HBoxContainer" parent="Player/HUD/PanelContainer" index="0" unique_id=292845681]
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+
+[node name="PanelContainer" parent="Player/HUD/PanelContainer/HBoxContainer" index="0" unique_id=2023624299]
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+
+[node name="VBoxContainer" parent="Player/HUD/PanelContainer/HBoxContainer/PanelContainer" index="0" unique_id=884562728]
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+
+[node name="HSlider" parent="Player/HUD/PanelContainer/HBoxContainer/PanelContainer/VBoxContainer" index="0" unique_id=861426890]
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+
+[node name="TextureRect" parent="Player/HUD/PanelContainer/HBoxContainer/PanelContainer/VBoxContainer" index="1" unique_id=1687358903]
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+
+[node name="Margins" parent="Player/HUD/PanelContainer/HBoxContainer/PanelContainer/VBoxContainer" index="2" unique_id=1466631800]
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+
+[node name="TextureRect" parent="Player/HUD/PanelContainer/HBoxContainer/PanelContainer/VBoxContainer/Margins" index="0" unique_id=1594427984]
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+texture = SubResource("ViewportTexture_3ce54")
+
+[node name="MarginContainer" parent="Player/HUD/PanelContainer/HBoxContainer" index="1" unique_id=808931689]
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+
+[node name="VBoxContainer" parent="Player/HUD/PanelContainer/HBoxContainer/MarginContainer" index="0" unique_id=2117821399]
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+
+[node name="Label" parent="Player/HUD/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer" index="0" unique_id=1193289705]
+mouse_force_pass_scroll_events = false
+
+[node name="HSlider" parent="Player/HUD/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer" index="1" unique_id=384525575]
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+
+[node name="PanelContainer3" parent="Player/HUD/PanelContainer/HBoxContainer" index="2" unique_id=1425485655]
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+
+[node name="HBoxContainer" parent="Player/HUD/PanelContainer/HBoxContainer/PanelContainer3" index="0" unique_id=1928951728]
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+
+[node name="Slot1" parent="Player/HUD/PanelContainer/HBoxContainer/PanelContainer3/HBoxContainer" index="0" unique_id=1766376159]
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+
+[node name="Slot2" parent="Player/HUD/PanelContainer/HBoxContainer/PanelContainer3/HBoxContainer" index="1" unique_id=895598074]
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+
+[node name="Slot3" parent="Player/HUD/PanelContainer/HBoxContainer/PanelContainer3/HBoxContainer" index="2" unique_id=1887438100]
+mouse_force_pass_scroll_events = false
+
+[node name="TextureRect" parent="Player/HUD" index="5" unique_id=594226744]
 texture = null
 
 [node name="Shoot" parent="Player" index="14" unique_id=360649000]

@@ -336,6 +336,13 @@ func _process(delta):
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_emnvn"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_8suo6"]
+line_spacing = 0.0
+font = ExtResource("15_upj8m")
+font_size = 60
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mk6yg"]
 bg_color = Color(0.003921569, 0, 0, 0.70980394)
 border_width_left = 2
@@ -353,13 +360,6 @@ MarginContainer/constants/margin_left = 10
 MarginContainer/constants/margin_right = 10
 MarginContainer/constants/margin_top = 10
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_mk6yg")
-
-[sub_resource type="LabelSettings" id="LabelSettings_8suo6"]
-line_spacing = 0.0
-font = ExtResource("15_upj8m")
-font_size = 60
-outline_size = 15
-outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_qroyc"]
 color = Color(0, 0, 1, 1)
@@ -398,7 +398,7 @@ transform = Transform3D(-0.9999998, 0, -8.742276e-08, 0, 0.9999998, 0, 8.742276e
 [node name="double_barrel_visual" parent="Neck/wizzzurrrd" unique_id=202181808 instance=ExtResource("2_8fwjf")]
 transform = Transform3D(1.6666663, 0, -1.4210855e-14, 0, 1.6666663, 0, 1.4210855e-14, 0, 1.6666663, 1.4077333e-08, -1.2127073, -0.16102591)
 
-[node name="Double_Barrel" parent="Neck/wizzzurrrd/double_barrel_visual" index="0" unique_id=1533797117]
+[node name="Double_Barrel" parent="Neck/wizzzurrrd/double_barrel_visual" index="0" unique_id=88999492]
 layers = 2
 
 [node name="Spine" type="Node3D" parent="Neck/wizzzurrrd" unique_id=2075034250]
@@ -572,6 +572,61 @@ disabled = true
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1013997634]
 layer = -1
 
+[node name="EndScreen" type="Control" parent="HUD" unique_id=1403583691]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/EndScreen" unique_id=773284968]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -268.5
+offset_top = -142.5
+offset_right = 268.5
+offset_bottom = 142.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="LoseLabel" type="Label" parent="HUD/EndScreen/VBoxContainer" unique_id=201513093]
+layout_mode = 2
+text = "The Wizards Got You!"
+label_settings = SubResource("LabelSettings_8suo6")
+
+[node name="FinalLabel" type="Label" parent="HUD/EndScreen/VBoxContainer" unique_id=1613045314]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_upj8m")
+theme_override_font_sizes/font_size = 30
+text = "Final Score: 0"
+horizontal_alignment = 1
+
+[node name="RetryButton" type="Button" parent="HUD/EndScreen/VBoxContainer" unique_id=928640389]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_upj8m")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("16_c1lqb")
+theme_override_styles/pressed = ExtResource("17_7b7rf")
+theme_override_styles/hover = ExtResource("18_02sm7")
+text = "Retry"
+
+[node name="MenuButton" type="Button" parent="HUD/EndScreen/VBoxContainer" unique_id=1770736854]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_upj8m")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("16_c1lqb")
+theme_override_styles/pressed = ExtResource("17_7b7rf")
+theme_override_styles/hover = ExtResource("18_02sm7")
+text = "Main Menu"
+
 [node name="VBoxContainer" type="VBoxContainer" parent="HUD" unique_id=2103591185]
 anchors_preset = 5
 anchor_left = 0.5
@@ -610,58 +665,6 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="HUD/UserInterface/DebugPanel/MarginContainer" unique_id=348997293]
 unique_name_in_owner = true
 layout_mode = 2
-
-[node name="EndScreen" type="Control" parent="HUD/UserInterface" unique_id=1403583691]
-anchors_preset = 0
-offset_left = 40.0
-offset_top = 40.0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HUD/UserInterface/EndScreen" unique_id=773284968]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 268.5
-offset_top = 142.5
-offset_right = 805.5
-offset_bottom = 427.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 30
-
-[node name="LoseLabel" type="Label" parent="HUD/UserInterface/EndScreen/VBoxContainer" unique_id=201513093]
-layout_mode = 2
-text = "The Wizards Got You!"
-label_settings = SubResource("LabelSettings_8suo6")
-
-[node name="FinalLabel" type="Label" parent="HUD/UserInterface/EndScreen/VBoxContainer" unique_id=1613045314]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("15_upj8m")
-theme_override_font_sizes/font_size = 30
-text = "Final Score: 0"
-horizontal_alignment = 1
-
-[node name="RetryButton" type="Button" parent="HUD/UserInterface/EndScreen/VBoxContainer" unique_id=928640389]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("15_upj8m")
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = ExtResource("16_c1lqb")
-theme_override_styles/pressed = ExtResource("17_7b7rf")
-theme_override_styles/hover = ExtResource("18_02sm7")
-text = "Retry"
-
-[node name="MenuButton" type="Button" parent="HUD/UserInterface/EndScreen/VBoxContainer" unique_id=1770736854]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("15_upj8m")
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = ExtResource("16_c1lqb")
-theme_override_styles/pressed = ExtResource("17_7b7rf")
-theme_override_styles/hover = ExtResource("18_02sm7")
-text = "Main Menu"
 
 [node name="PanelContainer" type="PanelContainer" parent="HUD" unique_id=1290615019]
 anchors_preset = 12
@@ -856,8 +859,8 @@ stream = ExtResource("17_s2aeh")
 volume_db = -20.0
 
 [connection signal="area_entered" from="HealthManager/StandingHitbox" to="HealthManager" method="_on_standing_hitbox_area_entered"]
-[connection signal="button_up" from="HUD/UserInterface/EndScreen/VBoxContainer/RetryButton" to="." method="_on_retry_button_button_up"]
-[connection signal="button_up" from="HUD/UserInterface/EndScreen/VBoxContainer/MenuButton" to="." method="_on_menu_button_button_up"]
+[connection signal="button_up" from="HUD/EndScreen/VBoxContainer/RetryButton" to="." method="_on_retry_button_button_up"]
+[connection signal="button_up" from="HUD/EndScreen/VBoxContainer/MenuButton" to="." method="_on_menu_button_button_up"]
 [connection signal="body_entered" from="HealingZone/HealingArea3D" to="HealingZone" method="_on_healing_area_3d_body_entered"]
 [connection signal="body_exited" from="HealingZone/HealingArea3D" to="HealingZone" method="_on_healing_area_3d_body_exited"]
 
