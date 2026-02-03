@@ -15,7 +15,7 @@ radius = 0.4506836
 height = 3.378479
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gsdq8"]
-size = Vector3(1, 1.6152039, 1.5056763)
+size = Vector3(1.315, 1.615, 1.634)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_npjtq"]
 radius = 0.39160156
@@ -1012,7 +1012,7 @@ axis_lock_angular_x = true
 axis_lock_angular_z = true
 script = ExtResource("1_w1sw4")
 base_speed = 300.0
-attack_range_sq = 4.0
+attack_range_sq = 9.0
 turn_speed = 3.0
 global_cd = 1.2
 max_health = 72.0
@@ -1036,9 +1036,10 @@ anim_player = NodePath("../librasaurus/AnimationPlayer")
 [node name="MeleeHurtbox" type="Area3D" parent="." unique_id=1110582311]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0960028)
 script = ExtResource("3_ur0fr")
+base_damage = 15.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeleeHurtbox" unique_id=868935155]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4442596, 0.047576904)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4442596, -0.016677856)
 shape = SubResource("BoxShape3D_gsdq8")
 disabled = true
 
