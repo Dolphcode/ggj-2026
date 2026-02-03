@@ -15,7 +15,7 @@ radius = 0.43847656
 height = 2.4816895
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gsdq8"]
-size = Vector3(1, 1, 2.0179443)
+size = Vector3(1, 1, 1.7693787)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1cw5k"]
 resource_name = "Material"
@@ -1097,8 +1097,8 @@ collision_layer = 3
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 script = ExtResource("1_553o2")
-base_speed = 500.0
-attack_range_sq = 4.0
+base_speed = 700.0
+attack_range_sq = 2.0
 turn_speed = 3.0
 max_health = 30.0
 starting_state = NodePath("LightEnemyWalkState")
@@ -1124,7 +1124,7 @@ script = ExtResource("3_wibvp")
 base_damage = 6.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeleeHurtbox" unique_id=1652190868]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.50897217)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.38468933)
 shape = SubResource("BoxShape3D_gsdq8")
 disabled = true
 
