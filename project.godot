@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="GGJ 2026"
-run/main_scene="uid://2wihxxfmyanb"
+config/name="The Wizard With A Double Barrel Shotgun"
+run/main_scene="uid://d11ruf3mm71bb"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.021434652, 0.02143463, 0.021434627, 1)
+config/icon="uid://cvri0o0v5f2y3"
 
 [audio]
 
