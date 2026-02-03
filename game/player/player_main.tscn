@@ -396,7 +396,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5278237, -0.4441945)
 transform = Transform3D(-0.9999998, 0, -8.742276e-08, 0, 0.9999998, 0, 8.742276e-08, 0, -0.9999998, 0, -2.528, 0.4385465)
 
 [node name="double_barrel_visual" parent="Neck/wizzzurrrd" unique_id=202181808 instance=ExtResource("2_8fwjf")]
-transform = Transform3D(1.6666663, 0, -1.4210855e-14, 0, 1.6666663, 0, 1.4210855e-14, 0, 1.6666663, 1.4077333e-08, -1.2127073, -0.16102591)
+transform = Transform3D(1.666666, 0, 1.4210855e-14, 0, 1.666666, 0, -1.4210855e-14, 0, 1.666666, 3.4575137e-08, -1.2127072, -0.3954935)
 
 [node name="Double_Barrel" parent="Neck/wizzzurrrd/double_barrel_visual" index="0" unique_id=88999492]
 layers = 2
@@ -510,17 +510,17 @@ cull_mask = 1048573
 current = true
 
 [node name="icebarrel" parent="Neck/Camera3D" unique_id=353376238 instance=ExtResource("4_6nmbf")]
-transform = Transform3D(-6, 0, 9.0597484e-07, 0, 6, 0, -9.0597484e-07, 0, -6, 0, -12.159, 3.454)
+transform = Transform3D(-6, 0, 9.0597484e-07, 0, 6, 0, -9.0597484e-07, 0, -6, 0, -12.159, 3.5946805)
 visible = false
 
 [node name="doublebarrel" parent="Neck/Camera3D" unique_id=1650814818 instance=ExtResource("2_8fwjf")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -2.400462, 0.19755977)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -2.400462, 0.33824033)
 
 [node name="ShotgunFirePoint" type="Marker3D" parent="Neck/Camera3D/doublebarrel" unique_id=685438912]
 transform = Transform3D(-0.099938214, 0.025739577, -0.0023927956, -0.0016301495, 0.26366195, 0.096447736, 0.0031134132, 0.9642713, -0.02630795, -5.1752853e-08, 2.0578022, 0.59331524)
 
 [node name="flamethrower" parent="Neck/Camera3D" unique_id=866604238 instance=ExtResource("5_r1j4a")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.5059222, -0.42497477)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.5059222, -0.28429422)
 visible = false
 
 [node name="FlamethrowerPoint" type="Marker3D" parent="Neck/Camera3D/flamethrower" unique_id=342846767]
