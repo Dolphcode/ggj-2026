@@ -11,6 +11,8 @@ config_version=5
 [application]
 
 config/name="The Wizard With A Double Barrel Shotgun"
+config/description="There once was a wizard with great power. The wizard loved to flaunt power and turn other wizards into animals. One day, the wizard drew the attention of the Grand Witch. The Grand Witch had enough of the wizard's shenanigans and stole the wizard's magic. Ultimately, the wizard was sentenced to an eternity of fighting all of those he turned to animals before and only picking up fragments of his power trapped in masks, now with new dastardly drawbacks. Fortunately, the wizard never left home without his trusty double barrel shotgun, and he got ready to take every animal head on."
+config/version="0.0.3"
 run/main_scene="uid://d11ruf3mm71bb"
 config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
