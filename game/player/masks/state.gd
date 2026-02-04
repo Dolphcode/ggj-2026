@@ -1,6 +1,7 @@
 extends Node
 class_name State
 
+@export var mask_model: Node3D
 
 signal Transitioned 
 

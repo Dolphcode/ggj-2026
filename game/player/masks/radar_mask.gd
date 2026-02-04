@@ -11,6 +11,7 @@ class_name radar_mask
 
 #Called on equpping radar_mask mask
 func Enter():
+	mask_model.visible = true
 	get_parent().mask_time = mask_time #medium
 	AudioManager.get_node("RadarEquip").play()
 	mask.player.get_node("HealingZone/HealingArea3D").set_deferred("collision_mask", 0x2)
@@ -23,6 +24,7 @@ func Enter():
 
 #Called on radar_mask mask timeout/new mask equipped
 func Exit():
+	mask_model.visible = false
 	# Turns out just changing the collision mask to stop detecting
 	# bodies also means bodies that were previously detected now exit the area
 	# NEATO!

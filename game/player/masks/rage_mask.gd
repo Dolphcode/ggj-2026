@@ -21,6 +21,7 @@ class_name rage_mask
 @export var damage_multiplier = 2.0
 #Called on equpping rage mask
 func Enter():
+	mask_model.visible = true
 	get_parent().mask_time = mask_time #medium
 	get_parent().mask_timer.max_value = mask_time
 	get_parent().mask_timer.visible = true
@@ -40,6 +41,7 @@ func Enter():
 	
 #Called on rage mask timeout/new mask equipped
 func Exit():
+	mask_model.visible = false
 	mask.player.speed_modifier = 1.0
 	mask.player.get_node("Shotgun").reload_cd *= 2.0
 	AudioManager.get_node("Music").pitch_scale = 1.0

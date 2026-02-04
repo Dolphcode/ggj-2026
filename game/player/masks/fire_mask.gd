@@ -21,6 +21,7 @@ var old_slide_boost: float = 0.0
 
 #Called on equpping fire mask
 func Enter():
+	mask_model.visible = true
 	old_slide_boost = mask.player.SLIDE_BOOST
 	mask.player.SLIDE_BOOST = 0.0
 	double_barrel_model.visible = false
@@ -39,6 +40,7 @@ func Enter():
 
 #Called on fire mask timeout/new mask equipped
 func Exit():
+	mask_model.visible = false
 	mask.player.SLIDE_BOOST = old_slide_boost
 	double_barrel_model.visible = true
 	flamethrower_model.visible = false

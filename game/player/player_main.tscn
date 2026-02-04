@@ -1,13 +1,17 @@
 [gd_scene format=4 uid="uid://dvbdmcuj60ayg"]
 
 [ext_resource type="Script" uid="uid://codwnbkvywc6b" path="res://game/player/player.gd" id="1_ivnbd"]
+[ext_resource type="PackedScene" uid="uid://d0vhws3ok7rla" path="res://assets/models/masks/rage_mask.glb" id="2_3wgsh"]
 [ext_resource type="PackedScene" uid="uid://d10ilv4f61qjv" path="res://assets/models/player/doublebarrel.glb" id="2_8fwjf"]
 [ext_resource type="PackedScene" uid="uid://beso6rnak84f6" path="res://game/player/masks/mask.tscn" id="2_swd4e"]
 [ext_resource type="Texture2D" uid="uid://m7otqg2lm8sx" path="res://assets/models/player/wizzzurrrd_wizzard.png" id="3_6nmbf"]
+[ext_resource type="PackedScene" uid="uid://bwccd47uy6cgu" path="res://assets/models/masks/radar_mask.glb" id="3_rxdbh"]
 [ext_resource type="PackedScene" uid="uid://dfx85oyxg2h7g" path="res://assets/models/player/icebarrel.glb" id="4_6nmbf"]
 [ext_resource type="Script" uid="uid://bvfh8twprbjeu" path="res://game/player/health_manager.gd" id="4_440e6"]
+[ext_resource type="PackedScene" uid="uid://inojdag1kv3r" path="res://assets/models/masks/ice_mask.glb" id="4_crhb3"]
 [ext_resource type="Script" uid="uid://b4u284eg6beo0" path="res://singleton/debug.gd" id="5_emnvn"]
 [ext_resource type="PackedScene" uid="uid://cxg81j7bnsoyg" path="res://assets/models/player/flamethrower.glb" id="5_r1j4a"]
+[ext_resource type="PackedScene" uid="uid://dvd2eifcx5k05" path="res://assets/models/masks/fire_mask.glb" id="5_vfn3s"]
 [ext_resource type="Script" uid="uid://c7q5qreuh10hf" path="res://game/player/weapons/blast_handler.gd" id="6_c1lqb"]
 [ext_resource type="Texture2D" uid="uid://dbbefii52tu4r" path="res://assets/textures/rage_mask_icon.png" id="7_nfehw"]
 [ext_resource type="AudioStream" uid="uid://fpfif27mcbwk" path="res://assets/audio/flamethower.mp3" id="8_ib0wo"]
@@ -441,6 +445,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5278237, -0.4441945)
 [node name="wizzzurrrd" type="Node3D" parent="Neck" unique_id=996205850]
 transform = Transform3D(-0.9999998, 0, -8.742276e-08, 0, 0.9999998, 0, 8.742276e-08, 0, -0.9999998, 0, -2.528, 0.4385465)
 
+[node name="rage_mask" parent="Neck/wizzzurrrd" unique_id=562464359 instance=ExtResource("2_3wgsh")]
+transform = Transform3D(-1.3031327e-16, 2.9812202e-09, -0.25, -0.25, -1.0927847e-08, 0, -1.0927847e-08, 0.25, 2.9812202e-09, 0, 2.546, 0.236)
+visible = false
+
+[node name="radar_mask" parent="Neck/wizzzurrrd" unique_id=2011917891 instance=ExtResource("3_rxdbh")]
+transform = Transform3D(-1.3031327e-16, 2.9812202e-09, -0.25, -0.25, -1.0927847e-08, 0, -1.0927847e-08, 0.25, 2.9812202e-09, 0, 2.546, 0.236)
+visible = false
+
+[node name="ice_mask" parent="Neck/wizzzurrrd" unique_id=121202455 instance=ExtResource("4_crhb3")]
+transform = Transform3D(-1.3031327e-16, 2.9812202e-09, -0.25, -0.25, -1.0927847e-08, 0, -1.0927847e-08, 0.25, 2.9812202e-09, 0, 2.546, 0.236)
+visible = false
+
+[node name="fire_mask" parent="Neck/wizzzurrrd" unique_id=1614623374 instance=ExtResource("5_vfn3s")]
+transform = Transform3D(4.776718e-16, -1.0927846e-08, -0.24999999, -0.24999999, -1.0927846e-08, -4.0586995e-22, -1.0927846e-08, 0.24999999, -1.0927846e-08, 0, 2.546, 0.236)
+visible = false
+
 [node name="double_barrel_visual" parent="Neck/wizzzurrrd" unique_id=202181808 instance=ExtResource("2_8fwjf")]
 transform = Transform3D(1.666666, 0, 1.4210855e-14, 0, 1.666666, 0, -1.4210855e-14, 0, 1.666666, 3.4575137e-08, -1.2127072, -0.3954935)
 
@@ -665,6 +685,18 @@ ice_icon = ExtResource("10_g8fnv")
 radar_icon = ExtResource("10_qroyc")
 blank_icon = ExtResource("11_tttvm")
 mask_timer = NodePath("../../HUD/PanelContainer/HBoxContainer/PanelContainer/VBoxContainer/HSlider")
+
+[node name="fire_mask" parent="Mask/State Machine" index="0" unique_id=139503172 node_paths=PackedStringArray("mask_model")]
+mask_model = NodePath("../../../Neck/wizzzurrrd/fire_mask")
+
+[node name="ice_mask" parent="Mask/State Machine" index="1" unique_id=926258323 node_paths=PackedStringArray("mask_model")]
+mask_model = NodePath("../../../Neck/wizzzurrrd/ice_mask")
+
+[node name="rage_mask" parent="Mask/State Machine" index="2" unique_id=993869043 node_paths=PackedStringArray("mask_model")]
+mask_model = NodePath("../../../Neck/wizzzurrrd/rage_mask")
+
+[node name="radar_mask" parent="Mask/State Machine" index="3" unique_id=1156407100 node_paths=PackedStringArray("mask_model")]
+mask_model = NodePath("../../../Neck/wizzzurrrd/radar_mask")
 
 [node name="HealthManager" type="Node3D" parent="." unique_id=1142276691]
 script = ExtResource("4_440e6")

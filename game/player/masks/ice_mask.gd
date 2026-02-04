@@ -16,6 +16,7 @@ var old_fov: float = 0.0
 
 #Called on equpping ice mask
 func Enter():
+	mask_model.visible = true
 	double_barrel_model.visible = false
 	ice_barrel_model.visible = true
 	old_decel_default = mask.player.DECELERATION_DEFAULT
@@ -36,6 +37,7 @@ func Enter():
 	
 #Called on ice mask timeout/new mask equipped
 func Exit():
+	mask_model.visible = false
 	double_barrel_model.visible = true
 	ice_barrel_model.visible = false
 	mask.player.get_node("FrozenShotgun").process_mode = PROCESS_MODE_DISABLED
