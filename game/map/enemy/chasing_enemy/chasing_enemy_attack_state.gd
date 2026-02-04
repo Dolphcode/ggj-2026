@@ -19,7 +19,7 @@ func exit() -> void:
 	controller.global_cd_timer = controller.global_cd
 
 
-func update(delta: float) -> void:
+func update(_delta: float) -> void:
 	if attack_done:
 		controller.transition_state = exit_state
 

@@ -379,7 +379,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	get_parent().get_node(\"SubViewport/FaceCam\").position = global_position
 	get_parent().get_node(\"SubViewport/FaceCam\").global_rotation = global_rotation
 "

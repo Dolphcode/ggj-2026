@@ -48,7 +48,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-30), deg_to_rad(60))
 
 var slide_modifier: float = 1.0
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("slide"):
 		AudioManager.get_node("AudioSlide").play()
 		slide_modifier = 0.0

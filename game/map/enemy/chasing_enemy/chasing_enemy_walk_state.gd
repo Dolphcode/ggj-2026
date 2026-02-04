@@ -19,7 +19,7 @@ func exit() -> void:
 	pass
 
 
-func update(delta: float) -> void:
+func update(_delta: float) -> void:
 	#if curr_transition_cd > 0.0:
 	#	curr_transition_cd -= delta
 	#	return

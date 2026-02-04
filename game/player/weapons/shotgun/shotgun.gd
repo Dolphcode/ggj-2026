@@ -73,10 +73,10 @@ func _process(delta):
 @onready var crit_blood = preload("res://game/particles/crit_blood_particles.tscn")
 @onready var ice_part = preload("res://game/particles/ice_particles.tscn")
 
-func _spawn_impact_marker(position: Vector3, normal: Vector3, hitbox: EnemyHitbox, is_ice: bool) -> void:
+func _spawn_impact_marker(mark_position: Vector3, normal: Vector3, hitbox: EnemyHitbox, is_ice_b: bool) -> void:
 	var particles: OneShotParticles = null
 	
-	if is_ice:
+	if is_ice_b:
 		particles = ice_part.instantiate()
 		particles.process_material.direction = normal
 	elif hitbox.damage_modifier > 1.0:
@@ -86,7 +86,7 @@ func _spawn_impact_marker(position: Vector3, normal: Vector3, hitbox: EnemyHitbo
 		particles.process_material.direction = normal
 	
 	
-	particles.position = position
+	particles.position = mark_position
 	get_parent().get_parent().call_deferred("add_child", particles)
 	'''
 	var marker = MeshInstance3D.new()

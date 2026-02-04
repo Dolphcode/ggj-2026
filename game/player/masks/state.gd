@@ -3,7 +3,7 @@ class_name State
 
 @export var mask_model: Node3D
 
-signal Transitioned 
+signal Transitioned
 
 func Enter():
 	pass # Replace with function body.

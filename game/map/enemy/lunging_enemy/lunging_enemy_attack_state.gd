@@ -22,7 +22,7 @@ func exit() -> void:
 	controller.global_cd_timer = controller.global_cd
 
 
-func update(delta: float) -> void:
+func update(_delta: float) -> void:
 	if not finish_jump:
 		return
 	controller.transition_state = exit_state

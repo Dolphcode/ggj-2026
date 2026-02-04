@@ -17,7 +17,7 @@ func Enter():
 func Exit():
 	pass
 	
-func Update(delta: float):
+func Update(_delta: float):
 		#	equip the next mask in the queue
 	if Input.is_action_just_pressed('equip_mask'):
 		var mask_queue = get_parent().mask_queue

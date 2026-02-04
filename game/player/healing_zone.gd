@@ -6,7 +6,7 @@ var enemies_in_radius = []
 @export var healing = 0.1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	for enemy in enemies_in_radius:
 		if enemy is BaseEnemy:
 			enemy.current_health += healing

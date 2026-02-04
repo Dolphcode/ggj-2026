@@ -16,13 +16,6 @@ func _input(event):
 	# Toggle debug
 	if event.is_action_pressed("debug"):
 		visible = !visible
-
-func _process(delta):
-	if visible: 
-		#frames_per_second = "%.2f" % (1.0/delta)
-		#property.text = property.name + ": " + frames_per_second
-		#global.debug.add_property("FPS", frames_per_second, 2)
-		pass
 		
 func add_property(title: String, value, order):
 	var target 
