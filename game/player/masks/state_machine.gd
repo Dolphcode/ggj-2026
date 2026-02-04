@@ -21,10 +21,6 @@ var states : Dictionary = {}
 
 #UI variables for ease and save on overhead
 @onready var interface:Control = get_node("../../HUD/UserInterface")
-@onready var mask_label:Label = mask_rect.get_node("MaskLabel")
-@onready var score_label:Label = interface.get_node("ScoreLabel")
-@onready var mask_queue_HUD:VBoxContainer = interface.get_node("MaskQueue")
-
 func _ready():
 	for child in get_children():
 		if child is State:

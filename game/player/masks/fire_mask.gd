@@ -17,9 +17,12 @@ class_name fire_mask
 
 # Stored values for resetting
 var old_fov: float = 0.0
+var old_slide_boost: float = 0.0
 
 #Called on equpping fire mask
 func Enter():
+	old_slide_boost = mask.player.SLIDE_BOOST
+	mask.player.SLIDE_BOOST = 0.0
 	double_barrel_model.visible = false
 	flamethrower_model.visible = true
 	get_parent().mask_timer.max_value = mask_time
@@ -36,6 +39,7 @@ func Enter():
 
 #Called on fire mask timeout/new mask equipped
 func Exit():
+	mask.player.SLIDE_BOOST = old_slide_boost
 	double_barrel_model.visible = true
 	flamethrower_model.visible = false
 	
