@@ -17,7 +17,8 @@ func _on_credits_button_button_up() -> void:
 	get_tree().change_scene_to_file("res://game/menus/credits_menu.tscn")
 	AudioManager.get_node("ButtonClick").play()
 
-
+func _on_quit_button_button_up() -> void:
+	get_tree().quit()
 
 func _on_help_button_button_up() -> void:
 	get_tree().change_scene_to_file("res://game/menus/help_menu.tscn")

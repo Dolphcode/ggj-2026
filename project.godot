@@ -13,7 +13,9 @@ config_version=5
 config/name="The Wizard With A Double Barrel Shotgun"
 run/main_scene="uid://d11ruf3mm71bb"
 config/features=PackedStringArray("4.6", "Forward Plus")
-boot_splash/bg_color=Color(0.021434652, 0.02143463, 0.021434627, 1)
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/stretch_mode=0
+boot_splash/image="uid://cvri0o0v5f2y3"
 config/icon="uid://cvri0o0v5f2y3"
 
 [audio]

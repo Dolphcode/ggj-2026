@@ -1308,6 +1308,15 @@ theme_override_styles/pressed = ExtResource("4_53pma")
 theme_override_styles/hover = ExtResource("5_1hc84")
 text = "Credits"
 
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=2093216194]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_tfb2k")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("3_vyvhm")
+theme_override_styles/pressed = ExtResource("4_53pma")
+theme_override_styles/hover = ExtResource("5_1hc84")
+text = "Quit"
+
 [node name="TrenchbroomMap" type="Node3D" parent="." unique_id=1578550726]
 
 [node name="shader" type="MeshInstance3D" parent="TrenchbroomMap" unique_id=711352755]
@@ -2341,3 +2350,4 @@ autoplay = &"new_animation"
 [connection signal="button_up" from="MarginContainer/VBoxContainer/VBoxContainer/StoryButton" to="." method="_on_story_button_button_up"]
 [connection signal="button_up" from="MarginContainer/VBoxContainer/VBoxContainer/HelpButton" to="." method="_on_help_button_button_up"]
 [connection signal="button_up" from="MarginContainer/VBoxContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_button_up"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_button_up"]
