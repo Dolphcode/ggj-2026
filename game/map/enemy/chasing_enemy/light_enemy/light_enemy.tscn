@@ -1101,6 +1101,7 @@ base_speed = 700.0
 attack_range_sq = 2.0
 turn_speed = 3.0
 max_health = 30.0
+score_modifier = 0.25
 starting_state = NodePath("LightEnemyWalkState")
 mesh = NodePath("bird_enemy/Armature/Skeleton3D/Cube")
 anim_player = NodePath("bird_enemy/AnimationPlayer")

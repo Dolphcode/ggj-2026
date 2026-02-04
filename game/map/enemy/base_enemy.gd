@@ -9,6 +9,8 @@ class_name BaseEnemy
 @export var global_cd: float = 1.0
 @export var max_health: float = 100.0
 @export var freeze_time: float = 2.0
+@export var score_modifier: float = 1.0
+@export var enemy_type: String = "crow"
 
 @export_category("State Config")
 @export var starting_state: BaseEnemyState
@@ -26,7 +28,7 @@ var frozen_time_left: float = 0.0
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
 
 # SIGNAL
-signal die()
+signal die(enemy_modifier: float)
 
 # STATE
 var current_state: BaseEnemyState
@@ -116,5 +118,5 @@ func damage(amount: float, is_freeze: bool) -> void:
 			AudioManager.get_node(enemy_death_sound).global_position = global_position
 			AudioManager.get_node(enemy_death_sound).play()
 			dead = true
-			die.emit()
+			die.emit(score_modifier)
 			queue_free()

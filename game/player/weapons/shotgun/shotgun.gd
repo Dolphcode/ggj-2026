@@ -72,17 +72,29 @@ func _process(delta):
 @onready var blood = preload("res://game/particles/blood_particles.tscn")
 @onready var crit_blood = preload("res://game/particles/crit_blood_particles.tscn")
 @onready var ice_part = preload("res://game/particles/ice_particles.tscn")
-
+@onready var goat_blood = preload("res://game/particles/goat_blood.tscn")
+@onready var goat_crit_blood = preload("res://game/particles/goat_crit_blood_particles.tscn")
+@onready var frog_blood = preload("res://game/particles/frog_blood_particles.tscn")
 func _spawn_impact_marker(mark_position: Vector3, normal: Vector3, hitbox: EnemyHitbox, is_ice_b: bool) -> void:
 	var particles: OneShotParticles = null
+	
+	var enemy_name = hitbox.get_parent().get_parent().enemy_type
 	
 	if is_ice_b:
 		particles = ice_part.instantiate()
 		particles.process_material.direction = normal
 	elif hitbox.damage_modifier > 1.0:
-		particles = crit_blood.instantiate()
+		if enemy_name == "goat":
+			particles = goat_crit_blood.instantiate()
+		else:
+			particles = crit_blood.instantiate()
 	else:
-		particles = blood.instantiate()
+		if enemy_name == "frog":
+			particles = frog_blood.instantiate()
+		elif enemy_name == "goat":
+			particles = goat_blood.instantiate()
+		else:
+			particles = blood.instantiate()
 		particles.process_material.direction = normal
 	
 	

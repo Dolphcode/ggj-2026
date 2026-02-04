@@ -83,9 +83,9 @@ func _on_enemy_spawn_timer_timeout() -> void:
 	#= enemies.pick_random().instantiate()
 	var new_enemy: BaseEnemy
 	var chance = randi() % 100
-	if chance > 54:
+	if chance > 39:
 		new_enemy = enemies[0].instantiate() #light enemy
-	elif chance > 24:
+	elif chance > 9:
 		new_enemy = enemies[2].instantiate() #lunging enemy
 	elif chance > -1:
 		new_enemy = enemies[1].instantiate() #heavy enemy
@@ -117,8 +117,8 @@ func spawn_masks():
 		count += 1
 	pass
 	
-func on_enemy_death():
-	score += 1 * score_modifier
+func on_enemy_death(enemy_modifier: float):
+	score += roundi(1 * score_modifier * enemy_modifier)
 	ui.get_node("VBoxContainer/ScoreLabel").text = "Score: " + str(score)
 	
 func on_player_death():
