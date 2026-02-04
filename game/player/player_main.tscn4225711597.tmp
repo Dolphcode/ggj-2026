@@ -321,8 +321,8 @@ _data = {
 }
 
 [sub_resource type="Curve" id="Curve_7b7rf"]
-_limits = [0.0, 10.0, 0.0, 1.55]
-_data = [Vector2(0.705291, 10), 0.0, -35.696808, 0, 0, Vector2(1.1235449, 3.4679813), 0.0, 0.0, 0, 0]
+_limits = [0.0, 5.0, 0.0, 1.55]
+_data = [Vector2(0.7227528, 5), 0.0, -22.64222, 0, 0, Vector2(1.158146, 2.247191), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_02sm7"]
@@ -343,27 +343,17 @@ radial_velocity_max = 299.99997
 velocity_limit_curve = SubResource("CurveTexture_02sm7")
 gravity = Vector3(0, 0, 0)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c1lqb"]
-albedo_color = Color(0.23, 0.23, 0.23, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nblhx"]
+albedo_color = Color(0.29219002, 0.29219005, 0.29219002, 1)
 metallic_specular = 0.0
 proximity_fade_distance = 0.2
 
 [sub_resource type="SphereMesh" id="SphereMesh_3wgsh"]
-material = SubResource("StandardMaterial3D_c1lqb")
+material = SubResource("StandardMaterial3D_nblhx")
 radius = 0.1
 height = 0.2
 
 [sub_resource type="Skin" id="Skin_rxdbh"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nblhx"]
-albedo_color = Color(0.4980824, 0.87982553, 0.99999994, 1)
-metallic_specular = 0.0
-proximity_fade_distance = 0.2
-
-[sub_resource type="SphereMesh" id="SphereMesh_c1lqb"]
-material = SubResource("StandardMaterial3D_nblhx")
-radius = 0.1
-height = 0.2
 
 [sub_resource type="GDScript" id="GDScript_r1j4a"]
 script/source = "extends Node3D
@@ -572,18 +562,12 @@ visible = false
 [node name="FlamethrowerPoint" type="Marker3D" parent="Neck/Camera3D/flamethrower" unique_id=342846767]
 transform = Transform3D(0.009938237, 0.0019068755, 0.0027846054, 3.3387478e-05, 0.16247745, 0.022896158, -0.0019649628, 0.22895378, 0.09368644, 0, 0.216, 1.263)
 
-[node name="ShotgunBlast" type="Node3D" parent="Neck/Camera3D" unique_id=1715615310 node_paths=PackedStringArray("light_sr", "part_sr", "shotgun", "light_si", "part_si", "icegun", "light_rs", "part_rs", "state_machine")]
+[node name="ShotgunBlast" type="Node3D" parent="Neck/Camera3D" unique_id=1715615310 node_paths=PackedStringArray("light_sr", "part_sr", "shotgun")]
 transform = Transform3D(0.59999996, 0, 0, 0, 0.59999996, 0, 0, 0, 0.59999996, 0, -0.3505515, -1.5734104)
 script = ExtResource("6_c1lqb")
 light_sr = NodePath("OmniLight3D")
 part_sr = NodePath("GPUParticles3D")
-shotgun = NodePath("../doublebarrel")
-light_si = NodePath("OmniLight3D2")
-part_si = NodePath("GPUParticles3D2")
-icegun = NodePath("../icebarrel")
-light_rs = NodePath("OmniLight3D3")
-part_rs = NodePath("GPUParticles3D3")
-state_machine = NodePath("../../../Mask/State Machine")
+shotgun = NodePath("../../../Shotgun")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Neck/Camera3D/ShotgunBlast" unique_id=1061479288]
 light_color = Color(1, 1, 0, 1)
@@ -591,7 +575,7 @@ light_energy = 0.0
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Neck/Camera3D/ShotgunBlast" unique_id=682727304]
 emitting = false
-amount = 50
+amount = 20
 amount_ratio = 0.3
 lifetime = 0.3
 one_shot = true
@@ -600,42 +584,6 @@ randomness = 0.25
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_upj8m")
 draw_pass_1 = SubResource("SphereMesh_3wgsh")
-draw_skin = SubResource("Skin_rxdbh")
-
-[node name="OmniLight3D3" type="OmniLight3D" parent="Neck/Camera3D/ShotgunBlast" unique_id=1585284291]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2623278, -0.06574583)
-light_color = Color(1, 1, 0, 1)
-light_energy = 0.0
-
-[node name="GPUParticles3D3" type="GPUParticles3D" parent="Neck/Camera3D/ShotgunBlast" unique_id=1666967643]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2623278, -0.10815096)
-emitting = false
-amount = 50
-amount_ratio = 0.3
-lifetime = 0.3
-one_shot = true
-explosiveness = 0.9
-randomness = 0.25
-local_coords = true
-process_material = SubResource("ParticleProcessMaterial_upj8m")
-draw_pass_1 = SubResource("SphereMesh_3wgsh")
-draw_skin = SubResource("Skin_rxdbh")
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="Neck/Camera3D/ShotgunBlast" unique_id=451469270]
-light_color = Color(0.4347524, 0.9818991, 0.9248665, 1)
-light_energy = 0.0
-
-[node name="GPUParticles3D2" type="GPUParticles3D" parent="Neck/Camera3D/ShotgunBlast" unique_id=941048845]
-emitting = false
-amount = 50
-amount_ratio = 0.3
-lifetime = 0.3
-one_shot = true
-explosiveness = 0.9
-randomness = 0.25
-local_coords = true
-process_material = SubResource("ParticleProcessMaterial_upj8m")
-draw_pass_1 = SubResource("SphereMesh_c1lqb")
 draw_skin = SubResource("Skin_rxdbh")
 
 [node name="WeaponPivot" type="Node3D" parent="Neck" unique_id=962293482]
@@ -896,7 +844,7 @@ fire_point = NodePath("../Neck/Camera3D/doublebarrel/ShotgunFirePoint")
 crosshairs = NodePath("../HUD/TextureRect")
 blast_handler = NodePath("../Neck/Camera3D/ShotgunBlast")
 
-[node name="FrozenShotgun" type="Node3D" parent="." unique_id=1349154879 node_paths=PackedStringArray("player_cam", "facing_obj", "fire_point", "crosshairs", "blast_handler")]
+[node name="FrozenShotgun" type="Node3D" parent="." unique_id=1349154879 node_paths=PackedStringArray("player_cam", "facing_obj", "fire_point", "crosshairs")]
 process_mode = 4
 script = ExtResource("10_w4oxq")
 player_cam = NodePath("../Neck/Camera3D")
@@ -909,7 +857,6 @@ reload_cd = 0.7
 facing_obj = NodePath("../Neck/Camera3D")
 fire_point = NodePath("../Neck/Camera3D/doublebarrel/ShotgunFirePoint")
 crosshairs = NodePath("../HUD/TextureRect")
-blast_handler = NodePath("../Neck/Camera3D/ShotgunBlast")
 
 [node name="Flamethrower" type="Node3D" parent="." unique_id=584384676 node_paths=PackedStringArray("facing_obj", "fire_point", "health_manager")]
 process_mode = 4

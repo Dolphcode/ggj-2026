@@ -14,9 +14,15 @@ extends Node3D
 @export var facing_obj : Node3D
 @export var fire_point: Node3D
 
+@export_category("Other References")
+@export var crosshairs: TextureRect
+@export var blast_handler: ShotgunBlastHandler
+
 @onready var health_manager: HealthManager = get_parent().get_node("HealthManager")
 @onready var shoot_sfx: AudioStreamPlayer = get_parent().get_node("Shoot")
 @onready var reload_sfx: AudioStreamPlayer = get_parent().get_node("Reload")
+
+
 
 var reload_time: float = 0.0
 
@@ -31,6 +37,7 @@ func _process(delta):
 		if Input.is_action_just_pressed("attack"):
 			reload_time = reload_cd
 			shoot_sfx.play()
+			blast_handler.fire()
 			
 			var ray_origin = fire_point.global_position
 			var shot_dir = -facing_obj.global_transform.basis.z
